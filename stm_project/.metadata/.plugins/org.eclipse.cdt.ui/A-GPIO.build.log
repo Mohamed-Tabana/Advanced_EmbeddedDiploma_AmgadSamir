@@ -1,0 +1,39 @@
+19:59:19 **** Build of configuration Debug for project A-GPIO ****
+make -j8 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f446retx.d" -MT"Startup/startup_stm32f446retx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
+arm-none-eabi-gcc "../Src/GPIO_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/GPIO_prg.d" -MT"Src/GPIO_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/GPIO_prg.o"
+arm-none-eabi-gcc "../Src/RCC_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/RCC_prg.d" -MT"Src/RCC_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/RCC_prg.o"
+arm-none-eabi-gcc "../Src/SysTick_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/SysTick_prg.d" -MT"Src/SysTick_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/SysTick_prg.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+In file included from ../Inc/SysTick_int.h:5,
+                 from ../Src/main.c:26:
+../Src/main.c: In function 'main':
+../Inc/STM32f446xx.h:56:2: warning: typedef 'GPIO_RegDef_t' locally defined but not used [-Wunused-local-typedefs]
+   56 | }GPIO_RegDef_t;
+      |  ^~~~~~~~~~~~~
+../Inc/STM32f446xx.h:93:3: warning: typedef 'RCC_RegDef_t' locally defined but not used [-Wunused-local-typedefs]
+   93 | } RCC_RegDef_t;
+      |   ^~~~~~~~~~~~
+../Inc/STM32f446xx.h:102:3: warning: typedef 'STK_RegDef_t' locally defined but not used [-Wunused-local-typedefs]
+  102 | } STK_RegDef_t;
+      |   ^~~~~~~~~~~~
+In file included from ../Src/main.c:26:
+../Inc/SysTick_int.h:14:2: warning: typedef 'Interval_t' locally defined but not used [-Wunused-local-typedefs]
+   14 | }Interval_t;
+      |  ^~~~~~~~~~
+arm-none-eabi-gcc -o "A-GPIO.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Amgad_Advanced Diploma\stm_project\A-GPIO\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="A-GPIO.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: A-GPIO.elf
+ 
+arm-none-eabi-size   A-GPIO.elf 
+arm-none-eabi-objdump -h -S  A-GPIO.elf  > "A-GPIO.list"
+   text	   data	    bss	    dec	    hex	filename
+   1748	     40	   1576	   3364	    d24	A-GPIO.elf
+Finished building: default.size.stdout
+ 
+Finished building: A-GPIO.list
+ 
+
+19:59:19 Build Finished. 0 errors, 4 warnings. (took 812ms)
+

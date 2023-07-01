@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;RCCF103_Empty/Src/Common_Macros.c&apos;" deleteContents="false" description="Delete resource &apos;RCCF103_Empty/Src/Common_Macros.c&apos;" element1="/RCCF103_Empty/Src/Common_Macros.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1681502070608"/>&#x0A;<refactoring comment="Delete resource &apos;RCCF103_Empty/Src/common_Macros&apos;" deleteContents="false" description="Delete resource &apos;RCCF103_Empty/Src/common_Macros&apos;" element1="/RCCF103_Empty/Src/common_Macros" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1681502093199"/>
+</session>

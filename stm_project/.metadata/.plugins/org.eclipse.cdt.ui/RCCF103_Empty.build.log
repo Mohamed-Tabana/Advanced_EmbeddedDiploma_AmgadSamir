@@ -1,0 +1,7 @@
+19:59:29 **** Build of configuration Debug for project RCCF103_Empty ****
+make -j8 all 
+Startup/subdir.mk:19: *** unable to generate command line.  Stop.
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+19:59:29 Build Failed. 1 errors, 0 warnings. (took 188ms)
+
