@@ -1,6 +1,6 @@
-00:42:22 **** Build of configuration Debug for project F103_GPIO_SysTick_RCC ****
+12:57:32 **** Incremental Build of configuration Debug for project F103_GPIO_SysTick_RCC ****
 make -j8 all 
-arm-none-eabi-gcc -o "F103_GPIO_SysTick_RCC.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Amgad_Advanced Diploma\Diploma_Work\stm_project\F103_GPIO_SysTick_RCC\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103_GPIO_SysTick_RCC.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+arm-none-eabi-gcc -o "F103_GPIO_SysTick_RCC.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F103_GPIO_SysTick_RCC\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103_GPIO_SysTick_RCC.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: F103_GPIO_SysTick_RCC.elf
  
 arm-none-eabi-size   F103_GPIO_SysTick_RCC.elf 
@@ -12,5 +12,5 @@ Finished building: default.size.stdout
 Finished building: F103_GPIO_SysTick_RCC.list
  
 
-00:42:23 Build Finished. 0 errors, 0 warnings. (took 1s.153ms)
+12:57:33 Build Finished. 0 errors, 0 warnings. (took 1s.184ms)
 

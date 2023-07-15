@@ -7,7 +7,7 @@
 
 void NVIC_vEnableInterrupt(Interrupt_t copy_eInterrupt)
 {
-	NVIC->NVIC_ICER[copy_eInterrupt/32]= 0b1 << copy_eInterrupt % 32 ;
+	NVIC->NVIC_ISER[copy_eInterrupt/32]= 0b1 << copy_eInterrupt % 32 ;
 }
 void NVIC_vDisableInterrupt(Interrupt_t copy_eInterrupt)
 {

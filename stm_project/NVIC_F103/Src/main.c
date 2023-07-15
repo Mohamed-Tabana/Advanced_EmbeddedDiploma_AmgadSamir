@@ -15,15 +15,30 @@
  *
  ******************************************************************************
  */
-
 #include <stdint.h>
+#include "NVIC_int.h"
 
-#if !defined(__SOFT_FP__) && defined(__ARM_FP)
-  #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
-#endif
+void EXTI0_IRQHandler ()
+{
+
+	 while(1);
+
+}
+void EXTI1_IRQHandler ()
+{
+	 NVIC_vSetPendingFlag(EXTI0_IRQn);
+	 NVIC_vEnableInterrupt(EXTI0_IRQn);
+	 while(1);
+
+}
+
 
 int main(void)
 {
+	 NVIC_vSetPendingFlag(EXTI1_IRQn);
+	 NVIC_vEnableInterrupt(EXTI1_IRQn);
+
+
     /* Loop forever */
 	for(;;);
 }

@@ -1,7 +1,6 @@
-20:34:18 **** Incremental Build of configuration Debug for project F103_GPIO_RCC_STK ****
+12:57:31 **** Build of configuration Debug for project F103_GPIO_RCC_STK ****
 make -j8 all 
-arm-none-eabi-gcc "../Src/GPIO_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/GPIO_prg.d" -MT"Src/GPIO_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/GPIO_prg.o"
-arm-none-eabi-gcc -o "F103_GPIO_RCC_STK.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Amgad_Advanced Diploma\stm_project\F103_GPIO_RCC_STK\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103_GPIO_RCC_STK.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+arm-none-eabi-gcc -o "F103_GPIO_RCC_STK.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F103_GPIO_RCC_STK\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103_GPIO_RCC_STK.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: F103_GPIO_RCC_STK.elf
  
 arm-none-eabi-size   F103_GPIO_RCC_STK.elf 
@@ -13,5 +12,5 @@ Finished building: default.size.stdout
 Finished building: F103_GPIO_RCC_STK.list
  
 
-20:34:19 Build Finished. 0 errors, 0 warnings. (took 423ms)
+12:57:32 Build Finished. 0 errors, 0 warnings. (took 501ms)
 

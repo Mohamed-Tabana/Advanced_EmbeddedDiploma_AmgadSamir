@@ -1,7 +1,284 @@
-02:10:08 **** Incremental Build of configuration Debug for project NVIC_F446RE ****
+12:43:08 **** Incremental Build of configuration Debug for project NVIC_F103 ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/GPIO_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/GPIO_prg.d" -MT"Src/GPIO_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/GPIO_prg.o"
+arm-none-eabi-gcc "../Src/RCC_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/RCC_prg.d" -MT"Src/RCC_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/RCC_prg.o"
+arm-none-eabi-gcc "../Src/SysTick_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/SysTick_prg.d" -MT"Src/SysTick_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/SysTick_prg.o"
+arm-none-eabi-gcc -o "NVIC_F103.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\NVIC_F103\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NVIC_F103.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: NVIC_F103.elf
+ 
+arm-none-eabi-size   NVIC_F103.elf 
+arm-none-eabi-objdump -h -S  NVIC_F103.elf  > "NVIC_F103.list"
+   text	   data	    bss	    dec	    hex	filename
+    788	      8	   1576	   2372	    944	NVIC_F103.elf
+Finished building: default.size.stdout
+ 
+Finished building: NVIC_F103.list
+ 
+12:43:15 **** Incremental Build of configuration Debug for project NVIC_F103 ****
+make -j8 all 
+arm-none-eabi-size   NVIC_F103.elf 
+   text	   data	    bss	    dec	    hex	filename
+    788	      8	   1576	   2372	    944	NVIC_F103.elf
+Finished building: default.size.stdout
+ 
+12:48:55 **** Incremental Build of configuration Debug for project NVIC_F103 ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/NVIC_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/NVIC_prg.d" -MT"Src/NVIC_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/NVIC_prg.o"
+arm-none-eabi-gcc -o "NVIC_F103.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\NVIC_F103\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NVIC_F103.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: NVIC_F103.elf
+ 
+arm-none-eabi-size   NVIC_F103.elf 
+arm-none-eabi-objdump -h -S  NVIC_F103.elf  > "NVIC_F103.list"
+   text	   data	    bss	    dec	    hex	filename
+    784	      8	   1576	   2368	    940	NVIC_F103.elf
+Finished building: default.size.stdout
+ 
+Finished building: NVIC_F103.list
+ 
+12:50:24 **** Incremental Build of configuration Debug for project NVIC_F103 ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "NVIC_F103.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\NVIC_F103\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NVIC_F103.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: NVIC_F103.elf
+ 
+arm-none-eabi-size   NVIC_F103.elf 
+arm-none-eabi-objdump -h -S  NVIC_F103.elf  > "NVIC_F103.list"
+   text	   data	    bss	    dec	    hex	filename
+    784	      8	   1576	   2368	    940	NVIC_F103.elf
+Finished building: default.size.stdout
+ 
+Finished building: NVIC_F103.list
+ 
+12:55:01 **** Incremental Build of configuration Debug for project NVIC_F446RE ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "NVIC_F446RE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\NVIC_F446RE\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NVIC_F446RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: NVIC_F446RE.elf
+ 
+arm-none-eabi-size   NVIC_F446RE.elf 
+arm-none-eabi-objdump -h -S  NVIC_F446RE.elf  > "NVIC_F446RE.list"
+   text	   data	    bss	    dec	    hex	filename
+    936	      8	   1576	   2520	    9d8	NVIC_F446RE.elf
+Finished building: default.size.stdout
+ 
+Finished building: NVIC_F446RE.list
+ 
+12:55:36 **** Incremental Build of configuration Debug for project NVIC_F446RE ****
 make -j8 all 
 arm-none-eabi-size   NVIC_F446RE.elf 
    text	   data	    bss	    dec	    hex	filename
-    760	      8	   1576	   2344	    928	NVIC_F446RE.elf
+    936	      8	   1576	   2520	    9d8	NVIC_F446RE.elf
 Finished building: default.size.stdout
+ 
+12:56:44 **** Incremental Build of configuration Debug for project NVIC_F446RE ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/NVIC_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/NVIC_prg.d" -MT"Src/NVIC_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/NVIC_prg.o"
+arm-none-eabi-gcc -o "NVIC_F446RE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\NVIC_F446RE\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NVIC_F446RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: NVIC_F446RE.elf
+ 
+arm-none-eabi-size   NVIC_F446RE.elf 
+arm-none-eabi-objdump -h -S  NVIC_F446RE.elf  > "NVIC_F446RE.list"
+   text	   data	    bss	    dec	    hex	filename
+    936	      8	   1576	   2520	    9d8	NVIC_F446RE.elf
+Finished building: default.size.stdout
+ 
+Finished building: NVIC_F446RE.list
+ 
+12:57:31 **** Build of configuration Debug for project F103_GPIO_RCC_STK ****
+make -j8 all 
+arm-none-eabi-gcc -o "F103_GPIO_RCC_STK.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F103_GPIO_RCC_STK\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103_GPIO_RCC_STK.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F103_GPIO_RCC_STK.elf
+ 
+arm-none-eabi-size   F103_GPIO_RCC_STK.elf 
+arm-none-eabi-objdump -h -S  F103_GPIO_RCC_STK.elf  > "F103_GPIO_RCC_STK.list"
+   text	   data	    bss	    dec	    hex	filename
+   1404	     36	   1572	   3012	    bc4	F103_GPIO_RCC_STK.elf
+Finished building: default.size.stdout
+ 
+Finished building: F103_GPIO_RCC_STK.list
+ 
+12:57:32 **** Incremental Build of configuration Debug for project F103_GPIO_SysTick_RCC ****
+make -j8 all 
+arm-none-eabi-gcc -o "F103_GPIO_SysTick_RCC.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F103_GPIO_SysTick_RCC\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103_GPIO_SysTick_RCC.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F103_GPIO_SysTick_RCC.elf
+ 
+arm-none-eabi-size   F103_GPIO_SysTick_RCC.elf 
+arm-none-eabi-objdump -h -S  F103_GPIO_SysTick_RCC.elf  > "F103_GPIO_SysTick_RCC.list"
+   text	   data	    bss	    dec	    hex	filename
+   3492	     20	   1572	   5084	   13dc	F103_GPIO_SysTick_RCC.elf
+Finished building: default.size.stdout
+ 
+Finished building: F103_GPIO_SysTick_RCC.list
+ 
+12:57:33 **** Incremental Build of configuration Debug for project NVIC_F103 ****
+make -j8 all 
+arm-none-eabi-size   NVIC_F103.elf 
+   text	   data	    bss	    dec	    hex	filename
+    784	      8	   1576	   2368	    940	NVIC_F103.elf
+Finished building: default.size.stdout
+ 
+12:57:34 **** Incremental Build of configuration Debug for project NVIC_F446RE ****
+make -j8 all 
+arm-none-eabi-size   NVIC_F446RE.elf 
+   text	   data	    bss	    dec	    hex	filename
+    936	      8	   1576	   2520	    9d8	NVIC_F446RE.elf
+Finished building: default.size.stdout
+ 
+12:57:43 **** Incremental Build of configuration Debug for project NVIC_F446RE ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "NVIC_F446RE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\NVIC_F446RE\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NVIC_F446RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: NVIC_F446RE.elf
+ 
+arm-none-eabi-size   NVIC_F446RE.elf 
+arm-none-eabi-objdump -h -S  NVIC_F446RE.elf  > "NVIC_F446RE.list"
+   text	   data	    bss	    dec	    hex	filename
+    944	      8	   1576	   2528	    9e0	NVIC_F446RE.elf
+Finished building: default.size.stdout
+ 
+Finished building: NVIC_F446RE.list
+ 
+12:58:59 **** Incremental Build of configuration Debug for project NVIC_F446RE ****
+make -j8 all 
+arm-none-eabi-size   NVIC_F446RE.elf 
+   text	   data	    bss	    dec	    hex	filename
+    944	      8	   1576	   2528	    9e0	NVIC_F446RE.elf
+Finished building: default.size.stdout
+ 
+13:00:13 **** Incremental Build of configuration Debug for project NVIC_F446RE ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "NVIC_F446RE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\NVIC_F446RE\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NVIC_F446RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: NVIC_F446RE.elf
+ 
+arm-none-eabi-size   NVIC_F446RE.elf 
+arm-none-eabi-objdump -h -S  NVIC_F446RE.elf  > "NVIC_F446RE.list"
+   text	   data	    bss	    dec	    hex	filename
+    956	      8	   1576	   2540	    9ec	NVIC_F446RE.elf
+Finished building: default.size.stdout
+ 
+Finished building: NVIC_F446RE.list
+ 
+13:01:09 **** Incremental Build of configuration Debug for project NVIC_F446RE ****
+make -j8 all 
+arm-none-eabi-size   NVIC_F446RE.elf 
+   text	   data	    bss	    dec	    hex	filename
+    956	      8	   1576	   2540	    9ec	NVIC_F446RE.elf
+Finished building: default.size.stdout
+ 
+13:02:21 **** Incremental Build of configuration Debug for project NVIC_F446RE ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "NVIC_F446RE.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\NVIC_F446RE\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NVIC_F446RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: NVIC_F446RE.elf
+ 
+arm-none-eabi-size   NVIC_F446RE.elf 
+arm-none-eabi-objdump -h -S  NVIC_F446RE.elf  > "NVIC_F446RE.list"
+   text	   data	    bss	    dec	    hex	filename
+    952	      8	   1576	   2536	    9e8	NVIC_F446RE.elf
+Finished building: default.size.stdout
+ 
+Finished building: NVIC_F446RE.list
+ 
+13:03:29 **** Incremental Build of configuration Debug for project NVIC_F103 ****
+make -j8 all 
+arm-none-eabi-size   NVIC_F103.elf 
+   text	   data	    bss	    dec	    hex	filename
+    784	      8	   1576	   2368	    940	NVIC_F103.elf
+Finished building: default.size.stdout
+ 
+13:08:03 **** Incremental Build of configuration Debug for project NVIC_F103 ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/GPIO_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/GPIO_prg.d" -MT"Src/GPIO_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/GPIO_prg.o"
+arm-none-eabi-gcc "../Src/NVIC_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/NVIC_prg.d" -MT"Src/NVIC_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/NVIC_prg.o"
+arm-none-eabi-gcc "../Src/RCC_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/RCC_prg.d" -MT"Src/RCC_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/RCC_prg.o"
+arm-none-eabi-gcc "../Src/SysTick_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/SysTick_prg.d" -MT"Src/SysTick_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/SysTick_prg.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "NVIC_F103.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\NVIC_F103\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NVIC_F103.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: NVIC_F103.elf
+ 
+arm-none-eabi-size   NVIC_F103.elf 
+arm-none-eabi-objdump -h -S  NVIC_F103.elf  > "NVIC_F103.list"
+   text	   data	    bss	    dec	    hex	filename
+    784	      8	   1576	   2368	    940	NVIC_F103.elf
+Finished building: default.size.stdout
+ 
+Finished building: NVIC_F103.list
+ 
+13:16:39 **** Incremental Build of configuration Debug for project NVIC_F103 ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/GPIO_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/GPIO_prg.d" -MT"Src/GPIO_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/GPIO_prg.o"
+arm-none-eabi-gcc "../Src/NVIC_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/NVIC_prg.d" -MT"Src/NVIC_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/NVIC_prg.o"
+arm-none-eabi-gcc "../Src/RCC_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/RCC_prg.d" -MT"Src/RCC_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/RCC_prg.o"
+arm-none-eabi-gcc "../Src/SysTick_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/SysTick_prg.d" -MT"Src/SysTick_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/SysTick_prg.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "NVIC_F103.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\NVIC_F103\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NVIC_F103.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: NVIC_F103.elf
+ 
+arm-none-eabi-size   NVIC_F103.elf 
+arm-none-eabi-objdump -h -S  NVIC_F103.elf  > "NVIC_F103.list"
+   text	   data	    bss	    dec	    hex	filename
+    784	      8	   1576	   2368	    940	NVIC_F103.elf
+Finished building: default.size.stdout
+ 
+Finished building: NVIC_F103.list
+ 
+13:22:38 **** Incremental Build of configuration Debug for project NVIC_F103 ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'EXTI0_IRQHandler':
+../Src/main.c:20:3: warning: implicit declaration of function 'NVIC_vSetPendingFlag' [-Wimplicit-function-declaration]
+   20 |   NVIC_vSetPendingFlag(EXTI1_IRQn);
+      |   ^~~~~~~~~~~~~~~~~~~~
+../Src/main.c:20:24: error: 'EXTI1_IRQn' undeclared (first use in this function)
+   20 |   NVIC_vSetPendingFlag(EXTI1_IRQn);
+      |                        ^~~~~~~~~~
+../Src/main.c:20:24: note: each undeclared identifier is reported only once for each function it appears in
+../Src/main.c:21:3: warning: implicit declaration of function 'NVIC_vEnableInterrupt' [-Wimplicit-function-declaration]
+   21 |   NVIC_vEnableInterrupt(EXTI1_IRQn);
+      |   ^~~~~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:30:
+../Inc/NVIC_int.h: At top level:
+../Inc/NVIC_int.h:10:6: warning: conflicting types for 'NVIC_vEnableInterrupt'
+   10 | void NVIC_vEnableInterrupt(Interrupt_t copy_eInterrupt);
+      |      ^~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:21:3: note: previous implicit declaration of 'NVIC_vEnableInterrupt' was here
+   21 |   NVIC_vEnableInterrupt(EXTI1_IRQn);
+      |   ^~~~~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:30:
+../Inc/NVIC_int.h:12:6: warning: conflicting types for 'NVIC_vSetPendingFlag'
+   12 | void NVIC_vSetPendingFlag(Interrupt_t copy_eInterrupt);
+      |      ^~~~~~~~~~~~~~~~~~~~
+../Src/main.c:20:3: note: previous implicit declaration of 'NVIC_vSetPendingFlag' was here
+   20 |   NVIC_vSetPendingFlag(EXTI1_IRQn);
+      |   ^~~~~~~~~~~~~~~~~~~~
+make: *** [Src/subdir.mk:37: Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+13:23:10 **** Incremental Build of configuration Debug for project NVIC_F103 ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "NVIC_F103.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\NVIC_F103\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NVIC_F103.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: NVIC_F103.elf
+ 
+arm-none-eabi-size   NVIC_F103.elf 
+arm-none-eabi-objdump -h -S  NVIC_F103.elf  > "NVIC_F103.list"
+   text	   data	    bss	    dec	    hex	filename
+    796	      8	   1576	   2380	    94c	NVIC_F103.elf
+Finished building: default.size.stdout
+ 
+Finished building: NVIC_F103.list
+ 
+13:24:14 **** Incremental Build of configuration Debug for project NVIC_F103 ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "NVIC_F103.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\NVIC_F103\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NVIC_F103.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: NVIC_F103.elf
+ 
+arm-none-eabi-size   NVIC_F103.elf 
+arm-none-eabi-objdump -h -S  NVIC_F103.elf  > "NVIC_F103.list"
+   text	   data	    bss	    dec	    hex	filename
+    796	      8	   1576	   2380	    94c	NVIC_F103.elf
+Finished building: default.size.stdout
+ 
+Finished building: NVIC_F103.list
  

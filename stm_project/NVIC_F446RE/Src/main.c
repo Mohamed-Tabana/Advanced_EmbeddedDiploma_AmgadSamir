@@ -18,8 +18,20 @@
 
 #include <stdint.h>
 
+#include "NVIC_int.h"
+void EXTI1_IRQHandler(void)
+{
+
+}
+void EXTI0_IRQHandler(void)
+{
+
+
+}
 int main(void)
 {
+	 NVIC_vSetPendingFlag(EXTI0);
+	 NVIC_vEnableInterrupt(EXTI0);
 
 
     /* Loop forever */

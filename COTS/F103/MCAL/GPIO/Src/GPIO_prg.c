@@ -6,7 +6,7 @@
  ******************************************************************************
  */
 #include <stdint.h>
-#include "STM32F301.h"
+#include "STM32F103.h"
 #include "ErrType.h"
 #include "Utils.h"
 #include "stdio.h"
@@ -31,8 +31,8 @@ uint8_t GPIO_u8PinInit(const PinConfig_t* copy_ePinConfig)
 		if ((copy_ePinConfig->PIN_Port < INVALID) && (copy_ePinConfig->PIN_Number <= PIN15))
 		{
 			/* Select GPIO Mode: INPUT - OUTPUT 10 MHz- OUTPUT 2 MHz - OUTPUT 50 MHz */
-			GPIO_PORT[copy_ePinConfig->PIN_Port]->CR[copy_ePinConfig->PIN_Number %MODEMOD_MASK] &= ~(MODE_MASK                   << ((copy_ePinConfig->PIN_Number %MODEMOD_MASK) *MODE_PIN_ACCESS)); // clear mode bits
-			GPIO_PORT[copy_ePinConfig->PIN_Port]->CR[copy_ePinConfig->PIN_Number %MODEMOD_MASK] |=  ((copy_ePinConfig->PIN_Mode) << ((copy_ePinConfig->PIN_Number %MODEMOD_MASK) *MODE_PIN_ACCESS));
+			GPIO_PORT[copy_ePinConfig->PIN_Port]->CR[copy_ePinConfig->PIN_Number /MODEMOD_MASK] &= ~(MODE_MASK                   << ((copy_ePinConfig->PIN_Number %MODEMOD_MASK) *MODE_PIN_ACCESS)); // clear mode bits
+			GPIO_PORT[copy_ePinConfig->PIN_Port]->CR[copy_ePinConfig->PIN_Number /MODEMOD_MASK] |=  ((copy_ePinConfig->PIN_Mode) << ((copy_ePinConfig->PIN_Number %MODEMOD_MASK) *MODE_PIN_ACCESS));
 			
 			/* Select output type and speed in case of OUTPUT / AF  */
 			if ((copy_ePinConfig->PIN_Mode == Output_mode_max_speed_10_MHz) ||
@@ -41,9 +41,12 @@ uint8_t GPIO_u8PinInit(const PinConfig_t* copy_ePinConfig)
 				 )
 			{
 				/* select output type General_purpose_output_push_pull - General_purpose_output_Open_drain - Alternate_function_output_Push_pull - Alternate_function_output_Open_drain */
-				GPIO_PORT[copy_ePinConfig->PIN_Port]->CR[copy_ePinConfig->PIN_Number %MODEMOD_MASK]  &= ~(CNF_MASK				          <<(((copy_ePinConfig->PIN_Number %CNFMOD_MASK) *MODE_PIN_ACCESS) +MODE_PIN_ACCESS_Addition) ); // clear mode bits
-				GPIO_PORT[copy_ePinConfig->PIN_Port]->CR[copy_ePinConfig->PIN_Number %MODEMOD_MASK]  |=  (copy_ePinConfig->PIN_OutputType <<(((copy_ePinConfig->PIN_Number %CNFMOD_MASK) *MODE_PIN_ACCESS) +MODE_PIN_ACCESS_Addition) );
+				GPIO_PORT[copy_ePinConfig->PIN_Port]->CR[copy_ePinConfig->PIN_Number /MODEMOD_MASK]  &= ~(CNF_MASK				          <<(((copy_ePinConfig->PIN_Number %CNFMOD_MASK) *MODE_PIN_ACCESS) +MODE_PIN_ACCESS_Addition) ); // clear mode bits
+				GPIO_PORT[copy_ePinConfig->PIN_Port]->CR[copy_ePinConfig->PIN_Number /MODEMOD_MASK]  |=  (copy_ePinConfig->PIN_OutputType <<(((copy_ePinConfig->PIN_Number %CNFMOD_MASK) *MODE_PIN_ACCESS) +MODE_PIN_ACCESS_Addition) );
 				
+				GPIO_PORT[copy_ePinConfig->PIN_Port]->ODR  &= ~(0b1				            <<copy_ePinConfig->PIN_Number ); // clear mode bits
+				GPIO_PORT[copy_ePinConfig->PIN_Port]->ODR  |=  (copy_ePinConfig->PIN_OValue	<<copy_ePinConfig->PIN_Number );
+
 				
 				
 			}
@@ -51,8 +54,8 @@ uint8_t GPIO_u8PinInit(const PinConfig_t* copy_ePinConfig)
 
 			else if (copy_ePinConfig->PIN_Mode == INPUT)
 			{
-				GPIO_PORT[copy_ePinConfig->PIN_Port]->CR[copy_ePinConfig->PIN_Number %MODEMOD_MASK]  &= ~(CNF_MASK				         <<(((copy_ePinConfig->PIN_Number %CNFMOD_MASK) *MODE_PIN_ACCESS) +MODE_PIN_ACCESS_Addition) ); // clear mode bits
-				GPIO_PORT[copy_ePinConfig->PIN_Port]->CR[copy_ePinConfig->PIN_Number %MODEMOD_MASK]  |=  (copy_ePinConfig->PIN_InputType <<(((copy_ePinConfig->PIN_Number %CNFMOD_MASK) *MODE_PIN_ACCESS) +MODE_PIN_ACCESS_Addition) );
+				GPIO_PORT[copy_ePinConfig->PIN_Port]->CR[copy_ePinConfig->PIN_Number /MODEMOD_MASK]  &= ~(CNF_MASK				         <<(((copy_ePinConfig->PIN_Number %CNFMOD_MASK) *MODE_PIN_ACCESS) +MODE_PIN_ACCESS_Addition) ); // clear mode bits
+				GPIO_PORT[copy_ePinConfig->PIN_Port]->CR[copy_ePinConfig->PIN_Number /MODEMOD_MASK]  |=  (copy_ePinConfig->PIN_InputType <<(((copy_ePinConfig->PIN_Number %CNFMOD_MASK) *MODE_PIN_ACCESS) +MODE_PIN_ACCESS_Addition) );
 
 			}
 		}

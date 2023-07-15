@@ -1,0 +1,4 @@
+void EXTI0_IRQHandler(void)
+NVIC->NVIC_ISPR[copy_eInterrupt/32]
+&NVIC->NVIC_ISPR[copy_eInterrupt/32]
+copy_eInterrupt

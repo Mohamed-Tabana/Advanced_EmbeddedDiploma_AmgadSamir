@@ -75,17 +75,17 @@ typedef struct{
 
 typedef struct{
 	volatile uint32_t NVIC_ISER[3];
-	volatile uint32_t Reserved0[30];
+	volatile uint32_t Reserved0[29];
 	volatile uint32_t NVIC_ICER[3];
-	volatile uint32_t Reserved1[30];
+	volatile uint32_t Reserved1[29];
 	volatile uint32_t NVIC_ISPR[3];
-	volatile uint32_t Reserved2[30];
+	volatile uint32_t Reserved2[29];
 	volatile uint32_t NVIC_ICPR[3];
-	volatile uint32_t Reserved3[30];
+	volatile uint32_t Reserved3[29];
 	volatile uint32_t NVIC_IABR[3];
-	volatile uint32_t Reserved4[30];
+	volatile uint32_t Reserved4[29];
 	volatile uint8_t NVIC_IPR [84];
-	volatile uint32_t Reserved5[695];
+	volatile uint32_t Reserved5[694];
 	volatile uint32_t NVIC_STIR;
 
 }NVIC_RegDef_t;
