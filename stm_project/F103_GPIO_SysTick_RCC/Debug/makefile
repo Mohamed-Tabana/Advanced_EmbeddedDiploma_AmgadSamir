@@ -60,8 +60,8 @@ all: main-build
 main-build: F103_GPIO_SysTick_RCC.elf secondary-outputs
 
 # Tool invocations
-F103_GPIO_SysTick_RCC.elf F103_GPIO_SysTick_RCC.map: $(OBJS) $(USER_OBJS) D:\Amgad_Advanced\ Diploma\stm_project\F103_GPIO_SysTick_RCC\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "F103_GPIO_SysTick_RCC.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Amgad_Advanced Diploma\stm_project\F103_GPIO_SysTick_RCC\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103_GPIO_SysTick_RCC.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+F103_GPIO_SysTick_RCC.elf F103_GPIO_SysTick_RCC.map: $(OBJS) $(USER_OBJS) D:\Amgad_Advanced\ Diploma\Diploma_Work\stm_project\F103_GPIO_SysTick_RCC\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "F103_GPIO_SysTick_RCC.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Amgad_Advanced Diploma\Diploma_Work\stm_project\F103_GPIO_SysTick_RCC\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103_GPIO_SysTick_RCC.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
