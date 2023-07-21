@@ -1,0 +1,4 @@
+../Src/GPIO_prg.c:26:9:GPIO_u8PinInit	24	static
+../Src/GPIO_prg.c:81:9:GPIO_vSetOutputPinValue	24	static
+../Src/GPIO_prg.c:113:9:GPIO_vToggleOutputPinValue	24	static
+../Src/GPIO_prg.c:137:9:MGPIO_vReadInputPinValue	24	static

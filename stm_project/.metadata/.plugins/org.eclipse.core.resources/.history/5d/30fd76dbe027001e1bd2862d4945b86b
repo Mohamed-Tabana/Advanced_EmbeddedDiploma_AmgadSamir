@@ -1,0 +1,78 @@
+
+#include "STM32F446xx.h"
+#include "EXTI_prv.h"
+#include "EXTI_int.h"
+#include "Utils.h"
+
+IntCallBack_t Globalarr_EXTICallBack [22];
+
+void EXTI_Init(EXTI_Int_Type copy_eEXTI_Int)
+{
+	/* 1- CFG Rising - falling */
+
+	/* 2- Enable Interrupt */
+
+
+	/* 1- CFG Rising - falling */
+
+}
+void EXTI_EnableInterrupt(EXTI_Int_Type copy_eEXTI_Int)
+{
+	EXTI->EXTI_IMR &= ~(0b1<<copy_eEXTI_Int);
+	EXTI->EXTI_IMR |=  (0b1<<copy_eEXTI_Int);
+
+}
+void EXTI_DisableInterrupt(EXTI_Int_Type copy_eEXTI_Int)
+{
+	EXTI->EXTI_IMR &= ~(0b1<<copy_eEXTI_Int);
+	EXTI->EXTI_IMR |=  (0b0<<copy_eEXTI_Int);
+
+}
+void EXTI_SetRisingEdge(EXTI_Int_Type copy_eEXTI_Int)
+{
+	// set rising
+	EXTI->EXTI_RTSR &= ~(0b1<<copy_eEXTI_Int);
+	EXTI->EXTI_RTSR |=  (0b1<<copy_eEXTI_Int);
+	// clear falling
+	EXTI->EXTI_FTSR &= ~(0b1<<copy_eEXTI_Int);
+	EXTI->EXTI_FTSR |=  (0b0<<copy_eEXTI_Int);
+}
+void EXTI_SetFallingEdge(EXTI_Int_Type copy_eEXTI_Int)
+{
+	// set falling
+	EXTI->EXTI_FTSR &= ~(0b1<<copy_eEXTI_Int);
+	EXTI->EXTI_FTSR |=  (0b1<<copy_eEXTI_Int);
+	// clear rising
+	EXTI->EXTI_RTSR &= ~(0b1<<copy_eEXTI_Int);
+	EXTI->EXTI_RTSR |=  (0b0<<copy_eEXTI_Int);
+}
+
+void EXTI_SetSWPendingFlag(EXTI_Int_Type copy_eEXTI_Int)
+{
+	EXTI->EXTI_SWIER &= ~(0b1<<copy_eEXTI_Int);
+	EXTI->EXTI_SWIER |=  (0b1<<copy_eEXTI_Int);
+
+}
+void EXTI_ClearPendingFlag(EXTI_Int_Type copy_eEXTI_Int)
+{
+	EXTI->EXTI_PR &= ~(0b1<<copy_eEXTI_Int);
+	EXTI->EXTI_PR |=  (0b1<<copy_eEXTI_Int);
+
+}
+void EXTI_ReadPendingFlag(EXTI_Int_Type copy_eEXTI_Int, uint8_t* copy_pu8Data)
+{
+	*copy_pu8Data=READ_BIT(EXTI->EXTI_PR,copy_eEXTI_Int);
+}
+
+void EXTI_SetCallBack(EXTI_Int_Type copy_eEXTI_Int,IntCallBack_t copy_pfCallBack)
+{
+	Globalarr_EXTICallBack[copy_eEXTI_Int]=copy_pfCallBack;
+}
+void EXTI_vSetEXTI_LineOnPort(EXTI_Int_Type copy_EXTI_Int,EXTI_EXTIPortCFG_t copy_eEXTI_EXTIPortCFG)
+{
+	SYSCFG->SYSCFG_EXTICR[copy_EXTI_Int/4] &= ~(0b1111 << ((copy_eEXTI_Int % 4)*4));
+	SYSCFG->SYSCFG_EXTICR[copy_EXTI_Int/4] &= ~(copy_eEXTI_EXTIPortCFG << ((copy_eEXTI_Int % 4)*4));
+
+}
+
+

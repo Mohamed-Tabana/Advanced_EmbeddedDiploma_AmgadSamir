@@ -13,5 +13,6 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F103_GPIO_SysTick_RCC\ Debug/ac
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:HelloWorld/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:HelloWorld/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:NVIC_F103\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:NVIC_F103\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:OperationModes\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Stack\ Debug/activeLaunchMode=debug

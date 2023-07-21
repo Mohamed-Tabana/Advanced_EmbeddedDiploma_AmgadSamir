@@ -1,0 +1,35 @@
+
+#include "STM32F446xx.h"
+#include "EXTI_prv.h"
+#include "EXTI_int.h"
+
+void EXTI_Init(EXTI_Int_Type copy_eEXTI_Int);
+void EXTI_EnableInterrupt(EXTI_Int_Type copy_eEXTI_Int)
+{
+	EXTI->EXTI_IMR &= ~(0b1<<copy_eEXTI_Int);
+	EXTI->EXTI_IMR |=  (0b1<<copy_eEXTI_Int);
+
+}
+void EXTI_DisableInterrupt(EXTI_Int_Type copy_eEXTI_Int)
+{
+	EXTI->EXTI_IMR &= ~(0b1<<copy_eEXTI_Int);
+	EXTI->EXTI_IMR |=  (0b0<<copy_eEXTI_Int);
+
+}
+void EXTI_SetRisingEdge(EXTI_Int_Type copy_eEXTI_Int)
+{
+	// set rising
+	EXTI->EXTI_RTSR &= ~(0b1<<copy_eEXTI_Int);
+	EXTI->EXTI_RTSR |=  (0b0<<copy_eEXTI_Int);
+	// clear falling
+
+
+}
+void EXTI_SetFallingEdge(EXTI_Int_Type copy_eEXTI_Int);
+
+void EXTI_SetSWPendingFlag(EXTI_Int_Type copy_eEXTI_Int)
+{
+
+}
+void EXTI_ClearPendingFlag(EXTI_Int_Type copy_eEXTI_Int);
+void EXTI_ReadPendingFlag(EXTI_Int_Type copy_eEXTI_Int);

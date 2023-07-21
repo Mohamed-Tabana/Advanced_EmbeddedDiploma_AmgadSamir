@@ -1,0 +1,21 @@
+22:22:26 **** Incremental Build of configuration Debug for project F446RE_EXTI ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/EXTI_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/EXTI_prg.d" -MT"Src/EXTI_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/EXTI_prg.o"
+../Src/EXTI_prg.c: In function 'EXTI_Init':
+../Src/EXTI_prg.c:48:10: warning: variable 'Local_u8ErrorState' set but not used [-Wunused-but-set-variable]
+   48 |  uint8_t Local_u8ErrorState=OK;
+      |          ^~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_EXTI.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_EXTI\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_EXTI.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_EXTI.elf
+ 
+arm-none-eabi-size   F446RE_EXTI.elf 
+arm-none-eabi-objdump -h -S  F446RE_EXTI.elf  > "F446RE_EXTI.list"
+   text	   data	    bss	    dec	    hex	filename
+    952	      8	   1664	   2624	    a40	F446RE_EXTI.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_EXTI.list
+ 
+
+22:22:26 Build Finished. 0 errors, 1 warnings. (took 475ms)
+
