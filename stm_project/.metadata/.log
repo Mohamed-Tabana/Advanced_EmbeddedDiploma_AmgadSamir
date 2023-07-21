@@ -10266,3 +10266,6 @@ C Model Exception: C Model Status [Element EXTI_prv.h does not exist.]
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
 !SUBENTRY 1 org.eclipse.cdt.core 4 969 2023-07-21 22:20:53.874
 !MESSAGE Element EXTI_prv.h does not exist.
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-07-21 22:28:00.599
+!MESSAGE Indexed 'F103_EXTI' (2 sources, 53 headers) in 0.334 sec: 1,947 declarations; 2,829 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.042%)
