@@ -1,0 +1,28 @@
+#ifndef DMA_INTERFACE_H_
+#define DMA_INTERFACE_H_
+
+#include "DMA_prv.h"
+#include "stdint.h"
+#include "STM32F446xx.h"
+
+typedef enum {
+	channel_0_selected,
+	channel_1_selected,
+	channel_2_selected,
+	channel_3_selected,
+	channel_4_selected,
+	channel_5_selected,
+	channel_6_selected,
+	channel_7_selected
+}CHSEL;
+
+typedef struct {
+
+}DMAConfig_t;
+
+void DMA_Init();
+
+
+
+
+#endif

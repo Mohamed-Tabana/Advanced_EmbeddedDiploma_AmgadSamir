@@ -1,0 +1,17 @@
+01:30:39 **** Incremental Build of configuration Debug for project F446RE_DMA_DRIVER ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/DMA_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/DMA_prg.d" -MT"Src/DMA_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/DMA_prg.o"
+arm-none-eabi-gcc -o "F446RE_DMA_DRIVER.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_DMA_DRIVER\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_DMA_DRIVER.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_DMA_DRIVER.elf
+ 
+arm-none-eabi-size   F446RE_DMA_DRIVER.elf 
+arm-none-eabi-objdump -h -S  F446RE_DMA_DRIVER.elf  > "F446RE_DMA_DRIVER.list"
+   text	   data	    bss	    dec	    hex	filename
+   1232	     16	   1952	   3200	    c80	F446RE_DMA_DRIVER.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_DMA_DRIVER.list
+ 
+
+01:30:39 Build Finished. 0 errors, 0 warnings. (took 566ms)
+

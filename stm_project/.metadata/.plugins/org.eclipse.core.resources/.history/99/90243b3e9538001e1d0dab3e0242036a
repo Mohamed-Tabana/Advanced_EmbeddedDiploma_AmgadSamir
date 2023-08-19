@@ -1,0 +1,11 @@
+/*
+ * StringData.C
+ *
+ *  Created on: Aug 11, 2023
+ *      Author: ALTAWKEL
+ */
+
+#include "stdint.h"
+
+char StringArr []= "The smallest stadiums in the European top tiers often belong to newly-promoted teams. This is also the case in the Premier League, Bundesliga, Süper Lig, Croatian SuperSport HNL, and Serbian Super liga Srbije this summer. The dimensions of these grounds are similarly small in relation to the competition, as are the squad values of the clubs based there. From 1,200 to 15,039 seats – Transfermarkt introduces the smallest stadium from each of Europe’s top 25 first divisions.";
+uint16_t DataLength = sizeof(StringArr);

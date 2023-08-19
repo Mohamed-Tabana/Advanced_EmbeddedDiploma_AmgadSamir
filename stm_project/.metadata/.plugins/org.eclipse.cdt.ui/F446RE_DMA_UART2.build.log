@@ -1,0 +1,10 @@
+02:01:33 **** Incremental Build of configuration Debug for project F446RE_DMA_UART2 ****
+make -j8 all 
+arm-none-eabi-size   F446RE_DMA_UART2.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11736	     20	   1732	  13488	   34b0	F446RE_DMA_UART2.elf
+Finished building: default.size.stdout
+ 
+
+02:01:34 Build Finished. 0 errors, 0 warnings. (took 248ms)
+

@@ -1,0 +1,17 @@
+00:24:39 **** Incremental Build of configuration Debug for project F446RE_DMA_SRAM1_TO_UART2_TX_M2P ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-gcc -o "F446RE_DMA_SRAM1_TO_UART2_TX_M2P.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_DMA_SRAM1_TO_UART2_TX_M2P\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_DMA_SRAM1_TO_UART2_TX_M2P.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_DMA_SRAM1_TO_UART2_TX_M2P.elf
+ 
+arm-none-eabi-size   F446RE_DMA_SRAM1_TO_UART2_TX_M2P.elf 
+arm-none-eabi-objdump -h -S  F446RE_DMA_SRAM1_TO_UART2_TX_M2P.elf  > "F446RE_DMA_SRAM1_TO_UART2_TX_M2P.list"
+   text	   data	    bss	    dec	    hex	filename
+  11516	    504	   1736	  13756	   35bc	F446RE_DMA_SRAM1_TO_UART2_TX_M2P.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_DMA_SRAM1_TO_UART2_TX_M2P.list
+ 
+
+00:24:40 Build Finished. 0 errors, 0 warnings. (took 936ms)
+

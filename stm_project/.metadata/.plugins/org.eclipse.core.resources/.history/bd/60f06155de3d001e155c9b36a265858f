@@ -1,0 +1,104 @@
+#ifndef DMA_INTERFACE_H_
+#define DMA_INTERFACE_H_
+
+#include "DMA_prv.h"
+#include "stdint.h"
+#include "STM32F446xx.h"
+
+typedef enum {
+	channel_0_selected,
+	channel_1_selected,
+	channel_2_selected,
+	channel_3_selected,
+	channel_4_selected,
+	channel_5_selected,
+	channel_6_selected,
+	channel_7_selected
+}Channel_Selection_t;
+typedef enum {
+	single_transfer,
+	INCR4_,
+	INCR8 ,
+	INCR16,
+}M_P_Burst_Transfer_Configuration_t;
+typedef enum {
+	No_buffer_switching_at_the_end_of_transfer,
+	memory_target_switched_at_the_end_of_the_DMA_transfer
+}double_buffer_mode_t;
+typedef enum {
+	low,
+	medium,
+	high,
+	very_high
+}priority_level_t;
+typedef enum {
+	The_offset_size_for_the_peripheral_address_calculation_is_linked_to_the_PSIZE,
+	The_offset_size_for_the_peripheral_address_calculation_is_fixed_to_4
+}peripheral_increment_offset_size_t;
+
+typedef enum {
+	byte,
+	half_word,
+	word
+}P_M_SIZE_t;
+typedef enum {
+	memory_address_pointer_is_fixed,
+	memory_address_pointer_is_incremented_after_each_data_transfer
+}Memory_Increment_Mode_t;
+
+typedef enum {
+	peripheral_address_pointer_is_fixed,
+	peripheral_address_pointer_is_incremented_after_each_data_transfer
+}peripheral_Increment_Mode_t;
+typedef enum {
+	circular_mode_disabled,
+	circular_mode_enabled
+}circular_mode_t;
+typedef enum {
+	peripheral_to_memory,
+	memory_to_peripheral,
+	memory_to_memory
+}data_transfer_direction_t;
+typedef enum {
+	DMA_is_the_flow_controller,
+	The_peripheral_is_the_flow_controller
+}peripheral_flow_controller_t;
+
+typedef enum {
+	TC_interrupt_disabled,
+	TC_interrupt_enabled
+}transfer_complete_interrupt_enable_t;
+typedef enum {
+	HT_interrupt_disabled,
+	HT_interrupt_enabled
+}half_transfer_interrupt_enable_t;
+typedef enum {
+	TE_interrupt_disabled,
+	TE_interrupt_enabled
+}transfer_error_interrupt_enable_T;
+typedef enum {
+	DME_interrupt_disabled,
+	DME_interrupt_enabled
+}direct_mode_error_interrupt_enable_t;
+
+typedef enum {
+	stream_disabled,
+	stream_enabled
+}stream_enable_t;
+
+typedef enum {
+	FE_interrupt_disabled,
+	FE_interrupt_enabled
+}FIFO_error_interrupt_enable_t;
+
+
+typedef struct {
+
+}DMAConfig_t;
+
+void DMA_Init();
+
+
+
+
+#endif

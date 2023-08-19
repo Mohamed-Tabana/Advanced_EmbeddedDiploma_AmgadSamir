@@ -1,0 +1,10 @@
+23:45:15 **** Incremental Build of configuration Debug for project F446RE_DMA_ADC_SRAM1_TEMPSENSOR ****
+make -j8 all 
+arm-none-eabi-size   F446RE_DMA_ADC_SRAM1_TEMPSENSOR.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13276	     20	   1804	  15100	   3afc	F446RE_DMA_ADC_SRAM1_TEMPSENSOR.elf
+Finished building: default.size.stdout
+ 
+
+23:45:15 Build Finished. 0 errors, 0 warnings. (took 308ms)
+
