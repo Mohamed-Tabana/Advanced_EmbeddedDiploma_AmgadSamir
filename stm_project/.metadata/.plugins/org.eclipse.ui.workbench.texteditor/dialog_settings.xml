@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="GPIO_TypeDef"/>
+		<item key="selection" value="Channel_"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="channel_"/>
+			<item value="DMA_IRQHandler(DMA1_CONTROLLER, DMA_STREAM4);"/>
+			<item value="&#x09;DMA_IRQHandler(DMA1_CONTROLLER, DMA_STREAM3);"/>
+			<item value="&#x09;DMA_IRQHandler(DMA1_CONTROLLER, DMA_STREAM1);"/>
+			<item value="copy_eDMAConfig-&gt;DMA_Peripheral_Number, copy_eDMAConfig-&gt;Stream_Selection"/>
+			<item value=" "/>
+			<item value="-"/>
 			<item value="GPIO_TypeDef"/>
 			<item value="HAL_UART_RxCpltCallback"/>
 			<item value="hdma_usart2_rx"/>
@@ -16,23 +23,21 @@
 			<item value="pd"/>
 			<item value="pv"/>
 			<item value="HAL_UART_Receive_IT"/>
-			<item value="PLLMUL_t"/>
-			<item value="RCC_"/>
-			<item value="peripheral"/>
-			<item value=" "/>
-			<item value="HSE clock not divided,"/>
-			<item value="uint32"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Stream_"/>
+			<item value="DMA_vIRQHandler(DMA_Number_1,channel_0);"/>
+			<item value="&#x09;DMA_vIRQHandler(DMA_Number_1,channel_0);"/>
+			<item value="copy_eDMAConfig-&gt;Init.DMANumber, copy_eDMAConfig-&gt;Init.Stream"/>
+			<item value="_"/>
 			<item value=""/>
 			<item value="copy_tPeripheralAPB2"/>
-			<item value="_"/>
 			<item value="uint32_t"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="933"/>
-		<item key="DIALOG_Y_ORIGIN" value="198"/>
+		<item key="DIALOG_X_ORIGIN" value="1501"/>
+		<item key="DIALOG_Y_ORIGIN" value="124"/>
 		<item key="DIALOG_WIDTH" value="414"/>
 		<item key="DIALOG_HEIGHT" value="454"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>

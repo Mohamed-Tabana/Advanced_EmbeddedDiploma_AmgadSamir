@@ -167,10 +167,8 @@ typedef struct{
 }STREAM_RegDef_t;
 
 typedef struct{
-	uint32_t DMA_LISR;
-	uint32_t DMA_HISR;
-	uint32_t DMA_LIFCR;
-	uint32_t DMA_HIFCR;
+	uint32_t DMA_LISR[2];
+	uint32_t DMA_LIFCR[2];
 	STREAM_RegDef_t DMA_STREAM[7];
 	
 }DMA_RegDef_t;
