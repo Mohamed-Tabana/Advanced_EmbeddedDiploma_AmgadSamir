@@ -1,0 +1,21 @@
+04:36:59 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:140:10: warning: unused variable 'Ra' [-Wunused-variable]
+  140 |  uint8_t Ra[4]={0};
+      |          ^~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7780	    172	   1948	   9900	   26ac	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+
+04:37:00 Build Finished. 0 errors, 1 warnings. (took 496ms)
+

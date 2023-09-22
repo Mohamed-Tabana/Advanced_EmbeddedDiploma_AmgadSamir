@@ -1,10 +1,21 @@
-17:45:39 **** Incremental Build of configuration Debug for project F103_EXTI ****
+01:35:17 **** Build of configuration Debug for project F103_EXTI ****
 make -j8 all 
+arm-none-eabi-gcc "../Src/EXTI_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/EXTI_prg.d" -MT"Src/EXTI_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/EXTI_prg.o"
+arm-none-eabi-gcc "../Src/GPIO_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/GPIO_prg.d" -MT"Src/GPIO_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/GPIO_prg.o"
+arm-none-eabi-gcc "../Src/NVIC_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/NVIC_prg.d" -MT"Src/NVIC_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/NVIC_prg.o"
+arm-none-eabi-gcc "../Src/RCC_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/RCC_prg.d" -MT"Src/RCC_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/RCC_prg.o"
+arm-none-eabi-gcc "../Src/SysTick_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/SysTick_prg.d" -MT"Src/SysTick_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/SysTick_prg.o"
+arm-none-eabi-gcc -o "F103_EXTI.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F103_EXTI\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103_EXTI.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F103_EXTI.elf
+ 
 arm-none-eabi-size   F103_EXTI.elf 
+arm-none-eabi-objdump -h -S  F103_EXTI.elf  > "F103_EXTI.list"
    text	   data	    bss	    dec	    hex	filename
     804	      8	   1656	   2468	    9a4	F103_EXTI.elf
 Finished building: default.size.stdout
  
+Finished building: F103_EXTI.list
+ 
 
-17:45:39 Build Finished. 0 errors, 0 warnings. (took 692ms)
+01:35:20 Build Finished. 0 errors, 0 warnings. (took 2s.391ms)
 

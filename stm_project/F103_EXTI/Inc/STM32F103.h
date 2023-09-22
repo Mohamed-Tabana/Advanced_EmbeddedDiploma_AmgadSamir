@@ -125,8 +125,8 @@ typedef struct{
 
 typedef struct{
 	volatile uint32_t AFIO_EVCR ;
-	volatile uint32_t AFIO_MAPR_low_medium_high;
-	volatile uint32_t AFIO_MAPR_connectivity_line_devices ;
+	volatile uint32_t AFIO_MAPR;
+//	volatile uint32_t AFIO_MAPR_connectivity_line_devices ;
 	volatile uint32_t AFIO_EXTICR[4] ;
 
 }AFIO_RegDef_t;

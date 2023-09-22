@@ -1,0 +1,10 @@
+18:10:51 **** Incremental Build of configuration Debug for project F103_TestSPI ****
+make -j8 all 
+arm-none-eabi-size   F103_TestSPI.elf 
+   text	   data	    bss	    dec	    hex	filename
+     88	      8	   1568	   1664	    680	F103_TestSPI.elf
+Finished building: default.size.stdout
+ 
+
+18:10:51 Build Finished. 0 errors, 0 warnings. (took 325ms)
+

@@ -1,0 +1,7 @@
+RCC_Program.c:25:6:RCC_SetClockStatus	20
+RCC_Program.c:120:6:RCC_SetSystemClock	5
+RCC_Program.c:146:6:RCC_SetHSE_Divider	3
+RCC_Program.c:172:6:RCC_SetPLL_Configs	4
+RCC_Program.c:207:6:RCC_Set_AHBPeripheral_CLK	3
+RCC_Program.c:234:6:RCC_Set_APB2Peripheral_CLK	3
+RCC_Program.c:260:6:RCC_Set_APB1Peripheral_CLK	3

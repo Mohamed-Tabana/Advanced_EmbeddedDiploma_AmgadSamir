@@ -1,0 +1,31 @@
+#ifndef RTC_INTERFACE_H_
+#define RTC_INTERFACE_H_
+
+#include "I2C_int.h"
+#include "stdint.h"
+#include "STM32F446xx.h"
+#include "Utils.h"
+#include "RTC.h"
+
+typedef struct
+{
+	uint8_t SECONDS;
+	uint8_t MINUTES;
+	uint8_t HOURS;
+	uint8_t DAY;
+	uint8_t DATE;
+	uint8_t MONTH;
+	uint8_t YEAR;
+
+
+}RTC_Programming_Info;
+
+
+
+
+
+
+
+
+
+#endif

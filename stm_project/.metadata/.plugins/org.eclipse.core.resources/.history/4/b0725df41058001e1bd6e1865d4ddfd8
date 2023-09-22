@@ -1,0 +1,11 @@
+
+#include "STM32F446xx.h"
+#include "I2C_int.h"
+#include "Utils.h"
+#include "ErrType.h"
+
+void RTC_Programming(I2C_HandleTypeDef_t* hi2c)
+{
+	I2C_SendDataToSlave_DMA(I2C_HandleTypeDef_t* hi2c, DMA_HandleTypeDef_t* copy_eDMAConfig,uint8_t copy_u8SlaveAdd,uint32_t copy_u32DataLength,uint8_t* copy_pu8Data);
+
+}

@@ -1,0 +1,19 @@
+#ifndef RTC_INTERFACE_H_
+#define RTC_INTERFACE_H_
+
+#include "DMA_int.h"
+#include "I2C_int.h"
+#include "stdint.h"
+#include "STM32F446xx.h"
+#include "Utils.h"
+
+
+
+
+
+
+
+
+
+
+#endif

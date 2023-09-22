@@ -16,6 +16,9 @@
 		<item key="caseSensitive" value="false"/>
 		<item key="searchFlags" value="227191"/>
 		<list key="previousPatterns">
+			<item value="HAL_GPIO_Init"/>
+			<item value="SPI_DMATxEnable"/>
+			<item value="DMAPeripheral"/>
 			<item value="HAL_UART_RxCpltCallback"/>
 			<item value="hdma_usart2_rx"/>
 			<item value="DMA_HandleTypeDef"/>
@@ -36,5 +39,8 @@
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration.internal">
 		<item key="size.width" value="916"/>
 		<item key="size.height" value="223"/>
+	</section>
+	<section name="CResourceRenameRefactoringInputPage">
+		<item key="updateReferences" value="true"/>
 	</section>
 </section>

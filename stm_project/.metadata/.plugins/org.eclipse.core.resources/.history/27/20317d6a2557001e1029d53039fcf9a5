@@ -1,0 +1,43 @@
+
+#ifndef I2C_PRIVATE_H_
+#define I2C_PRIVATE_H_
+
+typedef void (*IntCallBack_t) (void);
+
+enum {
+
+
+    I2C_CR1_POS           = 8,   // Acknowledge/PEC Position (in I2C_CR1 register)
+    I2C_CR1_ACK           = 10,  // Acknowledge Enable Position (in I2C_CR1 register)
+    I2C_CR1_STOP          = 9,   // Stop Generation Position (in I2C_CR1 register)
+    I2C_CR1_START         = 8,   // Start Generation Position (in I2C_CR1 register)
+    I2C_CR1_PE            = 0,   // Peripheral Enable Position (in I2C_CR1 register)
+
+    I2C_OAR1_ADDMODE      = 15,  // Addressing Mode Position (in I2C_OAR1 register)
+
+    I2C_OAR2_ENDUAL       = 0,   // Dual addressing mode enable Position (in I2C_OAR2 register)
+
+    I2C_DR_DR             = 0,   // Data Register Position (in I2C_DR register)
+
+    I2C_SR1_SB            = 0,   // Start Bit Position (in I2C_SR1 register)
+    I2C_SR1_ADDR          = 1,   // Address Sent/Matched Position (in I2C_SR1 register)
+    I2C_SR1_TXE           = 7,   // Data Register Empty Position (in I2C_SR1 register)
+    I2C_SR1_RXNE          = 6,   // Data Register Not Empty Position (in I2C_SR1 register)
+    I2C_SR1_STOPF         = 4,   // Stop Detection Position (in I2C_SR1 register)
+    I2C_SR1_BTF           = 2,   // Byte Transfer Finished Position (in I2C_SR1 register)
+
+    I2C_SR2_BUSY          = 1,   // Bus Busy Position (in I2C_SR2 register)
+    I2C_SR2_TRA           = 2,   // Transmitter/Receiver Position (in I2C_SR2 register)
+
+    I2C_CCR_CCR           = 0,   // Clock Control Register Position (in I2C_CCR register)
+
+    I2C_TRISE_TRISE       = 0,   // Maximum Rise Time Position (in I2C_TRISE register)
+
+    I2C_FLTR_DNF          = 0,   // Digital Noise Filter Position (in I2C_FLTR register)
+    I2C_FLTR_ANOFF        = 4    // Analog Noise Filter OFF Position (in I2C_FLTR register)
+};
+ 
+
+
+
+#endif

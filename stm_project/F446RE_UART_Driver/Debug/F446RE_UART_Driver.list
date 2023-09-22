@@ -1,0 +1,3057 @@
+
+F446RE_UART_Driver.elf:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .isr_vector   000001c4  08000000  08000000  00010000  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  1 .text         000014d4  080001c4  080001c4  000101c4  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .rodata       00000000  08001698  08001698  00020098  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  3 .ARM.extab    00000000  08001698  08001698  00020098  2**0
+                  CONTENTS
+  4 .ARM          00000000  08001698  08001698  00020098  2**0
+                  CONTENTS
+  5 .preinit_array 00000000  08001698  08001698  00020098  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  6 .init_array   00000004  08001698  08001698  00011698  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  7 .fini_array   00000004  0800169c  0800169c  0001169c  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  8 .data         00000098  20000000  080016a0  00020000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  9 .bss          000001a8  20000098  08001738  00020098  2**2
+                  ALLOC
+ 10 ._user_heap_stack 00000600  20000240  08001738  00020240  2**0
+                  ALLOC
+ 11 .ARM.attributes 00000030  00000000  00000000  00020098  2**0
+                  CONTENTS, READONLY
+ 12 .debug_info   00003c41  00000000  00000000  000200c8  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 13 .debug_abbrev 000005e8  00000000  00000000  00023d09  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 14 .debug_aranges 00000340  00000000  00000000  000242f8  2**3
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 15 .debug_ranges 000002e8  00000000  00000000  00024638  2**3
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 16 .debug_macro  00002938  00000000  00000000  00024920  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 17 .debug_line   00002ca4  00000000  00000000  00027258  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 18 .debug_str    0000abb1  00000000  00000000  00029efc  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 19 .comment      00000050  00000000  00000000  00034aad  2**0
+                  CONTENTS, READONLY
+ 20 .debug_frame  00000cb8  00000000  00000000  00034b00  2**2
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+
+Disassembly of section .text:
+
+080001c4 <__do_global_dtors_aux>:
+ 80001c4:	b510      	push	{r4, lr}
+ 80001c6:	4c05      	ldr	r4, [pc, #20]	; (80001dc <__do_global_dtors_aux+0x18>)
+ 80001c8:	7823      	ldrb	r3, [r4, #0]
+ 80001ca:	b933      	cbnz	r3, 80001da <__do_global_dtors_aux+0x16>
+ 80001cc:	4b04      	ldr	r3, [pc, #16]	; (80001e0 <__do_global_dtors_aux+0x1c>)
+ 80001ce:	b113      	cbz	r3, 80001d6 <__do_global_dtors_aux+0x12>
+ 80001d0:	4804      	ldr	r0, [pc, #16]	; (80001e4 <__do_global_dtors_aux+0x20>)
+ 80001d2:	f3af 8000 	nop.w
+ 80001d6:	2301      	movs	r3, #1
+ 80001d8:	7023      	strb	r3, [r4, #0]
+ 80001da:	bd10      	pop	{r4, pc}
+ 80001dc:	20000098 	.word	0x20000098
+ 80001e0:	00000000 	.word	0x00000000
+ 80001e4:	08001680 	.word	0x08001680
+
+080001e8 <frame_dummy>:
+ 80001e8:	b508      	push	{r3, lr}
+ 80001ea:	4b03      	ldr	r3, [pc, #12]	; (80001f8 <frame_dummy+0x10>)
+ 80001ec:	b11b      	cbz	r3, 80001f6 <frame_dummy+0xe>
+ 80001ee:	4903      	ldr	r1, [pc, #12]	; (80001fc <frame_dummy+0x14>)
+ 80001f0:	4803      	ldr	r0, [pc, #12]	; (8000200 <frame_dummy+0x18>)
+ 80001f2:	f3af 8000 	nop.w
+ 80001f6:	bd08      	pop	{r3, pc}
+ 80001f8:	00000000 	.word	0x00000000
+ 80001fc:	2000009c 	.word	0x2000009c
+ 8000200:	08001680 	.word	0x08001680
+
+08000204 <DMA_vInit>:
+
+static void (*arrDMA1_PtrToFunction[8][Total_Number_Of_Interrupts])(void) = {NULL};
+static void (*arrDMA2_PtrToFunction[8][Total_Number_Of_Interrupts])(void) = {NULL};
+
+void DMA_vInit(DMA_HandleTypeDef_t* copy_eDMAConfig)
+{
+ 8000204:	b580      	push	{r7, lr}
+ 8000206:	b082      	sub	sp, #8
+ 8000208:	af00      	add	r7, sp, #0
+ 800020a:	6078      	str	r0, [r7, #4]
+	DMA_vSetDMAStreamChannelSelection(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->Init.Channel);
+ 800020c:	687b      	ldr	r3, [r7, #4]
+ 800020e:	7858      	ldrb	r0, [r3, #1]
+ 8000210:	687b      	ldr	r3, [r7, #4]
+ 8000212:	7899      	ldrb	r1, [r3, #2]
+ 8000214:	687b      	ldr	r3, [r7, #4]
+ 8000216:	781b      	ldrb	r3, [r3, #0]
+ 8000218:	461a      	mov	r2, r3
+ 800021a:	f000 f83b 	bl	8000294 <DMA_vSetDMAStreamChannelSelection>
+	DMA_vSetDMAStreamDataTransferDirection(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->Init.Direction);
+ 800021e:	687b      	ldr	r3, [r7, #4]
+ 8000220:	7858      	ldrb	r0, [r3, #1]
+ 8000222:	687b      	ldr	r3, [r7, #4]
+ 8000224:	7899      	ldrb	r1, [r3, #2]
+ 8000226:	687b      	ldr	r3, [r7, #4]
+ 8000228:	78db      	ldrb	r3, [r3, #3]
+ 800022a:	461a      	mov	r2, r3
+ 800022c:	f000 f99a 	bl	8000564 <DMA_vSetDMAStreamDataTransferDirection>
+	DMA_vSetDMAMemoryIncrementMode(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->Init.MINC);
+ 8000230:	687b      	ldr	r3, [r7, #4]
+ 8000232:	7858      	ldrb	r0, [r3, #1]
+ 8000234:	687b      	ldr	r3, [r7, #4]
+ 8000236:	7899      	ldrb	r1, [r3, #2]
+ 8000238:	687b      	ldr	r3, [r7, #4]
+ 800023a:	791b      	ldrb	r3, [r3, #4]
+ 800023c:	461a      	mov	r2, r3
+ 800023e:	f000 f8b9 	bl	80003b4 <DMA_vSetDMAMemoryIncrementMode>
+	DMA_vSetDMAPeripheralIncrementMode(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->Init.PINC);
+ 8000242:	687b      	ldr	r3, [r7, #4]
+ 8000244:	7858      	ldrb	r0, [r3, #1]
+ 8000246:	687b      	ldr	r3, [r7, #4]
+ 8000248:	7899      	ldrb	r1, [r3, #2]
+ 800024a:	687b      	ldr	r3, [r7, #4]
+ 800024c:	795b      	ldrb	r3, [r3, #5]
+ 800024e:	461a      	mov	r2, r3
+ 8000250:	f000 f8f8 	bl	8000444 <DMA_vSetDMAPeripheralIncrementMode>
+	DMA_vSetDMACircularMode(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->Init.CircularMode);
+ 8000254:	687b      	ldr	r3, [r7, #4]
+ 8000256:	7858      	ldrb	r0, [r3, #1]
+ 8000258:	687b      	ldr	r3, [r7, #4]
+ 800025a:	7899      	ldrb	r1, [r3, #2]
+ 800025c:	687b      	ldr	r3, [r7, #4]
+ 800025e:	799b      	ldrb	r3, [r3, #6]
+ 8000260:	461a      	mov	r2, r3
+ 8000262:	f000 f937 	bl	80004d4 <DMA_vSetDMACircularMode>
+	DMA_vSetDMAStreamPriorityLevel(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->Init.PriorityLevel);
+ 8000266:	687b      	ldr	r3, [r7, #4]
+ 8000268:	7858      	ldrb	r0, [r3, #1]
+ 800026a:	687b      	ldr	r3, [r7, #4]
+ 800026c:	7899      	ldrb	r1, [r3, #2]
+ 800026e:	687b      	ldr	r3, [r7, #4]
+ 8000270:	79db      	ldrb	r3, [r3, #7]
+ 8000272:	461a      	mov	r2, r3
+ 8000274:	f000 f856 	bl	8000324 <DMA_vSetDMAStreamPriorityLevel>
+	DMA_vSetDirectModeStatus(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->Init.DirectOrFIFOMode);
+ 8000278:	687b      	ldr	r3, [r7, #4]
+ 800027a:	7858      	ldrb	r0, [r3, #1]
+ 800027c:	687b      	ldr	r3, [r7, #4]
+ 800027e:	7899      	ldrb	r1, [r3, #2]
+ 8000280:	687b      	ldr	r3, [r7, #4]
+ 8000282:	7a1b      	ldrb	r3, [r3, #8]
+ 8000284:	461a      	mov	r2, r3
+ 8000286:	f000 fa55 	bl	8000734 <DMA_vSetDirectModeStatus>
+	//	DMA_vSetDMAStreamIncreamentalOffset(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->peripheral_increment_offset_size);
+	//	DMA_vSetDMAStreamMemorySize(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->MemorySIZE);
+	//	DMA_vSetDMAStreamPeripheralSize(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->PeripheralSIZE);
+	//	DMA_vSetDMAStreamPeripheralFlowController(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->peripheral_flow_controller);
+
+}
+ 800028a:	bf00      	nop
+ 800028c:	3708      	adds	r7, #8
+ 800028e:	46bd      	mov	sp, r7
+ 8000290:	bd80      	pop	{r7, pc}
+	...
+
+08000294 <DMA_vSetDMAStreamChannelSelection>:
+void DMA_vSetDMAStreamChannelSelection(DMA_Peripheral_Number_t copy_eDMA_Peripheral_Number, Stream_Selection_t copy_eStream_Selection,Channel_Selection_t copy_eChannel_Selection)
+{
+ 8000294:	b490      	push	{r4, r7}
+ 8000296:	b082      	sub	sp, #8
+ 8000298:	af00      	add	r7, sp, #0
+ 800029a:	4603      	mov	r3, r0
+ 800029c:	71fb      	strb	r3, [r7, #7]
+ 800029e:	460b      	mov	r3, r1
+ 80002a0:	71bb      	strb	r3, [r7, #6]
+ 80002a2:	4613      	mov	r3, r2
+ 80002a4:	717b      	strb	r3, [r7, #5]
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxCR &=~ (0b111<<DMA_SxCR_CHSEL);
+ 80002a6:	79fb      	ldrb	r3, [r7, #7]
+ 80002a8:	4a1d      	ldr	r2, [pc, #116]	; (8000320 <DMA_vSetDMAStreamChannelSelection+0x8c>)
+ 80002aa:	f852 1023 	ldr.w	r1, [r2, r3, lsl #2]
+ 80002ae:	79ba      	ldrb	r2, [r7, #6]
+ 80002b0:	4613      	mov	r3, r2
+ 80002b2:	005b      	lsls	r3, r3, #1
+ 80002b4:	4413      	add	r3, r2
+ 80002b6:	00db      	lsls	r3, r3, #3
+ 80002b8:	440b      	add	r3, r1
+ 80002ba:	3310      	adds	r3, #16
+ 80002bc:	681b      	ldr	r3, [r3, #0]
+ 80002be:	79fa      	ldrb	r2, [r7, #7]
+ 80002c0:	4917      	ldr	r1, [pc, #92]	; (8000320 <DMA_vSetDMAStreamChannelSelection+0x8c>)
+ 80002c2:	f851 0022 	ldr.w	r0, [r1, r2, lsl #2]
+ 80002c6:	79ba      	ldrb	r2, [r7, #6]
+ 80002c8:	f023 6160 	bic.w	r1, r3, #234881024	; 0xe000000
+ 80002cc:	4613      	mov	r3, r2
+ 80002ce:	005b      	lsls	r3, r3, #1
+ 80002d0:	4413      	add	r3, r2
+ 80002d2:	00db      	lsls	r3, r3, #3
+ 80002d4:	4403      	add	r3, r0
+ 80002d6:	3310      	adds	r3, #16
+ 80002d8:	6019      	str	r1, [r3, #0]
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxCR |= (copy_eChannel_Selection<<DMA_SxCR_CHSEL);
+ 80002da:	79fb      	ldrb	r3, [r7, #7]
+ 80002dc:	4a10      	ldr	r2, [pc, #64]	; (8000320 <DMA_vSetDMAStreamChannelSelection+0x8c>)
+ 80002de:	f852 1023 	ldr.w	r1, [r2, r3, lsl #2]
+ 80002e2:	79ba      	ldrb	r2, [r7, #6]
+ 80002e4:	4613      	mov	r3, r2
+ 80002e6:	005b      	lsls	r3, r3, #1
+ 80002e8:	4413      	add	r3, r2
+ 80002ea:	00db      	lsls	r3, r3, #3
+ 80002ec:	440b      	add	r3, r1
+ 80002ee:	3310      	adds	r3, #16
+ 80002f0:	681b      	ldr	r3, [r3, #0]
+ 80002f2:	797a      	ldrb	r2, [r7, #5]
+ 80002f4:	0652      	lsls	r2, r2, #25
+ 80002f6:	4614      	mov	r4, r2
+ 80002f8:	79fa      	ldrb	r2, [r7, #7]
+ 80002fa:	4909      	ldr	r1, [pc, #36]	; (8000320 <DMA_vSetDMAStreamChannelSelection+0x8c>)
+ 80002fc:	f851 0022 	ldr.w	r0, [r1, r2, lsl #2]
+ 8000300:	79ba      	ldrb	r2, [r7, #6]
+ 8000302:	ea43 0104 	orr.w	r1, r3, r4
+ 8000306:	4613      	mov	r3, r2
+ 8000308:	005b      	lsls	r3, r3, #1
+ 800030a:	4413      	add	r3, r2
+ 800030c:	00db      	lsls	r3, r3, #3
+ 800030e:	4403      	add	r3, r0
+ 8000310:	3310      	adds	r3, #16
+ 8000312:	6019      	str	r1, [r3, #0]
+}
+ 8000314:	bf00      	nop
+ 8000316:	3708      	adds	r7, #8
+ 8000318:	46bd      	mov	sp, r7
+ 800031a:	bc90      	pop	{r4, r7}
+ 800031c:	4770      	bx	lr
+ 800031e:	bf00      	nop
+ 8000320:	20000000 	.word	0x20000000
+
+08000324 <DMA_vSetDMAStreamPriorityLevel>:
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxCR &=~ (0b1<<DMA_SxCR_DBM);
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxCR |= (copy_double_buffer_mode<<DMA_SxCR_DBM);
+
+}
+void DMA_vSetDMAStreamPriorityLevel(DMA_Peripheral_Number_t copy_eDMA_Peripheral_Number, Stream_Selection_t copy_eStream_Selection,priority_level_t copy_epriority_level)
+{
+ 8000324:	b490      	push	{r4, r7}
+ 8000326:	b082      	sub	sp, #8
+ 8000328:	af00      	add	r7, sp, #0
+ 800032a:	4603      	mov	r3, r0
+ 800032c:	71fb      	strb	r3, [r7, #7]
+ 800032e:	460b      	mov	r3, r1
+ 8000330:	71bb      	strb	r3, [r7, #6]
+ 8000332:	4613      	mov	r3, r2
+ 8000334:	717b      	strb	r3, [r7, #5]
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxCR &=~ (0b11<<DMA_SxCR_PL);
+ 8000336:	79fb      	ldrb	r3, [r7, #7]
+ 8000338:	4a1d      	ldr	r2, [pc, #116]	; (80003b0 <DMA_vSetDMAStreamPriorityLevel+0x8c>)
+ 800033a:	f852 1023 	ldr.w	r1, [r2, r3, lsl #2]
+ 800033e:	79ba      	ldrb	r2, [r7, #6]
+ 8000340:	4613      	mov	r3, r2
+ 8000342:	005b      	lsls	r3, r3, #1
+ 8000344:	4413      	add	r3, r2
+ 8000346:	00db      	lsls	r3, r3, #3
+ 8000348:	440b      	add	r3, r1
+ 800034a:	3310      	adds	r3, #16
+ 800034c:	681b      	ldr	r3, [r3, #0]
+ 800034e:	79fa      	ldrb	r2, [r7, #7]
+ 8000350:	4917      	ldr	r1, [pc, #92]	; (80003b0 <DMA_vSetDMAStreamPriorityLevel+0x8c>)
+ 8000352:	f851 0022 	ldr.w	r0, [r1, r2, lsl #2]
+ 8000356:	79ba      	ldrb	r2, [r7, #6]
+ 8000358:	f423 3140 	bic.w	r1, r3, #196608	; 0x30000
+ 800035c:	4613      	mov	r3, r2
+ 800035e:	005b      	lsls	r3, r3, #1
+ 8000360:	4413      	add	r3, r2
+ 8000362:	00db      	lsls	r3, r3, #3
+ 8000364:	4403      	add	r3, r0
+ 8000366:	3310      	adds	r3, #16
+ 8000368:	6019      	str	r1, [r3, #0]
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxCR |= (copy_epriority_level<<DMA_SxCR_PL);
+ 800036a:	79fb      	ldrb	r3, [r7, #7]
+ 800036c:	4a10      	ldr	r2, [pc, #64]	; (80003b0 <DMA_vSetDMAStreamPriorityLevel+0x8c>)
+ 800036e:	f852 1023 	ldr.w	r1, [r2, r3, lsl #2]
+ 8000372:	79ba      	ldrb	r2, [r7, #6]
+ 8000374:	4613      	mov	r3, r2
+ 8000376:	005b      	lsls	r3, r3, #1
+ 8000378:	4413      	add	r3, r2
+ 800037a:	00db      	lsls	r3, r3, #3
+ 800037c:	440b      	add	r3, r1
+ 800037e:	3310      	adds	r3, #16
+ 8000380:	681b      	ldr	r3, [r3, #0]
+ 8000382:	797a      	ldrb	r2, [r7, #5]
+ 8000384:	0412      	lsls	r2, r2, #16
+ 8000386:	4614      	mov	r4, r2
+ 8000388:	79fa      	ldrb	r2, [r7, #7]
+ 800038a:	4909      	ldr	r1, [pc, #36]	; (80003b0 <DMA_vSetDMAStreamPriorityLevel+0x8c>)
+ 800038c:	f851 0022 	ldr.w	r0, [r1, r2, lsl #2]
+ 8000390:	79ba      	ldrb	r2, [r7, #6]
+ 8000392:	ea43 0104 	orr.w	r1, r3, r4
+ 8000396:	4613      	mov	r3, r2
+ 8000398:	005b      	lsls	r3, r3, #1
+ 800039a:	4413      	add	r3, r2
+ 800039c:	00db      	lsls	r3, r3, #3
+ 800039e:	4403      	add	r3, r0
+ 80003a0:	3310      	adds	r3, #16
+ 80003a2:	6019      	str	r1, [r3, #0]
+
+}
+ 80003a4:	bf00      	nop
+ 80003a6:	3708      	adds	r7, #8
+ 80003a8:	46bd      	mov	sp, r7
+ 80003aa:	bc90      	pop	{r4, r7}
+ 80003ac:	4770      	bx	lr
+ 80003ae:	bf00      	nop
+ 80003b0:	20000000 	.word	0x20000000
+
+080003b4 <DMA_vSetDMAMemoryIncrementMode>:
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxCR |= (copy_eP_M_SIZE<<DMA_SxCR_PSIZE);
+
+
+}
+void DMA_vSetDMAMemoryIncrementMode(DMA_Peripheral_Number_t copy_eDMA_Peripheral_Number, Stream_Selection_t copy_eStream_Selection,Memory_Increment_Mode_t copy_eMemory_Increment_Mode)
+{
+ 80003b4:	b490      	push	{r4, r7}
+ 80003b6:	b082      	sub	sp, #8
+ 80003b8:	af00      	add	r7, sp, #0
+ 80003ba:	4603      	mov	r3, r0
+ 80003bc:	71fb      	strb	r3, [r7, #7]
+ 80003be:	460b      	mov	r3, r1
+ 80003c0:	71bb      	strb	r3, [r7, #6]
+ 80003c2:	4613      	mov	r3, r2
+ 80003c4:	717b      	strb	r3, [r7, #5]
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxCR &=~ (0b1<<DMA_SxCR_MINC);
+ 80003c6:	79fb      	ldrb	r3, [r7, #7]
+ 80003c8:	4a1d      	ldr	r2, [pc, #116]	; (8000440 <DMA_vSetDMAMemoryIncrementMode+0x8c>)
+ 80003ca:	f852 1023 	ldr.w	r1, [r2, r3, lsl #2]
+ 80003ce:	79ba      	ldrb	r2, [r7, #6]
+ 80003d0:	4613      	mov	r3, r2
+ 80003d2:	005b      	lsls	r3, r3, #1
+ 80003d4:	4413      	add	r3, r2
+ 80003d6:	00db      	lsls	r3, r3, #3
+ 80003d8:	440b      	add	r3, r1
+ 80003da:	3310      	adds	r3, #16
+ 80003dc:	681b      	ldr	r3, [r3, #0]
+ 80003de:	79fa      	ldrb	r2, [r7, #7]
+ 80003e0:	4917      	ldr	r1, [pc, #92]	; (8000440 <DMA_vSetDMAMemoryIncrementMode+0x8c>)
+ 80003e2:	f851 0022 	ldr.w	r0, [r1, r2, lsl #2]
+ 80003e6:	79ba      	ldrb	r2, [r7, #6]
+ 80003e8:	f423 6180 	bic.w	r1, r3, #1024	; 0x400
+ 80003ec:	4613      	mov	r3, r2
+ 80003ee:	005b      	lsls	r3, r3, #1
+ 80003f0:	4413      	add	r3, r2
+ 80003f2:	00db      	lsls	r3, r3, #3
+ 80003f4:	4403      	add	r3, r0
+ 80003f6:	3310      	adds	r3, #16
+ 80003f8:	6019      	str	r1, [r3, #0]
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxCR |= (copy_eMemory_Increment_Mode<<DMA_SxCR_MINC);
+ 80003fa:	79fb      	ldrb	r3, [r7, #7]
+ 80003fc:	4a10      	ldr	r2, [pc, #64]	; (8000440 <DMA_vSetDMAMemoryIncrementMode+0x8c>)
+ 80003fe:	f852 1023 	ldr.w	r1, [r2, r3, lsl #2]
+ 8000402:	79ba      	ldrb	r2, [r7, #6]
+ 8000404:	4613      	mov	r3, r2
+ 8000406:	005b      	lsls	r3, r3, #1
+ 8000408:	4413      	add	r3, r2
+ 800040a:	00db      	lsls	r3, r3, #3
+ 800040c:	440b      	add	r3, r1
+ 800040e:	3310      	adds	r3, #16
+ 8000410:	681b      	ldr	r3, [r3, #0]
+ 8000412:	797a      	ldrb	r2, [r7, #5]
+ 8000414:	0292      	lsls	r2, r2, #10
+ 8000416:	4614      	mov	r4, r2
+ 8000418:	79fa      	ldrb	r2, [r7, #7]
+ 800041a:	4909      	ldr	r1, [pc, #36]	; (8000440 <DMA_vSetDMAMemoryIncrementMode+0x8c>)
+ 800041c:	f851 0022 	ldr.w	r0, [r1, r2, lsl #2]
+ 8000420:	79ba      	ldrb	r2, [r7, #6]
+ 8000422:	ea43 0104 	orr.w	r1, r3, r4
+ 8000426:	4613      	mov	r3, r2
+ 8000428:	005b      	lsls	r3, r3, #1
+ 800042a:	4413      	add	r3, r2
+ 800042c:	00db      	lsls	r3, r3, #3
+ 800042e:	4403      	add	r3, r0
+ 8000430:	3310      	adds	r3, #16
+ 8000432:	6019      	str	r1, [r3, #0]
+
+}
+ 8000434:	bf00      	nop
+ 8000436:	3708      	adds	r7, #8
+ 8000438:	46bd      	mov	sp, r7
+ 800043a:	bc90      	pop	{r4, r7}
+ 800043c:	4770      	bx	lr
+ 800043e:	bf00      	nop
+ 8000440:	20000000 	.word	0x20000000
+
+08000444 <DMA_vSetDMAPeripheralIncrementMode>:
+void DMA_vSetDMAPeripheralIncrementMode(DMA_Peripheral_Number_t copy_eDMA_Peripheral_Number, Stream_Selection_t copy_eStream_Selection,peripheral_Increment_Mode_t copy_peripheral_Increment_Mode)
+{
+ 8000444:	b490      	push	{r4, r7}
+ 8000446:	b082      	sub	sp, #8
+ 8000448:	af00      	add	r7, sp, #0
+ 800044a:	4603      	mov	r3, r0
+ 800044c:	71fb      	strb	r3, [r7, #7]
+ 800044e:	460b      	mov	r3, r1
+ 8000450:	71bb      	strb	r3, [r7, #6]
+ 8000452:	4613      	mov	r3, r2
+ 8000454:	717b      	strb	r3, [r7, #5]
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxCR &=~ (0b1<<DMA_SxCR_PINC);
+ 8000456:	79fb      	ldrb	r3, [r7, #7]
+ 8000458:	4a1d      	ldr	r2, [pc, #116]	; (80004d0 <DMA_vSetDMAPeripheralIncrementMode+0x8c>)
+ 800045a:	f852 1023 	ldr.w	r1, [r2, r3, lsl #2]
+ 800045e:	79ba      	ldrb	r2, [r7, #6]
+ 8000460:	4613      	mov	r3, r2
+ 8000462:	005b      	lsls	r3, r3, #1
+ 8000464:	4413      	add	r3, r2
+ 8000466:	00db      	lsls	r3, r3, #3
+ 8000468:	440b      	add	r3, r1
+ 800046a:	3310      	adds	r3, #16
+ 800046c:	681b      	ldr	r3, [r3, #0]
+ 800046e:	79fa      	ldrb	r2, [r7, #7]
+ 8000470:	4917      	ldr	r1, [pc, #92]	; (80004d0 <DMA_vSetDMAPeripheralIncrementMode+0x8c>)
+ 8000472:	f851 0022 	ldr.w	r0, [r1, r2, lsl #2]
+ 8000476:	79ba      	ldrb	r2, [r7, #6]
+ 8000478:	f423 7100 	bic.w	r1, r3, #512	; 0x200
+ 800047c:	4613      	mov	r3, r2
+ 800047e:	005b      	lsls	r3, r3, #1
+ 8000480:	4413      	add	r3, r2
+ 8000482:	00db      	lsls	r3, r3, #3
+ 8000484:	4403      	add	r3, r0
+ 8000486:	3310      	adds	r3, #16
+ 8000488:	6019      	str	r1, [r3, #0]
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxCR |= (copy_peripheral_Increment_Mode<<DMA_SxCR_PINC);
+ 800048a:	79fb      	ldrb	r3, [r7, #7]
+ 800048c:	4a10      	ldr	r2, [pc, #64]	; (80004d0 <DMA_vSetDMAPeripheralIncrementMode+0x8c>)
+ 800048e:	f852 1023 	ldr.w	r1, [r2, r3, lsl #2]
+ 8000492:	79ba      	ldrb	r2, [r7, #6]
+ 8000494:	4613      	mov	r3, r2
+ 8000496:	005b      	lsls	r3, r3, #1
+ 8000498:	4413      	add	r3, r2
+ 800049a:	00db      	lsls	r3, r3, #3
+ 800049c:	440b      	add	r3, r1
+ 800049e:	3310      	adds	r3, #16
+ 80004a0:	681b      	ldr	r3, [r3, #0]
+ 80004a2:	797a      	ldrb	r2, [r7, #5]
+ 80004a4:	0252      	lsls	r2, r2, #9
+ 80004a6:	4614      	mov	r4, r2
+ 80004a8:	79fa      	ldrb	r2, [r7, #7]
+ 80004aa:	4909      	ldr	r1, [pc, #36]	; (80004d0 <DMA_vSetDMAPeripheralIncrementMode+0x8c>)
+ 80004ac:	f851 0022 	ldr.w	r0, [r1, r2, lsl #2]
+ 80004b0:	79ba      	ldrb	r2, [r7, #6]
+ 80004b2:	ea43 0104 	orr.w	r1, r3, r4
+ 80004b6:	4613      	mov	r3, r2
+ 80004b8:	005b      	lsls	r3, r3, #1
+ 80004ba:	4413      	add	r3, r2
+ 80004bc:	00db      	lsls	r3, r3, #3
+ 80004be:	4403      	add	r3, r0
+ 80004c0:	3310      	adds	r3, #16
+ 80004c2:	6019      	str	r1, [r3, #0]
+
+}
+ 80004c4:	bf00      	nop
+ 80004c6:	3708      	adds	r7, #8
+ 80004c8:	46bd      	mov	sp, r7
+ 80004ca:	bc90      	pop	{r4, r7}
+ 80004cc:	4770      	bx	lr
+ 80004ce:	bf00      	nop
+ 80004d0:	20000000 	.word	0x20000000
+
+080004d4 <DMA_vSetDMACircularMode>:
+void DMA_vSetDMACircularMode(DMA_Peripheral_Number_t copy_eDMA_Peripheral_Number, Stream_Selection_t copy_eStream_Selection,circular_mode_t copy_eCircular_mode)
+{
+ 80004d4:	b490      	push	{r4, r7}
+ 80004d6:	b082      	sub	sp, #8
+ 80004d8:	af00      	add	r7, sp, #0
+ 80004da:	4603      	mov	r3, r0
+ 80004dc:	71fb      	strb	r3, [r7, #7]
+ 80004de:	460b      	mov	r3, r1
+ 80004e0:	71bb      	strb	r3, [r7, #6]
+ 80004e2:	4613      	mov	r3, r2
+ 80004e4:	717b      	strb	r3, [r7, #5]
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxCR &=~ (0b1<<DMA_SxCR_CIRC);
+ 80004e6:	79fb      	ldrb	r3, [r7, #7]
+ 80004e8:	4a1d      	ldr	r2, [pc, #116]	; (8000560 <DMA_vSetDMACircularMode+0x8c>)
+ 80004ea:	f852 1023 	ldr.w	r1, [r2, r3, lsl #2]
+ 80004ee:	79ba      	ldrb	r2, [r7, #6]
+ 80004f0:	4613      	mov	r3, r2
+ 80004f2:	005b      	lsls	r3, r3, #1
+ 80004f4:	4413      	add	r3, r2
+ 80004f6:	00db      	lsls	r3, r3, #3
+ 80004f8:	440b      	add	r3, r1
+ 80004fa:	3310      	adds	r3, #16
+ 80004fc:	681b      	ldr	r3, [r3, #0]
+ 80004fe:	79fa      	ldrb	r2, [r7, #7]
+ 8000500:	4917      	ldr	r1, [pc, #92]	; (8000560 <DMA_vSetDMACircularMode+0x8c>)
+ 8000502:	f851 0022 	ldr.w	r0, [r1, r2, lsl #2]
+ 8000506:	79ba      	ldrb	r2, [r7, #6]
+ 8000508:	f423 7180 	bic.w	r1, r3, #256	; 0x100
+ 800050c:	4613      	mov	r3, r2
+ 800050e:	005b      	lsls	r3, r3, #1
+ 8000510:	4413      	add	r3, r2
+ 8000512:	00db      	lsls	r3, r3, #3
+ 8000514:	4403      	add	r3, r0
+ 8000516:	3310      	adds	r3, #16
+ 8000518:	6019      	str	r1, [r3, #0]
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxCR |= (copy_eCircular_mode<<DMA_SxCR_CIRC);
+ 800051a:	79fb      	ldrb	r3, [r7, #7]
+ 800051c:	4a10      	ldr	r2, [pc, #64]	; (8000560 <DMA_vSetDMACircularMode+0x8c>)
+ 800051e:	f852 1023 	ldr.w	r1, [r2, r3, lsl #2]
+ 8000522:	79ba      	ldrb	r2, [r7, #6]
+ 8000524:	4613      	mov	r3, r2
+ 8000526:	005b      	lsls	r3, r3, #1
+ 8000528:	4413      	add	r3, r2
+ 800052a:	00db      	lsls	r3, r3, #3
+ 800052c:	440b      	add	r3, r1
+ 800052e:	3310      	adds	r3, #16
+ 8000530:	681b      	ldr	r3, [r3, #0]
+ 8000532:	797a      	ldrb	r2, [r7, #5]
+ 8000534:	0212      	lsls	r2, r2, #8
+ 8000536:	4614      	mov	r4, r2
+ 8000538:	79fa      	ldrb	r2, [r7, #7]
+ 800053a:	4909      	ldr	r1, [pc, #36]	; (8000560 <DMA_vSetDMACircularMode+0x8c>)
+ 800053c:	f851 0022 	ldr.w	r0, [r1, r2, lsl #2]
+ 8000540:	79ba      	ldrb	r2, [r7, #6]
+ 8000542:	ea43 0104 	orr.w	r1, r3, r4
+ 8000546:	4613      	mov	r3, r2
+ 8000548:	005b      	lsls	r3, r3, #1
+ 800054a:	4413      	add	r3, r2
+ 800054c:	00db      	lsls	r3, r3, #3
+ 800054e:	4403      	add	r3, r0
+ 8000550:	3310      	adds	r3, #16
+ 8000552:	6019      	str	r1, [r3, #0]
+
+}
+ 8000554:	bf00      	nop
+ 8000556:	3708      	adds	r7, #8
+ 8000558:	46bd      	mov	sp, r7
+ 800055a:	bc90      	pop	{r4, r7}
+ 800055c:	4770      	bx	lr
+ 800055e:	bf00      	nop
+ 8000560:	20000000 	.word	0x20000000
+
+08000564 <DMA_vSetDMAStreamDataTransferDirection>:
+void DMA_vSetDMAStreamDataTransferDirection(DMA_Peripheral_Number_t copy_eDMA_Peripheral_Number, Stream_Selection_t copy_eStream_Selection,data_transfer_direction_t copy_edata_transfer_direction)
+{
+ 8000564:	b490      	push	{r4, r7}
+ 8000566:	b082      	sub	sp, #8
+ 8000568:	af00      	add	r7, sp, #0
+ 800056a:	4603      	mov	r3, r0
+ 800056c:	71fb      	strb	r3, [r7, #7]
+ 800056e:	460b      	mov	r3, r1
+ 8000570:	71bb      	strb	r3, [r7, #6]
+ 8000572:	4613      	mov	r3, r2
+ 8000574:	717b      	strb	r3, [r7, #5]
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxCR &=~ (0b11<<DMA_SxCR_DIR);
+ 8000576:	79fb      	ldrb	r3, [r7, #7]
+ 8000578:	4a1d      	ldr	r2, [pc, #116]	; (80005f0 <DMA_vSetDMAStreamDataTransferDirection+0x8c>)
+ 800057a:	f852 1023 	ldr.w	r1, [r2, r3, lsl #2]
+ 800057e:	79ba      	ldrb	r2, [r7, #6]
+ 8000580:	4613      	mov	r3, r2
+ 8000582:	005b      	lsls	r3, r3, #1
+ 8000584:	4413      	add	r3, r2
+ 8000586:	00db      	lsls	r3, r3, #3
+ 8000588:	440b      	add	r3, r1
+ 800058a:	3310      	adds	r3, #16
+ 800058c:	681b      	ldr	r3, [r3, #0]
+ 800058e:	79fa      	ldrb	r2, [r7, #7]
+ 8000590:	4917      	ldr	r1, [pc, #92]	; (80005f0 <DMA_vSetDMAStreamDataTransferDirection+0x8c>)
+ 8000592:	f851 0022 	ldr.w	r0, [r1, r2, lsl #2]
+ 8000596:	79ba      	ldrb	r2, [r7, #6]
+ 8000598:	f023 01c0 	bic.w	r1, r3, #192	; 0xc0
+ 800059c:	4613      	mov	r3, r2
+ 800059e:	005b      	lsls	r3, r3, #1
+ 80005a0:	4413      	add	r3, r2
+ 80005a2:	00db      	lsls	r3, r3, #3
+ 80005a4:	4403      	add	r3, r0
+ 80005a6:	3310      	adds	r3, #16
+ 80005a8:	6019      	str	r1, [r3, #0]
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxCR |= (copy_edata_transfer_direction<<DMA_SxCR_DIR);
+ 80005aa:	79fb      	ldrb	r3, [r7, #7]
+ 80005ac:	4a10      	ldr	r2, [pc, #64]	; (80005f0 <DMA_vSetDMAStreamDataTransferDirection+0x8c>)
+ 80005ae:	f852 1023 	ldr.w	r1, [r2, r3, lsl #2]
+ 80005b2:	79ba      	ldrb	r2, [r7, #6]
+ 80005b4:	4613      	mov	r3, r2
+ 80005b6:	005b      	lsls	r3, r3, #1
+ 80005b8:	4413      	add	r3, r2
+ 80005ba:	00db      	lsls	r3, r3, #3
+ 80005bc:	440b      	add	r3, r1
+ 80005be:	3310      	adds	r3, #16
+ 80005c0:	681b      	ldr	r3, [r3, #0]
+ 80005c2:	797a      	ldrb	r2, [r7, #5]
+ 80005c4:	0192      	lsls	r2, r2, #6
+ 80005c6:	4614      	mov	r4, r2
+ 80005c8:	79fa      	ldrb	r2, [r7, #7]
+ 80005ca:	4909      	ldr	r1, [pc, #36]	; (80005f0 <DMA_vSetDMAStreamDataTransferDirection+0x8c>)
+ 80005cc:	f851 0022 	ldr.w	r0, [r1, r2, lsl #2]
+ 80005d0:	79ba      	ldrb	r2, [r7, #6]
+ 80005d2:	ea43 0104 	orr.w	r1, r3, r4
+ 80005d6:	4613      	mov	r3, r2
+ 80005d8:	005b      	lsls	r3, r3, #1
+ 80005da:	4413      	add	r3, r2
+ 80005dc:	00db      	lsls	r3, r3, #3
+ 80005de:	4403      	add	r3, r0
+ 80005e0:	3310      	adds	r3, #16
+ 80005e2:	6019      	str	r1, [r3, #0]
+
+
+}
+ 80005e4:	bf00      	nop
+ 80005e6:	3708      	adds	r7, #8
+ 80005e8:	46bd      	mov	sp, r7
+ 80005ea:	bc90      	pop	{r4, r7}
+ 80005ec:	4770      	bx	lr
+ 80005ee:	bf00      	nop
+ 80005f0:	20000000 	.word	0x20000000
+
+080005f4 <DMA_vEnableStream>:
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxCR &=~ (0b1<<DMA_SxCR_DMEIE);
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxCR |= (copy_edirect_mode_error_interrupt_enable<<DMA_SxCR_DMEIE);
+
+}
+void DMA_vEnableStream(DMA_Peripheral_Number_t copy_eDMA_Peripheral_Number, Stream_Selection_t copy_eStream_Selection, stream_enable_t copy_estream_enable)
+{
+ 80005f4:	b480      	push	{r7}
+ 80005f6:	b083      	sub	sp, #12
+ 80005f8:	af00      	add	r7, sp, #0
+ 80005fa:	4603      	mov	r3, r0
+ 80005fc:	71fb      	strb	r3, [r7, #7]
+ 80005fe:	460b      	mov	r3, r1
+ 8000600:	71bb      	strb	r3, [r7, #6]
+ 8000602:	4613      	mov	r3, r2
+ 8000604:	717b      	strb	r3, [r7, #5]
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxCR &=~ (0b1<<DMA_SxCR_EN);
+ 8000606:	79fb      	ldrb	r3, [r7, #7]
+ 8000608:	4a1c      	ldr	r2, [pc, #112]	; (800067c <DMA_vEnableStream+0x88>)
+ 800060a:	f852 1023 	ldr.w	r1, [r2, r3, lsl #2]
+ 800060e:	79ba      	ldrb	r2, [r7, #6]
+ 8000610:	4613      	mov	r3, r2
+ 8000612:	005b      	lsls	r3, r3, #1
+ 8000614:	4413      	add	r3, r2
+ 8000616:	00db      	lsls	r3, r3, #3
+ 8000618:	440b      	add	r3, r1
+ 800061a:	3310      	adds	r3, #16
+ 800061c:	681b      	ldr	r3, [r3, #0]
+ 800061e:	79fa      	ldrb	r2, [r7, #7]
+ 8000620:	4916      	ldr	r1, [pc, #88]	; (800067c <DMA_vEnableStream+0x88>)
+ 8000622:	f851 0022 	ldr.w	r0, [r1, r2, lsl #2]
+ 8000626:	79ba      	ldrb	r2, [r7, #6]
+ 8000628:	f023 0101 	bic.w	r1, r3, #1
+ 800062c:	4613      	mov	r3, r2
+ 800062e:	005b      	lsls	r3, r3, #1
+ 8000630:	4413      	add	r3, r2
+ 8000632:	00db      	lsls	r3, r3, #3
+ 8000634:	4403      	add	r3, r0
+ 8000636:	3310      	adds	r3, #16
+ 8000638:	6019      	str	r1, [r3, #0]
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxCR |= (copy_estream_enable<<DMA_SxCR_EN);
+ 800063a:	79fb      	ldrb	r3, [r7, #7]
+ 800063c:	4a0f      	ldr	r2, [pc, #60]	; (800067c <DMA_vEnableStream+0x88>)
+ 800063e:	f852 1023 	ldr.w	r1, [r2, r3, lsl #2]
+ 8000642:	79ba      	ldrb	r2, [r7, #6]
+ 8000644:	4613      	mov	r3, r2
+ 8000646:	005b      	lsls	r3, r3, #1
+ 8000648:	4413      	add	r3, r2
+ 800064a:	00db      	lsls	r3, r3, #3
+ 800064c:	440b      	add	r3, r1
+ 800064e:	3310      	adds	r3, #16
+ 8000650:	6819      	ldr	r1, [r3, #0]
+ 8000652:	797b      	ldrb	r3, [r7, #5]
+ 8000654:	79fa      	ldrb	r2, [r7, #7]
+ 8000656:	4809      	ldr	r0, [pc, #36]	; (800067c <DMA_vEnableStream+0x88>)
+ 8000658:	f850 0022 	ldr.w	r0, [r0, r2, lsl #2]
+ 800065c:	79ba      	ldrb	r2, [r7, #6]
+ 800065e:	4319      	orrs	r1, r3
+ 8000660:	4613      	mov	r3, r2
+ 8000662:	005b      	lsls	r3, r3, #1
+ 8000664:	4413      	add	r3, r2
+ 8000666:	00db      	lsls	r3, r3, #3
+ 8000668:	4403      	add	r3, r0
+ 800066a:	3310      	adds	r3, #16
+ 800066c:	6019      	str	r1, [r3, #0]
+
+}
+ 800066e:	bf00      	nop
+ 8000670:	370c      	adds	r7, #12
+ 8000672:	46bd      	mov	sp, r7
+ 8000674:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8000678:	4770      	bx	lr
+ 800067a:	bf00      	nop
+ 800067c:	20000000 	.word	0x20000000
+
+08000680 <DMA_vSetNumberOfDataToBeTransefered>:
+void DMA_vSetNumberOfDataToBeTransefered(DMA_Peripheral_Number_t copy_eDMA_Peripheral_Number, Stream_Selection_t copy_eStream_Selection,uint16_t copy_u16NumberOfData)
+{
+ 8000680:	b480      	push	{r7}
+ 8000682:	b083      	sub	sp, #12
+ 8000684:	af00      	add	r7, sp, #0
+ 8000686:	4603      	mov	r3, r0
+ 8000688:	71fb      	strb	r3, [r7, #7]
+ 800068a:	460b      	mov	r3, r1
+ 800068c:	71bb      	strb	r3, [r7, #6]
+ 800068e:	4613      	mov	r3, r2
+ 8000690:	80bb      	strh	r3, [r7, #4]
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxNDTR = (copy_u16NumberOfData<<0);
+ 8000692:	79fb      	ldrb	r3, [r7, #7]
+ 8000694:	4a08      	ldr	r2, [pc, #32]	; (80006b8 <DMA_vSetNumberOfDataToBeTransefered+0x38>)
+ 8000696:	f852 0023 	ldr.w	r0, [r2, r3, lsl #2]
+ 800069a:	79ba      	ldrb	r2, [r7, #6]
+ 800069c:	88b9      	ldrh	r1, [r7, #4]
+ 800069e:	4613      	mov	r3, r2
+ 80006a0:	005b      	lsls	r3, r3, #1
+ 80006a2:	4413      	add	r3, r2
+ 80006a4:	00db      	lsls	r3, r3, #3
+ 80006a6:	4403      	add	r3, r0
+ 80006a8:	3314      	adds	r3, #20
+ 80006aa:	6019      	str	r1, [r3, #0]
+
+}
+ 80006ac:	bf00      	nop
+ 80006ae:	370c      	adds	r7, #12
+ 80006b0:	46bd      	mov	sp, r7
+ 80006b2:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80006b6:	4770      	bx	lr
+ 80006b8:	20000000 	.word	0x20000000
+
+080006bc <DMA_vSetAddressOfPeripheral>:
+void DMA_vSetAddressOfPeripheral(DMA_Peripheral_Number_t copy_eDMA_Peripheral_Number, Stream_Selection_t copy_eStream_Selection,uint32_t copy_u32AddressOfPeripheral)
+{
+ 80006bc:	b480      	push	{r7}
+ 80006be:	b083      	sub	sp, #12
+ 80006c0:	af00      	add	r7, sp, #0
+ 80006c2:	4603      	mov	r3, r0
+ 80006c4:	603a      	str	r2, [r7, #0]
+ 80006c6:	71fb      	strb	r3, [r7, #7]
+ 80006c8:	460b      	mov	r3, r1
+ 80006ca:	71bb      	strb	r3, [r7, #6]
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxPAR = (copy_u32AddressOfPeripheral<<0);
+ 80006cc:	79fb      	ldrb	r3, [r7, #7]
+ 80006ce:	4a09      	ldr	r2, [pc, #36]	; (80006f4 <DMA_vSetAddressOfPeripheral+0x38>)
+ 80006d0:	f852 1023 	ldr.w	r1, [r2, r3, lsl #2]
+ 80006d4:	79bb      	ldrb	r3, [r7, #6]
+ 80006d6:	1c5a      	adds	r2, r3, #1
+ 80006d8:	4613      	mov	r3, r2
+ 80006da:	005b      	lsls	r3, r3, #1
+ 80006dc:	4413      	add	r3, r2
+ 80006de:	00db      	lsls	r3, r3, #3
+ 80006e0:	440b      	add	r3, r1
+ 80006e2:	683a      	ldr	r2, [r7, #0]
+ 80006e4:	601a      	str	r2, [r3, #0]
+
+}
+ 80006e6:	bf00      	nop
+ 80006e8:	370c      	adds	r7, #12
+ 80006ea:	46bd      	mov	sp, r7
+ 80006ec:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80006f0:	4770      	bx	lr
+ 80006f2:	bf00      	nop
+ 80006f4:	20000000 	.word	0x20000000
+
+080006f8 <DMA_vSetAddressOfMemory0>:
+void DMA_vSetAddressOfMemory0(DMA_Peripheral_Number_t copy_eDMA_Peripheral_Number, Stream_Selection_t copy_eStream_Selection,uint32_t copy_u32AddressOfMemory0)
+{
+ 80006f8:	b480      	push	{r7}
+ 80006fa:	b083      	sub	sp, #12
+ 80006fc:	af00      	add	r7, sp, #0
+ 80006fe:	4603      	mov	r3, r0
+ 8000700:	603a      	str	r2, [r7, #0]
+ 8000702:	71fb      	strb	r3, [r7, #7]
+ 8000704:	460b      	mov	r3, r1
+ 8000706:	71bb      	strb	r3, [r7, #6]
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxM0AR = (copy_u32AddressOfMemory0<<0);
+ 8000708:	79fb      	ldrb	r3, [r7, #7]
+ 800070a:	4a09      	ldr	r2, [pc, #36]	; (8000730 <DMA_vSetAddressOfMemory0+0x38>)
+ 800070c:	f852 1023 	ldr.w	r1, [r2, r3, lsl #2]
+ 8000710:	79bb      	ldrb	r3, [r7, #6]
+ 8000712:	1c5a      	adds	r2, r3, #1
+ 8000714:	4613      	mov	r3, r2
+ 8000716:	005b      	lsls	r3, r3, #1
+ 8000718:	4413      	add	r3, r2
+ 800071a:	00db      	lsls	r3, r3, #3
+ 800071c:	440b      	add	r3, r1
+ 800071e:	3304      	adds	r3, #4
+ 8000720:	683a      	ldr	r2, [r7, #0]
+ 8000722:	601a      	str	r2, [r3, #0]
+
+}
+ 8000724:	bf00      	nop
+ 8000726:	370c      	adds	r7, #12
+ 8000728:	46bd      	mov	sp, r7
+ 800072a:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 800072e:	4770      	bx	lr
+ 8000730:	20000000 	.word	0x20000000
+
+08000734 <DMA_vSetDirectModeStatus>:
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxFCR |= (copy_eFIFO_error_interrupt_enable<<DMA_SxFCR_FEIE);
+
+}
+//uint8_t DMA_u8GetFIFOStatus();
+void DMA_vSetDirectModeStatus(DMA_Peripheral_Number_t copy_eDMA_Peripheral_Number, Stream_Selection_t copy_eStream_Selection,direct_mode_disable_t copy_edirect_mode_disable)
+{
+ 8000734:	b490      	push	{r4, r7}
+ 8000736:	b082      	sub	sp, #8
+ 8000738:	af00      	add	r7, sp, #0
+ 800073a:	4603      	mov	r3, r0
+ 800073c:	71fb      	strb	r3, [r7, #7]
+ 800073e:	460b      	mov	r3, r1
+ 8000740:	71bb      	strb	r3, [r7, #6]
+ 8000742:	4613      	mov	r3, r2
+ 8000744:	717b      	strb	r3, [r7, #5]
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxFCR &=~ (0b1<<DMA_SxFCR_DMDIS);
+ 8000746:	79fb      	ldrb	r3, [r7, #7]
+ 8000748:	4a1d      	ldr	r2, [pc, #116]	; (80007c0 <DMA_vSetDirectModeStatus+0x8c>)
+ 800074a:	f852 1023 	ldr.w	r1, [r2, r3, lsl #2]
+ 800074e:	79ba      	ldrb	r2, [r7, #6]
+ 8000750:	4613      	mov	r3, r2
+ 8000752:	005b      	lsls	r3, r3, #1
+ 8000754:	4413      	add	r3, r2
+ 8000756:	00db      	lsls	r3, r3, #3
+ 8000758:	440b      	add	r3, r1
+ 800075a:	3324      	adds	r3, #36	; 0x24
+ 800075c:	681b      	ldr	r3, [r3, #0]
+ 800075e:	79fa      	ldrb	r2, [r7, #7]
+ 8000760:	4917      	ldr	r1, [pc, #92]	; (80007c0 <DMA_vSetDirectModeStatus+0x8c>)
+ 8000762:	f851 0022 	ldr.w	r0, [r1, r2, lsl #2]
+ 8000766:	79ba      	ldrb	r2, [r7, #6]
+ 8000768:	f023 0104 	bic.w	r1, r3, #4
+ 800076c:	4613      	mov	r3, r2
+ 800076e:	005b      	lsls	r3, r3, #1
+ 8000770:	4413      	add	r3, r2
+ 8000772:	00db      	lsls	r3, r3, #3
+ 8000774:	4403      	add	r3, r0
+ 8000776:	3324      	adds	r3, #36	; 0x24
+ 8000778:	6019      	str	r1, [r3, #0]
+	DMAPeripheral[copy_eDMA_Peripheral_Number]->DMA_STREAM[copy_eStream_Selection].DMA_SxFCR |= (copy_edirect_mode_disable<<DMA_SxFCR_DMDIS);
+ 800077a:	79fb      	ldrb	r3, [r7, #7]
+ 800077c:	4a10      	ldr	r2, [pc, #64]	; (80007c0 <DMA_vSetDirectModeStatus+0x8c>)
+ 800077e:	f852 1023 	ldr.w	r1, [r2, r3, lsl #2]
+ 8000782:	79ba      	ldrb	r2, [r7, #6]
+ 8000784:	4613      	mov	r3, r2
+ 8000786:	005b      	lsls	r3, r3, #1
+ 8000788:	4413      	add	r3, r2
+ 800078a:	00db      	lsls	r3, r3, #3
+ 800078c:	440b      	add	r3, r1
+ 800078e:	3324      	adds	r3, #36	; 0x24
+ 8000790:	681b      	ldr	r3, [r3, #0]
+ 8000792:	797a      	ldrb	r2, [r7, #5]
+ 8000794:	0092      	lsls	r2, r2, #2
+ 8000796:	4614      	mov	r4, r2
+ 8000798:	79fa      	ldrb	r2, [r7, #7]
+ 800079a:	4909      	ldr	r1, [pc, #36]	; (80007c0 <DMA_vSetDirectModeStatus+0x8c>)
+ 800079c:	f851 0022 	ldr.w	r0, [r1, r2, lsl #2]
+ 80007a0:	79ba      	ldrb	r2, [r7, #6]
+ 80007a2:	ea43 0104 	orr.w	r1, r3, r4
+ 80007a6:	4613      	mov	r3, r2
+ 80007a8:	005b      	lsls	r3, r3, #1
+ 80007aa:	4413      	add	r3, r2
+ 80007ac:	00db      	lsls	r3, r3, #3
+ 80007ae:	4403      	add	r3, r0
+ 80007b0:	3324      	adds	r3, #36	; 0x24
+ 80007b2:	6019      	str	r1, [r3, #0]
+
+
+}
+ 80007b4:	bf00      	nop
+ 80007b6:	3708      	adds	r7, #8
+ 80007b8:	46bd      	mov	sp, r7
+ 80007ba:	bc90      	pop	{r4, r7}
+ 80007bc:	4770      	bx	lr
+ 80007be:	bf00      	nop
+ 80007c0:	20000000 	.word	0x20000000
+
+080007c4 <DMA_vStart>:
+
+}
+
+
+void DMA_vStart(DMA_HandleTypeDef_t* copy_eDMAConfig,uint32_t SrcAddress, uint32_t DstAddress, uint32_t DataLength)
+{
+ 80007c4:	b580      	push	{r7, lr}
+ 80007c6:	b084      	sub	sp, #16
+ 80007c8:	af00      	add	r7, sp, #0
+ 80007ca:	60f8      	str	r0, [r7, #12]
+ 80007cc:	60b9      	str	r1, [r7, #8]
+ 80007ce:	607a      	str	r2, [r7, #4]
+ 80007d0:	603b      	str	r3, [r7, #0]
+	if (copy_eDMAConfig->Init.Direction == memory_to_peripheral)
+ 80007d2:	68fb      	ldr	r3, [r7, #12]
+ 80007d4:	78db      	ldrb	r3, [r3, #3]
+ 80007d6:	2b01      	cmp	r3, #1
+ 80007d8:	d110      	bne.n	80007fc <DMA_vStart+0x38>
+	{
+		DMA_vSetAddressOfMemory0(copy_eDMAConfig->Init.DMANumber,copy_eDMAConfig->Init.Stream,SrcAddress);
+ 80007da:	68fb      	ldr	r3, [r7, #12]
+ 80007dc:	7858      	ldrb	r0, [r3, #1]
+ 80007de:	68fb      	ldr	r3, [r7, #12]
+ 80007e0:	789b      	ldrb	r3, [r3, #2]
+ 80007e2:	68ba      	ldr	r2, [r7, #8]
+ 80007e4:	4619      	mov	r1, r3
+ 80007e6:	f7ff ff87 	bl	80006f8 <DMA_vSetAddressOfMemory0>
+		DMA_vSetAddressOfPeripheral(copy_eDMAConfig->Init.DMANumber,copy_eDMAConfig->Init.Stream,DstAddress);
+ 80007ea:	68fb      	ldr	r3, [r7, #12]
+ 80007ec:	7858      	ldrb	r0, [r3, #1]
+ 80007ee:	68fb      	ldr	r3, [r7, #12]
+ 80007f0:	789b      	ldrb	r3, [r3, #2]
+ 80007f2:	687a      	ldr	r2, [r7, #4]
+ 80007f4:	4619      	mov	r1, r3
+ 80007f6:	f7ff ff61 	bl	80006bc <DMA_vSetAddressOfPeripheral>
+ 80007fa:	e00f      	b.n	800081c <DMA_vStart+0x58>
+
+	}
+	else
+	{
+		DMA_vSetAddressOfMemory0(copy_eDMAConfig->Init.DMANumber,copy_eDMAConfig->Init.Stream,DstAddress);
+ 80007fc:	68fb      	ldr	r3, [r7, #12]
+ 80007fe:	7858      	ldrb	r0, [r3, #1]
+ 8000800:	68fb      	ldr	r3, [r7, #12]
+ 8000802:	789b      	ldrb	r3, [r3, #2]
+ 8000804:	687a      	ldr	r2, [r7, #4]
+ 8000806:	4619      	mov	r1, r3
+ 8000808:	f7ff ff76 	bl	80006f8 <DMA_vSetAddressOfMemory0>
+		DMA_vSetAddressOfPeripheral(copy_eDMAConfig->Init.DMANumber,copy_eDMAConfig->Init.Stream,SrcAddress);
+ 800080c:	68fb      	ldr	r3, [r7, #12]
+ 800080e:	7858      	ldrb	r0, [r3, #1]
+ 8000810:	68fb      	ldr	r3, [r7, #12]
+ 8000812:	789b      	ldrb	r3, [r3, #2]
+ 8000814:	68ba      	ldr	r2, [r7, #8]
+ 8000816:	4619      	mov	r1, r3
+ 8000818:	f7ff ff50 	bl	80006bc <DMA_vSetAddressOfPeripheral>
+
+	}
+	DMA_vSetNumberOfDataToBeTransefered(copy_eDMAConfig->Init.DMANumber,copy_eDMAConfig->Init.Stream,DataLength);
+ 800081c:	68fb      	ldr	r3, [r7, #12]
+ 800081e:	7858      	ldrb	r0, [r3, #1]
+ 8000820:	68fb      	ldr	r3, [r7, #12]
+ 8000822:	789b      	ldrb	r3, [r3, #2]
+ 8000824:	683a      	ldr	r2, [r7, #0]
+ 8000826:	b292      	uxth	r2, r2
+ 8000828:	4619      	mov	r1, r3
+ 800082a:	f7ff ff29 	bl	8000680 <DMA_vSetNumberOfDataToBeTransefered>
+	DMA_vEnableStream(copy_eDMAConfig->Init.DMANumber,copy_eDMAConfig->Init.Stream,stream_enabled);
+ 800082e:	68fb      	ldr	r3, [r7, #12]
+ 8000830:	7858      	ldrb	r0, [r3, #1]
+ 8000832:	68fb      	ldr	r3, [r7, #12]
+ 8000834:	789b      	ldrb	r3, [r3, #2]
+ 8000836:	2201      	movs	r2, #1
+ 8000838:	4619      	mov	r1, r3
+ 800083a:	f7ff fedb 	bl	80005f4 <DMA_vEnableStream>
+
+
+}
+ 800083e:	bf00      	nop
+ 8000840:	3710      	adds	r7, #16
+ 8000842:	46bd      	mov	sp, r7
+ 8000844:	bd80      	pop	{r7, pc}
+	...
+
+08000848 <DMA_vReadFlagStatus>:
+	DMA_vEnableStream(copy_eDMAConfig->Init.DMANumber,copy_eDMAConfig->Init.Stream,stream_enabled);
+
+
+}
+void DMA_vReadFlagStatus(DMA_Peripheral_Number_t DMA_Number,Stream_Selection_t Stream_Number,DMA_Interrupt_t copy_eDMA_Interrupt,uint8_t *interruptStatusFlag)
+{
+ 8000848:	b480      	push	{r7}
+ 800084a:	b085      	sub	sp, #20
+ 800084c:	af00      	add	r7, sp, #0
+ 800084e:	603b      	str	r3, [r7, #0]
+ 8000850:	4603      	mov	r3, r0
+ 8000852:	71fb      	strb	r3, [r7, #7]
+ 8000854:	460b      	mov	r3, r1
+ 8000856:	71bb      	strb	r3, [r7, #6]
+ 8000858:	4613      	mov	r3, r2
+ 800085a:	717b      	strb	r3, [r7, #5]
+	uint8_t flagShift=(uint8_t)copy_eDMA_Interrupt+6*((uint8_t)Stream_Number%4);
+ 800085c:	79bb      	ldrb	r3, [r7, #6]
+ 800085e:	f003 0303 	and.w	r3, r3, #3
+ 8000862:	b2db      	uxtb	r3, r3
+ 8000864:	461a      	mov	r2, r3
+ 8000866:	0052      	lsls	r2, r2, #1
+ 8000868:	4413      	add	r3, r2
+ 800086a:	005b      	lsls	r3, r3, #1
+ 800086c:	b2da      	uxtb	r2, r3
+ 800086e:	797b      	ldrb	r3, [r7, #5]
+ 8000870:	4413      	add	r3, r2
+ 8000872:	73fb      	strb	r3, [r7, #15]
+	*interruptStatusFlag= READ_BIT(DMAPeripheral[DMA_Number]->DMA_LISR[Stream_Number/4],flagShift );
+ 8000874:	79fb      	ldrb	r3, [r7, #7]
+ 8000876:	4a0b      	ldr	r2, [pc, #44]	; (80008a4 <DMA_vReadFlagStatus+0x5c>)
+ 8000878:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
+ 800087c:	79ba      	ldrb	r2, [r7, #6]
+ 800087e:	0892      	lsrs	r2, r2, #2
+ 8000880:	b2d2      	uxtb	r2, r2
+ 8000882:	f853 2022 	ldr.w	r2, [r3, r2, lsl #2]
+ 8000886:	7bfb      	ldrb	r3, [r7, #15]
+ 8000888:	fa22 f303 	lsr.w	r3, r2, r3
+ 800088c:	b2db      	uxtb	r3, r3
+ 800088e:	f003 0301 	and.w	r3, r3, #1
+ 8000892:	b2da      	uxtb	r2, r3
+ 8000894:	683b      	ldr	r3, [r7, #0]
+ 8000896:	701a      	strb	r2, [r3, #0]
+
+}
+ 8000898:	bf00      	nop
+ 800089a:	3714      	adds	r7, #20
+ 800089c:	46bd      	mov	sp, r7
+ 800089e:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80008a2:	4770      	bx	lr
+ 80008a4:	20000000 	.word	0x20000000
+
+080008a8 <DMA_vIRQHandler>:
+void DMA_vIRQHandler(DMA_Peripheral_Number_t DMA_Number,Stream_Selection_t Stream_Number)
+{
+ 80008a8:	b580      	push	{r7, lr}
+ 80008aa:	b084      	sub	sp, #16
+ 80008ac:	af00      	add	r7, sp, #0
+ 80008ae:	4603      	mov	r3, r0
+ 80008b0:	460a      	mov	r2, r1
+ 80008b2:	71fb      	strb	r3, [r7, #7]
+ 80008b4:	4613      	mov	r3, r2
+ 80008b6:	71bb      	strb	r3, [r7, #6]
+	uint8_t flagStatus=0;
+ 80008b8:	2300      	movs	r3, #0
+ 80008ba:	73bb      	strb	r3, [r7, #14]
+	for (uint8_t i=0 ;i<Total_Number_Of_Interrupts ; i++)
+ 80008bc:	2300      	movs	r3, #0
+ 80008be:	73fb      	strb	r3, [r7, #15]
+ 80008c0:	e045      	b.n	800094e <DMA_vIRQHandler+0xa6>
+	{
+
+		DMA_vReadFlagStatus(DMA_Number,Stream_Number, i, &flagStatus);
+ 80008c2:	f107 030e 	add.w	r3, r7, #14
+ 80008c6:	7bfa      	ldrb	r2, [r7, #15]
+ 80008c8:	79b9      	ldrb	r1, [r7, #6]
+ 80008ca:	79f8      	ldrb	r0, [r7, #7]
+ 80008cc:	f7ff ffbc 	bl	8000848 <DMA_vReadFlagStatus>
+		if (flagStatus)
+ 80008d0:	7bbb      	ldrb	r3, [r7, #14]
+ 80008d2:	2b00      	cmp	r3, #0
+ 80008d4:	d038      	beq.n	8000948 <DMA_vIRQHandler+0xa0>
+		{
+			switch (DMA_Number)
+ 80008d6:	79fb      	ldrb	r3, [r7, #7]
+ 80008d8:	2b00      	cmp	r3, #0
+ 80008da:	d002      	beq.n	80008e2 <DMA_vIRQHandler+0x3a>
+ 80008dc:	2b01      	cmp	r3, #1
+ 80008de:	d018      	beq.n	8000912 <DMA_vIRQHandler+0x6a>
+					arrDMA2_PtrToFunction[Stream_Number][i]();
+				}
+				break;
+			default:
+				/* Do Nothing!*/
+				break;
+ 80008e0:	e032      	b.n	8000948 <DMA_vIRQHandler+0xa0>
+				if (arrDMA1_PtrToFunction[Stream_Number][i] != NULL)
+ 80008e2:	79ba      	ldrb	r2, [r7, #6]
+ 80008e4:	7bf9      	ldrb	r1, [r7, #15]
+ 80008e6:	481e      	ldr	r0, [pc, #120]	; (8000960 <DMA_vIRQHandler+0xb8>)
+ 80008e8:	4613      	mov	r3, r2
+ 80008ea:	005b      	lsls	r3, r3, #1
+ 80008ec:	4413      	add	r3, r2
+ 80008ee:	005b      	lsls	r3, r3, #1
+ 80008f0:	440b      	add	r3, r1
+ 80008f2:	f850 3023 	ldr.w	r3, [r0, r3, lsl #2]
+ 80008f6:	2b00      	cmp	r3, #0
+ 80008f8:	d023      	beq.n	8000942 <DMA_vIRQHandler+0x9a>
+					arrDMA1_PtrToFunction[Stream_Number][i]();
+ 80008fa:	79ba      	ldrb	r2, [r7, #6]
+ 80008fc:	7bf9      	ldrb	r1, [r7, #15]
+ 80008fe:	4818      	ldr	r0, [pc, #96]	; (8000960 <DMA_vIRQHandler+0xb8>)
+ 8000900:	4613      	mov	r3, r2
+ 8000902:	005b      	lsls	r3, r3, #1
+ 8000904:	4413      	add	r3, r2
+ 8000906:	005b      	lsls	r3, r3, #1
+ 8000908:	440b      	add	r3, r1
+ 800090a:	f850 3023 	ldr.w	r3, [r0, r3, lsl #2]
+ 800090e:	4798      	blx	r3
+				break;
+ 8000910:	e017      	b.n	8000942 <DMA_vIRQHandler+0x9a>
+				if (arrDMA2_PtrToFunction[Stream_Number][i] != NULL)
+ 8000912:	79ba      	ldrb	r2, [r7, #6]
+ 8000914:	7bf9      	ldrb	r1, [r7, #15]
+ 8000916:	4813      	ldr	r0, [pc, #76]	; (8000964 <DMA_vIRQHandler+0xbc>)
+ 8000918:	4613      	mov	r3, r2
+ 800091a:	005b      	lsls	r3, r3, #1
+ 800091c:	4413      	add	r3, r2
+ 800091e:	005b      	lsls	r3, r3, #1
+ 8000920:	440b      	add	r3, r1
+ 8000922:	f850 3023 	ldr.w	r3, [r0, r3, lsl #2]
+ 8000926:	2b00      	cmp	r3, #0
+ 8000928:	d00d      	beq.n	8000946 <DMA_vIRQHandler+0x9e>
+					arrDMA2_PtrToFunction[Stream_Number][i]();
+ 800092a:	79ba      	ldrb	r2, [r7, #6]
+ 800092c:	7bf9      	ldrb	r1, [r7, #15]
+ 800092e:	480d      	ldr	r0, [pc, #52]	; (8000964 <DMA_vIRQHandler+0xbc>)
+ 8000930:	4613      	mov	r3, r2
+ 8000932:	005b      	lsls	r3, r3, #1
+ 8000934:	4413      	add	r3, r2
+ 8000936:	005b      	lsls	r3, r3, #1
+ 8000938:	440b      	add	r3, r1
+ 800093a:	f850 3023 	ldr.w	r3, [r0, r3, lsl #2]
+ 800093e:	4798      	blx	r3
+				break;
+ 8000940:	e001      	b.n	8000946 <DMA_vIRQHandler+0x9e>
+				break;
+ 8000942:	bf00      	nop
+ 8000944:	e000      	b.n	8000948 <DMA_vIRQHandler+0xa0>
+				break;
+ 8000946:	bf00      	nop
+	for (uint8_t i=0 ;i<Total_Number_Of_Interrupts ; i++)
+ 8000948:	7bfb      	ldrb	r3, [r7, #15]
+ 800094a:	3301      	adds	r3, #1
+ 800094c:	73fb      	strb	r3, [r7, #15]
+ 800094e:	7bfb      	ldrb	r3, [r7, #15]
+ 8000950:	2b05      	cmp	r3, #5
+ 8000952:	d9b6      	bls.n	80008c2 <DMA_vIRQHandler+0x1a>
+		{
+			/* Do Nothing!*/
+		}
+	}
+
+}
+ 8000954:	bf00      	nop
+ 8000956:	bf00      	nop
+ 8000958:	3710      	adds	r7, #16
+ 800095a:	46bd      	mov	sp, r7
+ 800095c:	bd80      	pop	{r7, pc}
+ 800095e:	bf00      	nop
+ 8000960:	200000b4 	.word	0x200000b4
+ 8000964:	20000174 	.word	0x20000174
+
+08000968 <DMA1_Stream0_IRQHandler>:
+/* ==========================
+ *           DMA1
+ * ========================== */
+
+void DMA1_Stream0_IRQHandler(void)
+{
+ 8000968:	b580      	push	{r7, lr}
+ 800096a:	af00      	add	r7, sp, #0
+	DMA_vIRQHandler(DMA_Number_1,Stream_0);
+ 800096c:	2100      	movs	r1, #0
+ 800096e:	2000      	movs	r0, #0
+ 8000970:	f7ff ff9a 	bl	80008a8 <DMA_vIRQHandler>
+}
+ 8000974:	bf00      	nop
+ 8000976:	bd80      	pop	{r7, pc}
+
+08000978 <DMA1_Stream1_IRQHandler>:
+void DMA1_Stream1_IRQHandler(void)
+{
+ 8000978:	b580      	push	{r7, lr}
+ 800097a:	af00      	add	r7, sp, #0
+	DMA_vIRQHandler(DMA_Number_1,Stream_1);
+ 800097c:	2101      	movs	r1, #1
+ 800097e:	2000      	movs	r0, #0
+ 8000980:	f7ff ff92 	bl	80008a8 <DMA_vIRQHandler>
+}
+ 8000984:	bf00      	nop
+ 8000986:	bd80      	pop	{r7, pc}
+
+08000988 <DMA1_Stream3_IRQHandler>:
+void DMA1_Stream3_IRQHandler(void)
+{
+ 8000988:	b580      	push	{r7, lr}
+ 800098a:	af00      	add	r7, sp, #0
+	DMA_vIRQHandler(DMA_Number_1,Stream_3);
+ 800098c:	2103      	movs	r1, #3
+ 800098e:	2000      	movs	r0, #0
+ 8000990:	f7ff ff8a 	bl	80008a8 <DMA_vIRQHandler>
+}
+ 8000994:	bf00      	nop
+ 8000996:	bd80      	pop	{r7, pc}
+
+08000998 <DMA1_Stream4_IRQHandler>:
+void DMA1_Stream4_IRQHandler(void)
+{
+ 8000998:	b580      	push	{r7, lr}
+ 800099a:	af00      	add	r7, sp, #0
+	DMA_vIRQHandler(DMA_Number_1,Stream_4);
+ 800099c:	2104      	movs	r1, #4
+ 800099e:	2000      	movs	r0, #0
+ 80009a0:	f7ff ff82 	bl	80008a8 <DMA_vIRQHandler>
+}
+ 80009a4:	bf00      	nop
+ 80009a6:	bd80      	pop	{r7, pc}
+
+080009a8 <DMA1_Stream5_IRQHandler>:
+void DMA1_Stream5_IRQHandler(void)
+{
+ 80009a8:	b580      	push	{r7, lr}
+ 80009aa:	af00      	add	r7, sp, #0
+	DMA_vIRQHandler(DMA_Number_1,Stream_5);
+ 80009ac:	2105      	movs	r1, #5
+ 80009ae:	2000      	movs	r0, #0
+ 80009b0:	f7ff ff7a 	bl	80008a8 <DMA_vIRQHandler>
+}
+ 80009b4:	bf00      	nop
+ 80009b6:	bd80      	pop	{r7, pc}
+
+080009b8 <DMA1_Stream6_IRQHandler>:
+void DMA1_Stream6_IRQHandler(void)
+{
+ 80009b8:	b580      	push	{r7, lr}
+ 80009ba:	af00      	add	r7, sp, #0
+	DMA_vIRQHandler(DMA_Number_1,Stream_6);
+ 80009bc:	2106      	movs	r1, #6
+ 80009be:	2000      	movs	r0, #0
+ 80009c0:	f7ff ff72 	bl	80008a8 <DMA_vIRQHandler>
+}
+ 80009c4:	bf00      	nop
+ 80009c6:	bd80      	pop	{r7, pc}
+
+080009c8 <DMA1_Stream7_IRQHandler>:
+void DMA1_Stream7_IRQHandler(void)
+{
+ 80009c8:	b580      	push	{r7, lr}
+ 80009ca:	af00      	add	r7, sp, #0
+	DMA_vIRQHandler(DMA_Number_1,Stream_7);
+ 80009cc:	2107      	movs	r1, #7
+ 80009ce:	2000      	movs	r0, #0
+ 80009d0:	f7ff ff6a 	bl	80008a8 <DMA_vIRQHandler>
+}
+ 80009d4:	bf00      	nop
+ 80009d6:	bd80      	pop	{r7, pc}
+
+080009d8 <DMA2_Stream0_IRQHandler>:
+/* ==========================
+ *           DMA2
+ * ========================== */
+
+void DMA2_Stream0_IRQHandler(void)
+{
+ 80009d8:	b580      	push	{r7, lr}
+ 80009da:	af00      	add	r7, sp, #0
+	DMA_vIRQHandler(DMA_Number_2,Stream_0);
+ 80009dc:	2100      	movs	r1, #0
+ 80009de:	2001      	movs	r0, #1
+ 80009e0:	f7ff ff62 	bl	80008a8 <DMA_vIRQHandler>
+}
+ 80009e4:	bf00      	nop
+ 80009e6:	bd80      	pop	{r7, pc}
+
+080009e8 <DMA2_Stream1_IRQHandler>:
+void DMA2_Stream1_IRQHandler(void)
+{
+ 80009e8:	b580      	push	{r7, lr}
+ 80009ea:	af00      	add	r7, sp, #0
+	DMA_vIRQHandler(DMA_Number_2,Stream_1);
+ 80009ec:	2101      	movs	r1, #1
+ 80009ee:	2001      	movs	r0, #1
+ 80009f0:	f7ff ff5a 	bl	80008a8 <DMA_vIRQHandler>
+}
+ 80009f4:	bf00      	nop
+ 80009f6:	bd80      	pop	{r7, pc}
+
+080009f8 <DMA2_Stream2_IRQHandler>:
+void DMA2_Stream2_IRQHandler(void)
+{
+ 80009f8:	b580      	push	{r7, lr}
+ 80009fa:	af00      	add	r7, sp, #0
+	DMA_vIRQHandler(DMA_Number_2,Stream_2);
+ 80009fc:	2102      	movs	r1, #2
+ 80009fe:	2001      	movs	r0, #1
+ 8000a00:	f7ff ff52 	bl	80008a8 <DMA_vIRQHandler>
+}
+ 8000a04:	bf00      	nop
+ 8000a06:	bd80      	pop	{r7, pc}
+
+08000a08 <DMA2_Stream3_IRQHandler>:
+void DMA2_Stream3_IRQHandler(void)
+{
+ 8000a08:	b580      	push	{r7, lr}
+ 8000a0a:	af00      	add	r7, sp, #0
+	DMA_vIRQHandler(DMA_Number_2,Stream_3);
+ 8000a0c:	2103      	movs	r1, #3
+ 8000a0e:	2001      	movs	r0, #1
+ 8000a10:	f7ff ff4a 	bl	80008a8 <DMA_vIRQHandler>
+}
+ 8000a14:	bf00      	nop
+ 8000a16:	bd80      	pop	{r7, pc}
+
+08000a18 <DMA2_Stream4_IRQHandler>:
+void DMA2_Stream4_IRQHandler(void)
+{
+ 8000a18:	b580      	push	{r7, lr}
+ 8000a1a:	af00      	add	r7, sp, #0
+	DMA_vIRQHandler(DMA_Number_2,Stream_4);
+ 8000a1c:	2104      	movs	r1, #4
+ 8000a1e:	2001      	movs	r0, #1
+ 8000a20:	f7ff ff42 	bl	80008a8 <DMA_vIRQHandler>
+}
+ 8000a24:	bf00      	nop
+ 8000a26:	bd80      	pop	{r7, pc}
+
+08000a28 <DMA2_Stream5_IRQHandler>:
+void DMA2_Stream5_IRQHandler(void)
+{
+ 8000a28:	b580      	push	{r7, lr}
+ 8000a2a:	af00      	add	r7, sp, #0
+	DMA_vIRQHandler(DMA_Number_2,Stream_5);
+ 8000a2c:	2105      	movs	r1, #5
+ 8000a2e:	2001      	movs	r0, #1
+ 8000a30:	f7ff ff3a 	bl	80008a8 <DMA_vIRQHandler>
+}
+ 8000a34:	bf00      	nop
+ 8000a36:	bd80      	pop	{r7, pc}
+
+08000a38 <DMA2_Stream6_IRQHandler>:
+void DMA2_Stream6_IRQHandler(void)
+{
+ 8000a38:	b580      	push	{r7, lr}
+ 8000a3a:	af00      	add	r7, sp, #0
+	DMA_vIRQHandler(DMA_Number_2,Stream_6);
+ 8000a3c:	2106      	movs	r1, #6
+ 8000a3e:	2001      	movs	r0, #1
+ 8000a40:	f7ff ff32 	bl	80008a8 <DMA_vIRQHandler>
+}
+ 8000a44:	bf00      	nop
+ 8000a46:	bd80      	pop	{r7, pc}
+
+08000a48 <DMA2_Stream7_IRQHandler>:
+void DMA2_Stream7_IRQHandler(void)
+{
+ 8000a48:	b580      	push	{r7, lr}
+ 8000a4a:	af00      	add	r7, sp, #0
+	DMA_vIRQHandler(DMA_Number_2,Stream_7);
+ 8000a4c:	2107      	movs	r1, #7
+ 8000a4e:	2001      	movs	r0, #1
+ 8000a50:	f7ff ff2a 	bl	80008a8 <DMA_vIRQHandler>
+}
+ 8000a54:	bf00      	nop
+ 8000a56:	bd80      	pop	{r7, pc}
+
+08000a58 <GPIO_u8PinInit>:
+ * @param[in] copy_ePinConfig : the initialization values of the pin
+ * @retval ErrorStatus
+ *
+ */
+uint8_t GPIO_u8PinInit(const PinConfig_t* copy_ePinConfig)
+{
+ 8000a58:	b480      	push	{r7}
+ 8000a5a:	b085      	sub	sp, #20
+ 8000a5c:	af00      	add	r7, sp, #0
+ 8000a5e:	6078      	str	r0, [r7, #4]
+	uint8_t Local_u8ErrorState = OK ;
+ 8000a60:	2301      	movs	r3, #1
+ 8000a62:	73fb      	strb	r3, [r7, #15]
+	if (copy_ePinConfig != NULL)
+ 8000a64:	687b      	ldr	r3, [r7, #4]
+ 8000a66:	2b00      	cmp	r3, #0
+ 8000a68:	f000 8117 	beq.w	8000c9a <GPIO_u8PinInit+0x242>
+	{
+		if ((copy_ePinConfig->PIN_Port < INVALID) && (copy_ePinConfig->PIN_Number <= PIN15))
+ 8000a6c:	687b      	ldr	r3, [r7, #4]
+ 8000a6e:	781b      	ldrb	r3, [r3, #0]
+ 8000a70:	2b07      	cmp	r3, #7
+ 8000a72:	f200 810f 	bhi.w	8000c94 <GPIO_u8PinInit+0x23c>
+ 8000a76:	687b      	ldr	r3, [r7, #4]
+ 8000a78:	785b      	ldrb	r3, [r3, #1]
+ 8000a7a:	2b0f      	cmp	r3, #15
+ 8000a7c:	f200 810a 	bhi.w	8000c94 <GPIO_u8PinInit+0x23c>
+		{
+			/* Select GPIO Mode: INPUT - OUTPUT - ANALOG - AF */
+			GPIO_PORT[copy_ePinConfig->PIN_Port]->MODER &= ~(MODER_MASK				     << (copy_ePinConfig->PIN_Number * MODER_PIN_ACCESS)); // clear mode bits
+ 8000a80:	687b      	ldr	r3, [r7, #4]
+ 8000a82:	781b      	ldrb	r3, [r3, #0]
+ 8000a84:	461a      	mov	r2, r3
+ 8000a86:	4b8a      	ldr	r3, [pc, #552]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000a88:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000a8c:	681a      	ldr	r2, [r3, #0]
+ 8000a8e:	687b      	ldr	r3, [r7, #4]
+ 8000a90:	785b      	ldrb	r3, [r3, #1]
+ 8000a92:	005b      	lsls	r3, r3, #1
+ 8000a94:	2103      	movs	r1, #3
+ 8000a96:	fa01 f303 	lsl.w	r3, r1, r3
+ 8000a9a:	43db      	mvns	r3, r3
+ 8000a9c:	4619      	mov	r1, r3
+ 8000a9e:	687b      	ldr	r3, [r7, #4]
+ 8000aa0:	781b      	ldrb	r3, [r3, #0]
+ 8000aa2:	4618      	mov	r0, r3
+ 8000aa4:	4b82      	ldr	r3, [pc, #520]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000aa6:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8000aaa:	400a      	ands	r2, r1
+ 8000aac:	601a      	str	r2, [r3, #0]
+			GPIO_PORT[copy_ePinConfig->PIN_Port]->MODER |=  ((copy_ePinConfig->PIN_Type) << (copy_ePinConfig->PIN_Number * MODER_PIN_ACCESS));
+ 8000aae:	687b      	ldr	r3, [r7, #4]
+ 8000ab0:	781b      	ldrb	r3, [r3, #0]
+ 8000ab2:	461a      	mov	r2, r3
+ 8000ab4:	4b7e      	ldr	r3, [pc, #504]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000ab6:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000aba:	681a      	ldr	r2, [r3, #0]
+ 8000abc:	687b      	ldr	r3, [r7, #4]
+ 8000abe:	789b      	ldrb	r3, [r3, #2]
+ 8000ac0:	4619      	mov	r1, r3
+ 8000ac2:	687b      	ldr	r3, [r7, #4]
+ 8000ac4:	785b      	ldrb	r3, [r3, #1]
+ 8000ac6:	005b      	lsls	r3, r3, #1
+ 8000ac8:	fa01 f303 	lsl.w	r3, r1, r3
+ 8000acc:	4619      	mov	r1, r3
+ 8000ace:	687b      	ldr	r3, [r7, #4]
+ 8000ad0:	781b      	ldrb	r3, [r3, #0]
+ 8000ad2:	4618      	mov	r0, r3
+ 8000ad4:	4b76      	ldr	r3, [pc, #472]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000ad6:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8000ada:	430a      	orrs	r2, r1
+ 8000adc:	601a      	str	r2, [r3, #0]
+			/* Select GPIO pull state: PULLUP - PULLDOWN - NOPULL */
+			GPIO_PORT[copy_ePinConfig->PIN_Port]->PUPDR &= ~(PUPDR_MASK				    	    << (copy_ePinConfig->PIN_Number * PUPDR_PIN_ACCESS)); // clear mode bits
+ 8000ade:	687b      	ldr	r3, [r7, #4]
+ 8000ae0:	781b      	ldrb	r3, [r3, #0]
+ 8000ae2:	461a      	mov	r2, r3
+ 8000ae4:	4b72      	ldr	r3, [pc, #456]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000ae6:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000aea:	68da      	ldr	r2, [r3, #12]
+ 8000aec:	687b      	ldr	r3, [r7, #4]
+ 8000aee:	785b      	ldrb	r3, [r3, #1]
+ 8000af0:	005b      	lsls	r3, r3, #1
+ 8000af2:	2103      	movs	r1, #3
+ 8000af4:	fa01 f303 	lsl.w	r3, r1, r3
+ 8000af8:	43db      	mvns	r3, r3
+ 8000afa:	4619      	mov	r1, r3
+ 8000afc:	687b      	ldr	r3, [r7, #4]
+ 8000afe:	781b      	ldrb	r3, [r3, #0]
+ 8000b00:	4618      	mov	r0, r3
+ 8000b02:	4b6b      	ldr	r3, [pc, #428]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000b04:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8000b08:	400a      	ands	r2, r1
+ 8000b0a:	60da      	str	r2, [r3, #12]
+			GPIO_PORT[copy_ePinConfig->PIN_Port]->PUPDR |=  ((copy_ePinConfig->PIN_PullUpDown)  << (copy_ePinConfig->PIN_Number * PUPDR_PIN_ACCESS));
+ 8000b0c:	687b      	ldr	r3, [r7, #4]
+ 8000b0e:	781b      	ldrb	r3, [r3, #0]
+ 8000b10:	461a      	mov	r2, r3
+ 8000b12:	4b67      	ldr	r3, [pc, #412]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000b14:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000b18:	68da      	ldr	r2, [r3, #12]
+ 8000b1a:	687b      	ldr	r3, [r7, #4]
+ 8000b1c:	799b      	ldrb	r3, [r3, #6]
+ 8000b1e:	4619      	mov	r1, r3
+ 8000b20:	687b      	ldr	r3, [r7, #4]
+ 8000b22:	785b      	ldrb	r3, [r3, #1]
+ 8000b24:	005b      	lsls	r3, r3, #1
+ 8000b26:	fa01 f303 	lsl.w	r3, r1, r3
+ 8000b2a:	4619      	mov	r1, r3
+ 8000b2c:	687b      	ldr	r3, [r7, #4]
+ 8000b2e:	781b      	ldrb	r3, [r3, #0]
+ 8000b30:	4618      	mov	r0, r3
+ 8000b32:	4b5f      	ldr	r3, [pc, #380]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000b34:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8000b38:	430a      	orrs	r2, r1
+ 8000b3a:	60da      	str	r2, [r3, #12]
+			/* Select output type and speed in case of OUTPUT / AF  */
+			if ((copy_ePinConfig->PIN_Type == OUTPUT) || (copy_ePinConfig->PIN_Type == ALTERNATE))
+ 8000b3c:	687b      	ldr	r3, [r7, #4]
+ 8000b3e:	789b      	ldrb	r3, [r3, #2]
+ 8000b40:	2b01      	cmp	r3, #1
+ 8000b42:	d004      	beq.n	8000b4e <GPIO_u8PinInit+0xf6>
+ 8000b44:	687b      	ldr	r3, [r7, #4]
+ 8000b46:	789b      	ldrb	r3, [r3, #2]
+ 8000b48:	2b02      	cmp	r3, #2
+ 8000b4a:	f040 80a9 	bne.w	8000ca0 <GPIO_u8PinInit+0x248>
+			{
+				/* select output type PUSHPULL - OPEN DRAIN */
+				GPIO_PORT[copy_ePinConfig->PIN_Port]->OTYPER &= ~(OTYPER_MASK				 << (copy_ePinConfig->PIN_Number)); // clear mode bits
+ 8000b4e:	687b      	ldr	r3, [r7, #4]
+ 8000b50:	781b      	ldrb	r3, [r3, #0]
+ 8000b52:	461a      	mov	r2, r3
+ 8000b54:	4b56      	ldr	r3, [pc, #344]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000b56:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000b5a:	685a      	ldr	r2, [r3, #4]
+ 8000b5c:	687b      	ldr	r3, [r7, #4]
+ 8000b5e:	785b      	ldrb	r3, [r3, #1]
+ 8000b60:	4619      	mov	r1, r3
+ 8000b62:	2301      	movs	r3, #1
+ 8000b64:	408b      	lsls	r3, r1
+ 8000b66:	43db      	mvns	r3, r3
+ 8000b68:	4619      	mov	r1, r3
+ 8000b6a:	687b      	ldr	r3, [r7, #4]
+ 8000b6c:	781b      	ldrb	r3, [r3, #0]
+ 8000b6e:	4618      	mov	r0, r3
+ 8000b70:	4b4f      	ldr	r3, [pc, #316]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000b72:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8000b76:	400a      	ands	r2, r1
+ 8000b78:	605a      	str	r2, [r3, #4]
+				GPIO_PORT[copy_ePinConfig->PIN_Port]->OTYPER |=  (copy_ePinConfig->PIN_OType << (copy_ePinConfig->PIN_Number));
+ 8000b7a:	687b      	ldr	r3, [r7, #4]
+ 8000b7c:	781b      	ldrb	r3, [r3, #0]
+ 8000b7e:	461a      	mov	r2, r3
+ 8000b80:	4b4b      	ldr	r3, [pc, #300]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000b82:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000b86:	685a      	ldr	r2, [r3, #4]
+ 8000b88:	687b      	ldr	r3, [r7, #4]
+ 8000b8a:	791b      	ldrb	r3, [r3, #4]
+ 8000b8c:	4619      	mov	r1, r3
+ 8000b8e:	687b      	ldr	r3, [r7, #4]
+ 8000b90:	785b      	ldrb	r3, [r3, #1]
+ 8000b92:	fa01 f303 	lsl.w	r3, r1, r3
+ 8000b96:	4619      	mov	r1, r3
+ 8000b98:	687b      	ldr	r3, [r7, #4]
+ 8000b9a:	781b      	ldrb	r3, [r3, #0]
+ 8000b9c:	4618      	mov	r0, r3
+ 8000b9e:	4b44      	ldr	r3, [pc, #272]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000ba0:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8000ba4:	430a      	orrs	r2, r1
+ 8000ba6:	605a      	str	r2, [r3, #4]
+				/* select speed type LOW_SPEED - MEDIUM_SPEED - FAST_SPEED - HIGH_SPEED */
+				GPIO_PORT[copy_ePinConfig->PIN_Port]->OSPEEDR &= ~(OSPEEDR_MASK				   << (copy_ePinConfig->PIN_Number * OSPEEDR_PIN_ACCESS)); // clear mode bits
+ 8000ba8:	687b      	ldr	r3, [r7, #4]
+ 8000baa:	781b      	ldrb	r3, [r3, #0]
+ 8000bac:	461a      	mov	r2, r3
+ 8000bae:	4b40      	ldr	r3, [pc, #256]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000bb0:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000bb4:	689a      	ldr	r2, [r3, #8]
+ 8000bb6:	687b      	ldr	r3, [r7, #4]
+ 8000bb8:	785b      	ldrb	r3, [r3, #1]
+ 8000bba:	005b      	lsls	r3, r3, #1
+ 8000bbc:	2103      	movs	r1, #3
+ 8000bbe:	fa01 f303 	lsl.w	r3, r1, r3
+ 8000bc2:	43db      	mvns	r3, r3
+ 8000bc4:	4619      	mov	r1, r3
+ 8000bc6:	687b      	ldr	r3, [r7, #4]
+ 8000bc8:	781b      	ldrb	r3, [r3, #0]
+ 8000bca:	4618      	mov	r0, r3
+ 8000bcc:	4b38      	ldr	r3, [pc, #224]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000bce:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8000bd2:	400a      	ands	r2, r1
+ 8000bd4:	609a      	str	r2, [r3, #8]
+				GPIO_PORT[copy_ePinConfig->PIN_Port]->OSPEEDR |=  (copy_ePinConfig->PIN_OSpeed << (copy_ePinConfig->PIN_Number * OSPEEDR_PIN_ACCESS));
+ 8000bd6:	687b      	ldr	r3, [r7, #4]
+ 8000bd8:	781b      	ldrb	r3, [r3, #0]
+ 8000bda:	461a      	mov	r2, r3
+ 8000bdc:	4b34      	ldr	r3, [pc, #208]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000bde:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000be2:	689a      	ldr	r2, [r3, #8]
+ 8000be4:	687b      	ldr	r3, [r7, #4]
+ 8000be6:	795b      	ldrb	r3, [r3, #5]
+ 8000be8:	4619      	mov	r1, r3
+ 8000bea:	687b      	ldr	r3, [r7, #4]
+ 8000bec:	785b      	ldrb	r3, [r3, #1]
+ 8000bee:	005b      	lsls	r3, r3, #1
+ 8000bf0:	fa01 f303 	lsl.w	r3, r1, r3
+ 8000bf4:	4619      	mov	r1, r3
+ 8000bf6:	687b      	ldr	r3, [r7, #4]
+ 8000bf8:	781b      	ldrb	r3, [r3, #0]
+ 8000bfa:	4618      	mov	r0, r3
+ 8000bfc:	4b2c      	ldr	r3, [pc, #176]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000bfe:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8000c02:	430a      	orrs	r2, r1
+ 8000c04:	609a      	str	r2, [r3, #8]
+				/* select AF PIN */
+				if ((copy_ePinConfig->PIN_Type == ALTERNATE))
+ 8000c06:	687b      	ldr	r3, [r7, #4]
+ 8000c08:	789b      	ldrb	r3, [r3, #2]
+ 8000c0a:	2b02      	cmp	r3, #2
+ 8000c0c:	d148      	bne.n	8000ca0 <GPIO_u8PinInit+0x248>
+				{
+					uint8_t Local_u8RegNum = copy_ePinConfig->PIN_Number / 8U;
+ 8000c0e:	687b      	ldr	r3, [r7, #4]
+ 8000c10:	785b      	ldrb	r3, [r3, #1]
+ 8000c12:	08db      	lsrs	r3, r3, #3
+ 8000c14:	73bb      	strb	r3, [r7, #14]
+					uint8_t Local_u8BitNum = copy_ePinConfig->PIN_Number % 8U;
+ 8000c16:	687b      	ldr	r3, [r7, #4]
+ 8000c18:	785b      	ldrb	r3, [r3, #1]
+ 8000c1a:	f003 0307 	and.w	r3, r3, #7
+ 8000c1e:	737b      	strb	r3, [r7, #13]
+
+					GPIO_PORT[copy_ePinConfig->PIN_Port]->AFR[Local_u8RegNum] &= ~(AFR_MASK			  << ( Local_u8BitNum*AFR_PIN_ACCESS)); // clear mode bits
+ 8000c20:	687b      	ldr	r3, [r7, #4]
+ 8000c22:	781b      	ldrb	r3, [r3, #0]
+ 8000c24:	461a      	mov	r2, r3
+ 8000c26:	4b22      	ldr	r3, [pc, #136]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000c28:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000c2c:	7bba      	ldrb	r2, [r7, #14]
+ 8000c2e:	3208      	adds	r2, #8
+ 8000c30:	f853 1022 	ldr.w	r1, [r3, r2, lsl #2]
+ 8000c34:	7b7b      	ldrb	r3, [r7, #13]
+ 8000c36:	009b      	lsls	r3, r3, #2
+ 8000c38:	220f      	movs	r2, #15
+ 8000c3a:	fa02 f303 	lsl.w	r3, r2, r3
+ 8000c3e:	43db      	mvns	r3, r3
+ 8000c40:	4618      	mov	r0, r3
+ 8000c42:	687b      	ldr	r3, [r7, #4]
+ 8000c44:	781b      	ldrb	r3, [r3, #0]
+ 8000c46:	461a      	mov	r2, r3
+ 8000c48:	4b19      	ldr	r3, [pc, #100]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000c4a:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000c4e:	7bba      	ldrb	r2, [r7, #14]
+ 8000c50:	4001      	ands	r1, r0
+ 8000c52:	3208      	adds	r2, #8
+ 8000c54:	f843 1022 	str.w	r1, [r3, r2, lsl #2]
+					GPIO_PORT[copy_ePinConfig->PIN_Port]->AFR[Local_u8RegNum] |=  (copy_ePinConfig->PIN_AF  << ( Local_u8BitNum*AFR_PIN_ACCESS));
+ 8000c58:	687b      	ldr	r3, [r7, #4]
+ 8000c5a:	781b      	ldrb	r3, [r3, #0]
+ 8000c5c:	461a      	mov	r2, r3
+ 8000c5e:	4b14      	ldr	r3, [pc, #80]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000c60:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000c64:	7bba      	ldrb	r2, [r7, #14]
+ 8000c66:	3208      	adds	r2, #8
+ 8000c68:	f853 1022 	ldr.w	r1, [r3, r2, lsl #2]
+ 8000c6c:	687b      	ldr	r3, [r7, #4]
+ 8000c6e:	7a1b      	ldrb	r3, [r3, #8]
+ 8000c70:	461a      	mov	r2, r3
+ 8000c72:	7b7b      	ldrb	r3, [r7, #13]
+ 8000c74:	009b      	lsls	r3, r3, #2
+ 8000c76:	fa02 f303 	lsl.w	r3, r2, r3
+ 8000c7a:	4618      	mov	r0, r3
+ 8000c7c:	687b      	ldr	r3, [r7, #4]
+ 8000c7e:	781b      	ldrb	r3, [r3, #0]
+ 8000c80:	461a      	mov	r2, r3
+ 8000c82:	4b0b      	ldr	r3, [pc, #44]	; (8000cb0 <GPIO_u8PinInit+0x258>)
+ 8000c84:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000c88:	7bba      	ldrb	r2, [r7, #14]
+ 8000c8a:	4301      	orrs	r1, r0
+ 8000c8c:	3208      	adds	r2, #8
+ 8000c8e:	f843 1022 	str.w	r1, [r3, r2, lsl #2]
+			if ((copy_ePinConfig->PIN_Type == OUTPUT) || (copy_ePinConfig->PIN_Type == ALTERNATE))
+ 8000c92:	e005      	b.n	8000ca0 <GPIO_u8PinInit+0x248>
+				}
+			}
+		}
+		else
+		{
+			Local_u8ErrorState = NOK;
+ 8000c94:	2302      	movs	r3, #2
+ 8000c96:	73fb      	strb	r3, [r7, #15]
+ 8000c98:	e003      	b.n	8000ca2 <GPIO_u8PinInit+0x24a>
+		}
+	}
+	else
+	{
+		Local_u8ErrorState = NULL_PTR_ERR;
+ 8000c9a:	2303      	movs	r3, #3
+ 8000c9c:	73fb      	strb	r3, [r7, #15]
+ 8000c9e:	e000      	b.n	8000ca2 <GPIO_u8PinInit+0x24a>
+			if ((copy_ePinConfig->PIN_Type == OUTPUT) || (copy_ePinConfig->PIN_Type == ALTERNATE))
+ 8000ca0:	bf00      	nop
+	}
+
+	return Local_u8ErrorState;
+ 8000ca2:	7bfb      	ldrb	r3, [r7, #15]
+}
+ 8000ca4:	4618      	mov	r0, r3
+ 8000ca6:	3714      	adds	r7, #20
+ 8000ca8:	46bd      	mov	sp, r7
+ 8000caa:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8000cae:	4770      	bx	lr
+ 8000cb0:	20000008 	.word	0x20000008
+
+08000cb4 <RCC_AHB1EnableCLK>:
+#include "ErrType.h"
+#include "Utils.h"
+#include "stdio.h"
+
+void RCC_AHB1EnableCLK(PeripheralAHB1_t peripheral)
+{
+ 8000cb4:	b480      	push	{r7}
+ 8000cb6:	b083      	sub	sp, #12
+ 8000cb8:	af00      	add	r7, sp, #0
+ 8000cba:	4603      	mov	r3, r0
+ 8000cbc:	71fb      	strb	r3, [r7, #7]
+	SET_BIT(RCC->AHB1ENR,peripheral);
+ 8000cbe:	4b08      	ldr	r3, [pc, #32]	; (8000ce0 <RCC_AHB1EnableCLK+0x2c>)
+ 8000cc0:	6b1b      	ldr	r3, [r3, #48]	; 0x30
+ 8000cc2:	79fa      	ldrb	r2, [r7, #7]
+ 8000cc4:	2101      	movs	r1, #1
+ 8000cc6:	fa01 f202 	lsl.w	r2, r1, r2
+ 8000cca:	4611      	mov	r1, r2
+ 8000ccc:	4a04      	ldr	r2, [pc, #16]	; (8000ce0 <RCC_AHB1EnableCLK+0x2c>)
+ 8000cce:	430b      	orrs	r3, r1
+ 8000cd0:	6313      	str	r3, [r2, #48]	; 0x30
+}
+ 8000cd2:	bf00      	nop
+ 8000cd4:	370c      	adds	r7, #12
+ 8000cd6:	46bd      	mov	sp, r7
+ 8000cd8:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8000cdc:	4770      	bx	lr
+ 8000cde:	bf00      	nop
+ 8000ce0:	40023800 	.word	0x40023800
+
+08000ce4 <RCC_APB1EnableCLK>:
+	CLEAR_BIT(RCC->AHB1ENR,peripheral);
+
+}
+
+void RCC_APB1EnableCLK(PeripheralAPB1_t peripheral)
+{
+ 8000ce4:	b480      	push	{r7}
+ 8000ce6:	b083      	sub	sp, #12
+ 8000ce8:	af00      	add	r7, sp, #0
+ 8000cea:	4603      	mov	r3, r0
+ 8000cec:	71fb      	strb	r3, [r7, #7]
+	SET_BIT(RCC->APB1ENR,peripheral);
+ 8000cee:	4b08      	ldr	r3, [pc, #32]	; (8000d10 <RCC_APB1EnableCLK+0x2c>)
+ 8000cf0:	6c1b      	ldr	r3, [r3, #64]	; 0x40
+ 8000cf2:	79fa      	ldrb	r2, [r7, #7]
+ 8000cf4:	2101      	movs	r1, #1
+ 8000cf6:	fa01 f202 	lsl.w	r2, r1, r2
+ 8000cfa:	4611      	mov	r1, r2
+ 8000cfc:	4a04      	ldr	r2, [pc, #16]	; (8000d10 <RCC_APB1EnableCLK+0x2c>)
+ 8000cfe:	430b      	orrs	r3, r1
+ 8000d00:	6413      	str	r3, [r2, #64]	; 0x40
+
+}
+ 8000d02:	bf00      	nop
+ 8000d04:	370c      	adds	r7, #12
+ 8000d06:	46bd      	mov	sp, r7
+ 8000d08:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8000d0c:	4770      	bx	lr
+ 8000d0e:	bf00      	nop
+ 8000d10:	40023800 	.word	0x40023800
+
+08000d14 <UART_vInit>:
+static void UART_vEnableErrorInterrupt(USART_HandleTypeDef_t* huart,USART_Interrupt_Enable_t copy_eInterrupt_Enable);
+static void UART_vSetBaudRate(USART_HandleTypeDef_t* huart,uint32_t copy_u32BaudRate);
+
+
+  void UART_vInit(USART_HandleTypeDef_t* huart)
+{
+ 8000d14:	b580      	push	{r7, lr}
+ 8000d16:	b082      	sub	sp, #8
+ 8000d18:	af00      	add	r7, sp, #0
+ 8000d1a:	6078      	str	r0, [r7, #4]
+	UART_vEnale(huart,huart->USARTEnable);
+ 8000d1c:	687b      	ldr	r3, [r7, #4]
+ 8000d1e:	785b      	ldrb	r3, [r3, #1]
+ 8000d20:	4619      	mov	r1, r3
+ 8000d22:	6878      	ldr	r0, [r7, #4]
+ 8000d24:	f000 fa62 	bl	80011ec <UART_vEnale>
+	UART_vReceiverEnable(huart,huart->RecieverEnable);
+ 8000d28:	687b      	ldr	r3, [r7, #4]
+ 8000d2a:	78db      	ldrb	r3, [r3, #3]
+ 8000d2c:	4619      	mov	r1, r3
+ 8000d2e:	6878      	ldr	r0, [r7, #4]
+ 8000d30:	f000 f87c 	bl	8000e2c <UART_vReceiverEnable>
+	UART_vTransmitterEnable(huart,huart->TransmitterEnable);
+ 8000d34:	687b      	ldr	r3, [r7, #4]
+ 8000d36:	789b      	ldrb	r3, [r3, #2]
+ 8000d38:	4619      	mov	r1, r3
+ 8000d3a:	6878      	ldr	r0, [r7, #4]
+ 8000d3c:	f000 f8a6 	bl	8000e8c <UART_vTransmitterEnable>
+	UART_vDMAEnablReceiver(huart,huart->DMAEnableReciever);
+ 8000d40:	687b      	ldr	r3, [r7, #4]
+ 8000d42:	791b      	ldrb	r3, [r3, #4]
+ 8000d44:	4619      	mov	r1, r3
+ 8000d46:	6878      	ldr	r0, [r7, #4]
+ 8000d48:	f000 fb10 	bl	800136c <UART_vDMAEnablReceiver>
+	UART_vDMAEnableTransmitter(huart,huart->DMAEnableTransmitter);
+ 8000d4c:	687b      	ldr	r3, [r7, #4]
+ 8000d4e:	795b      	ldrb	r3, [r3, #5]
+ 8000d50:	4619      	mov	r1, r3
+ 8000d52:	6878      	ldr	r0, [r7, #4]
+ 8000d54:	f000 fb3a 	bl	80013cc <UART_vDMAEnableTransmitter>
+	UART_vSetStopBits(huart,huart->NumberOfStopBits);
+ 8000d58:	687b      	ldr	r3, [r7, #4]
+ 8000d5a:	799b      	ldrb	r3, [r3, #6]
+ 8000d5c:	4619      	mov	r1, r3
+ 8000d5e:	6878      	ldr	r0, [r7, #4]
+ 8000d60:	f000 faa4 	bl	80012ac <UART_vSetStopBits>
+	UART_vEnableParity(huart,huart->ParityEnable);
+ 8000d64:	687b      	ldr	r3, [r7, #4]
+ 8000d66:	79db      	ldrb	r3, [r3, #7]
+ 8000d68:	4619      	mov	r1, r3
+ 8000d6a:	6878      	ldr	r0, [r7, #4]
+ 8000d6c:	f000 f9de 	bl	800112c <UART_vEnableParity>
+	if (huart->ParityEnable == USART_Enable_Parity)
+ 8000d70:	687b      	ldr	r3, [r7, #4]
+ 8000d72:	79db      	ldrb	r3, [r3, #7]
+ 8000d74:	2b01      	cmp	r3, #1
+ 8000d76:	d105      	bne.n	8000d84 <UART_vInit+0x70>
+	{
+		UART_vSetParity(huart,huart->ParityType);
+ 8000d78:	687b      	ldr	r3, [r7, #4]
+ 8000d7a:	7a1b      	ldrb	r3, [r3, #8]
+ 8000d7c:	4619      	mov	r1, r3
+ 8000d7e:	6878      	ldr	r0, [r7, #4]
+ 8000d80:	f000 f9a4 	bl	80010cc <UART_vSetParity>
+	}
+	UART_vSetWordLength(huart,huart->WordLength);
+ 8000d84:	687b      	ldr	r3, [r7, #4]
+ 8000d86:	7a5b      	ldrb	r3, [r3, #9]
+ 8000d88:	4619      	mov	r1, r3
+ 8000d8a:	6878      	ldr	r0, [r7, #4]
+ 8000d8c:	f000 f9fe 	bl	800118c <UART_vSetWordLength>
+	UART_vSetOversamplingMode( huart,huart->OverSamplingMode);
+ 8000d90:	687b      	ldr	r3, [r7, #4]
+ 8000d92:	7adb      	ldrb	r3, [r3, #11]
+ 8000d94:	4619      	mov	r1, r3
+ 8000d96:	6878      	ldr	r0, [r7, #4]
+ 8000d98:	f000 fa58 	bl	800124c <UART_vSetOversamplingMode>
+	UART_vSetOneSampleBitMethod( huart,huart->OneSampleMethod);
+ 8000d9c:	687b      	ldr	r3, [r7, #4]
+ 8000d9e:	7a9b      	ldrb	r3, [r3, #10]
+ 8000da0:	4619      	mov	r1, r3
+ 8000da2:	6878      	ldr	r0, [r7, #4]
+ 8000da4:	f000 fab2 	bl	800130c <UART_vSetOneSampleBitMethod>
+	UART_vSetBaudRate( huart,huart->u32BaudRate);
+ 8000da8:	687b      	ldr	r3, [r7, #4]
+ 8000daa:	68db      	ldr	r3, [r3, #12]
+ 8000dac:	4619      	mov	r1, r3
+ 8000dae:	6878      	ldr	r0, [r7, #4]
+ 8000db0:	f000 fb6a 	bl	8001488 <UART_vSetBaudRate>
+
+
+
+	UART_vEnableErrorInterrupt(huart,huart->ErrorInterruptEnable);
+ 8000db4:	687b      	ldr	r3, [r7, #4]
+ 8000db6:	7c1b      	ldrb	r3, [r3, #16]
+ 8000db8:	4619      	mov	r1, r3
+ 8000dba:	6878      	ldr	r0, [r7, #4]
+ 8000dbc:	f000 fb36 	bl	800142c <UART_vEnableErrorInterrupt>
+	UART_vIdleInterruptEnable(huart, huart->IdleInterruptEnable);
+ 8000dc0:	687b      	ldr	r3, [r7, #4]
+ 8000dc2:	7c5b      	ldrb	r3, [r3, #17]
+ 8000dc4:	4619      	mov	r1, r3
+ 8000dc6:	6878      	ldr	r0, [r7, #4]
+ 8000dc8:	f000 f890 	bl	8000eec <UART_vIdleInterruptEnable>
+	UART_vRXNEInterruptEnable(huart, huart->RXNEInterruptEnable);
+ 8000dcc:	687b      	ldr	r3, [r7, #4]
+ 8000dce:	7c9b      	ldrb	r3, [r3, #18]
+ 8000dd0:	4619      	mov	r1, r3
+ 8000dd2:	6878      	ldr	r0, [r7, #4]
+ 8000dd4:	f000 f8ba 	bl	8000f4c <UART_vRXNEInterruptEnable>
+	UART_vTransmissionCompleteInterruptEnable(huart, huart->TransmissionCompleteInterruptEnable);
+ 8000dd8:	687b      	ldr	r3, [r7, #4]
+ 8000dda:	7cdb      	ldrb	r3, [r3, #19]
+ 8000ddc:	4619      	mov	r1, r3
+ 8000dde:	6878      	ldr	r0, [r7, #4]
+ 8000de0:	f000 f8e4 	bl	8000fac <UART_vTransmissionCompleteInterruptEnable>
+	UART_vTXEInterruptEnable(huart, huart->TXEInterruptEnable);
+ 8000de4:	687b      	ldr	r3, [r7, #4]
+ 8000de6:	7d1b      	ldrb	r3, [r3, #20]
+ 8000de8:	4619      	mov	r1, r3
+ 8000dea:	6878      	ldr	r0, [r7, #4]
+ 8000dec:	f000 f90e 	bl	800100c <UART_vTXEInterruptEnable>
+	UART_vPEInterruptEnable(huart, huart->PEInterruptEnable);
+ 8000df0:	687b      	ldr	r3, [r7, #4]
+ 8000df2:	7d5b      	ldrb	r3, [r3, #21]
+ 8000df4:	4619      	mov	r1, r3
+ 8000df6:	6878      	ldr	r0, [r7, #4]
+ 8000df8:	f000 f938 	bl	800106c <UART_vPEInterruptEnable>
+
+
+
+}
+ 8000dfc:	bf00      	nop
+ 8000dfe:	3708      	adds	r7, #8
+ 8000e00:	46bd      	mov	sp, r7
+ 8000e02:	bd80      	pop	{r7, pc}
+
+08000e04 <UART_vReceive_DMA>:
+ {
+		DMA_vStart(hdma,(uint32_t)copy_u32SrcAddress, (uint32_t)0x40004404 , copy_u32DataLength);
+
+ }
+  void UART_vReceive_DMA(DMA_HandleTypeDef_t* hdma, uint32_t copy_u32DstAddress, uint8_t copy_u32DataLength)
+ {
+ 8000e04:	b580      	push	{r7, lr}
+ 8000e06:	b084      	sub	sp, #16
+ 8000e08:	af00      	add	r7, sp, #0
+ 8000e0a:	60f8      	str	r0, [r7, #12]
+ 8000e0c:	60b9      	str	r1, [r7, #8]
+ 8000e0e:	4613      	mov	r3, r2
+ 8000e10:	71fb      	strb	r3, [r7, #7]
+		DMA_vStart(hdma,(uint32_t)0x40004404, (uint32_t)copy_u32DstAddress , copy_u32DataLength);
+ 8000e12:	79fb      	ldrb	r3, [r7, #7]
+ 8000e14:	68ba      	ldr	r2, [r7, #8]
+ 8000e16:	4904      	ldr	r1, [pc, #16]	; (8000e28 <UART_vReceive_DMA+0x24>)
+ 8000e18:	68f8      	ldr	r0, [r7, #12]
+ 8000e1a:	f7ff fcd3 	bl	80007c4 <DMA_vStart>
+ }
+ 8000e1e:	bf00      	nop
+ 8000e20:	3710      	adds	r7, #16
+ 8000e22:	46bd      	mov	sp, r7
+ 8000e24:	bd80      	pop	{r7, pc}
+ 8000e26:	bf00      	nop
+ 8000e28:	40004404 	.word	0x40004404
+
+08000e2c <UART_vReceiverEnable>:
+{
+	*copy_pu8Data=USARTPeripheral[huart->USART_ID]->USART_DR;
+
+}
+ static void UART_vReceiverEnable(USART_HandleTypeDef_t* huart,USART_Receiver_Enable_t copy_eReceiver_Enable)
+{
+ 8000e2c:	b480      	push	{r7}
+ 8000e2e:	b083      	sub	sp, #12
+ 8000e30:	af00      	add	r7, sp, #0
+ 8000e32:	6078      	str	r0, [r7, #4]
+ 8000e34:	460b      	mov	r3, r1
+ 8000e36:	70fb      	strb	r3, [r7, #3]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 &=~ (0b1<<USART_CR1_RE);
+ 8000e38:	687b      	ldr	r3, [r7, #4]
+ 8000e3a:	781b      	ldrb	r3, [r3, #0]
+ 8000e3c:	461a      	mov	r2, r3
+ 8000e3e:	4b12      	ldr	r3, [pc, #72]	; (8000e88 <UART_vReceiverEnable+0x5c>)
+ 8000e40:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000e44:	68da      	ldr	r2, [r3, #12]
+ 8000e46:	687b      	ldr	r3, [r7, #4]
+ 8000e48:	781b      	ldrb	r3, [r3, #0]
+ 8000e4a:	4619      	mov	r1, r3
+ 8000e4c:	4b0e      	ldr	r3, [pc, #56]	; (8000e88 <UART_vReceiverEnable+0x5c>)
+ 8000e4e:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
+ 8000e52:	f022 0204 	bic.w	r2, r2, #4
+ 8000e56:	60da      	str	r2, [r3, #12]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 |= (copy_eReceiver_Enable<<USART_CR1_RE);
+ 8000e58:	687b      	ldr	r3, [r7, #4]
+ 8000e5a:	781b      	ldrb	r3, [r3, #0]
+ 8000e5c:	461a      	mov	r2, r3
+ 8000e5e:	4b0a      	ldr	r3, [pc, #40]	; (8000e88 <UART_vReceiverEnable+0x5c>)
+ 8000e60:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000e64:	68da      	ldr	r2, [r3, #12]
+ 8000e66:	78fb      	ldrb	r3, [r7, #3]
+ 8000e68:	009b      	lsls	r3, r3, #2
+ 8000e6a:	4619      	mov	r1, r3
+ 8000e6c:	687b      	ldr	r3, [r7, #4]
+ 8000e6e:	781b      	ldrb	r3, [r3, #0]
+ 8000e70:	4618      	mov	r0, r3
+ 8000e72:	4b05      	ldr	r3, [pc, #20]	; (8000e88 <UART_vReceiverEnable+0x5c>)
+ 8000e74:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8000e78:	430a      	orrs	r2, r1
+ 8000e7a:	60da      	str	r2, [r3, #12]
+
+}
+ 8000e7c:	bf00      	nop
+ 8000e7e:	370c      	adds	r7, #12
+ 8000e80:	46bd      	mov	sp, r7
+ 8000e82:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8000e86:	4770      	bx	lr
+ 8000e88:	20000028 	.word	0x20000028
+
+08000e8c <UART_vTransmitterEnable>:
+ static void UART_vTransmitterEnable(USART_HandleTypeDef_t* huart,USART_Transmitter_Enable_t copy_eTransmitter_Enable)
+{
+ 8000e8c:	b480      	push	{r7}
+ 8000e8e:	b083      	sub	sp, #12
+ 8000e90:	af00      	add	r7, sp, #0
+ 8000e92:	6078      	str	r0, [r7, #4]
+ 8000e94:	460b      	mov	r3, r1
+ 8000e96:	70fb      	strb	r3, [r7, #3]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 &=~ (0b1<<USART_CR1_TE);
+ 8000e98:	687b      	ldr	r3, [r7, #4]
+ 8000e9a:	781b      	ldrb	r3, [r3, #0]
+ 8000e9c:	461a      	mov	r2, r3
+ 8000e9e:	4b12      	ldr	r3, [pc, #72]	; (8000ee8 <UART_vTransmitterEnable+0x5c>)
+ 8000ea0:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000ea4:	68da      	ldr	r2, [r3, #12]
+ 8000ea6:	687b      	ldr	r3, [r7, #4]
+ 8000ea8:	781b      	ldrb	r3, [r3, #0]
+ 8000eaa:	4619      	mov	r1, r3
+ 8000eac:	4b0e      	ldr	r3, [pc, #56]	; (8000ee8 <UART_vTransmitterEnable+0x5c>)
+ 8000eae:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
+ 8000eb2:	f022 0208 	bic.w	r2, r2, #8
+ 8000eb6:	60da      	str	r2, [r3, #12]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 |= (copy_eTransmitter_Enable<<USART_CR1_TE);
+ 8000eb8:	687b      	ldr	r3, [r7, #4]
+ 8000eba:	781b      	ldrb	r3, [r3, #0]
+ 8000ebc:	461a      	mov	r2, r3
+ 8000ebe:	4b0a      	ldr	r3, [pc, #40]	; (8000ee8 <UART_vTransmitterEnable+0x5c>)
+ 8000ec0:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000ec4:	68da      	ldr	r2, [r3, #12]
+ 8000ec6:	78fb      	ldrb	r3, [r7, #3]
+ 8000ec8:	00db      	lsls	r3, r3, #3
+ 8000eca:	4619      	mov	r1, r3
+ 8000ecc:	687b      	ldr	r3, [r7, #4]
+ 8000ece:	781b      	ldrb	r3, [r3, #0]
+ 8000ed0:	4618      	mov	r0, r3
+ 8000ed2:	4b05      	ldr	r3, [pc, #20]	; (8000ee8 <UART_vTransmitterEnable+0x5c>)
+ 8000ed4:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8000ed8:	430a      	orrs	r2, r1
+ 8000eda:	60da      	str	r2, [r3, #12]
+
+}
+ 8000edc:	bf00      	nop
+ 8000ede:	370c      	adds	r7, #12
+ 8000ee0:	46bd      	mov	sp, r7
+ 8000ee2:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8000ee6:	4770      	bx	lr
+ 8000ee8:	20000028 	.word	0x20000028
+
+08000eec <UART_vIdleInterruptEnable>:
+
+ static void UART_vIdleInterruptEnable(USART_HandleTypeDef_t* huart,USART_Interrupt_Enable_t copy_eInterrupt_Enable)
+{
+ 8000eec:	b480      	push	{r7}
+ 8000eee:	b083      	sub	sp, #12
+ 8000ef0:	af00      	add	r7, sp, #0
+ 8000ef2:	6078      	str	r0, [r7, #4]
+ 8000ef4:	460b      	mov	r3, r1
+ 8000ef6:	70fb      	strb	r3, [r7, #3]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 &=~ (0b1<<USART_CR1_IDLEIE);
+ 8000ef8:	687b      	ldr	r3, [r7, #4]
+ 8000efa:	781b      	ldrb	r3, [r3, #0]
+ 8000efc:	461a      	mov	r2, r3
+ 8000efe:	4b12      	ldr	r3, [pc, #72]	; (8000f48 <UART_vIdleInterruptEnable+0x5c>)
+ 8000f00:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000f04:	68da      	ldr	r2, [r3, #12]
+ 8000f06:	687b      	ldr	r3, [r7, #4]
+ 8000f08:	781b      	ldrb	r3, [r3, #0]
+ 8000f0a:	4619      	mov	r1, r3
+ 8000f0c:	4b0e      	ldr	r3, [pc, #56]	; (8000f48 <UART_vIdleInterruptEnable+0x5c>)
+ 8000f0e:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
+ 8000f12:	f022 0210 	bic.w	r2, r2, #16
+ 8000f16:	60da      	str	r2, [r3, #12]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 |= (copy_eInterrupt_Enable<<USART_CR1_IDLEIE);
+ 8000f18:	687b      	ldr	r3, [r7, #4]
+ 8000f1a:	781b      	ldrb	r3, [r3, #0]
+ 8000f1c:	461a      	mov	r2, r3
+ 8000f1e:	4b0a      	ldr	r3, [pc, #40]	; (8000f48 <UART_vIdleInterruptEnable+0x5c>)
+ 8000f20:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000f24:	68da      	ldr	r2, [r3, #12]
+ 8000f26:	78fb      	ldrb	r3, [r7, #3]
+ 8000f28:	011b      	lsls	r3, r3, #4
+ 8000f2a:	4619      	mov	r1, r3
+ 8000f2c:	687b      	ldr	r3, [r7, #4]
+ 8000f2e:	781b      	ldrb	r3, [r3, #0]
+ 8000f30:	4618      	mov	r0, r3
+ 8000f32:	4b05      	ldr	r3, [pc, #20]	; (8000f48 <UART_vIdleInterruptEnable+0x5c>)
+ 8000f34:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8000f38:	430a      	orrs	r2, r1
+ 8000f3a:	60da      	str	r2, [r3, #12]
+
+}
+ 8000f3c:	bf00      	nop
+ 8000f3e:	370c      	adds	r7, #12
+ 8000f40:	46bd      	mov	sp, r7
+ 8000f42:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8000f46:	4770      	bx	lr
+ 8000f48:	20000028 	.word	0x20000028
+
+08000f4c <UART_vRXNEInterruptEnable>:
+ static void UART_vRXNEInterruptEnable(USART_HandleTypeDef_t* huart,USART_Interrupt_Enable_t copy_eInterrupt_Enable)
+{
+ 8000f4c:	b480      	push	{r7}
+ 8000f4e:	b083      	sub	sp, #12
+ 8000f50:	af00      	add	r7, sp, #0
+ 8000f52:	6078      	str	r0, [r7, #4]
+ 8000f54:	460b      	mov	r3, r1
+ 8000f56:	70fb      	strb	r3, [r7, #3]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 &=~ (0b1<<USART_CR1_RXNEIE);
+ 8000f58:	687b      	ldr	r3, [r7, #4]
+ 8000f5a:	781b      	ldrb	r3, [r3, #0]
+ 8000f5c:	461a      	mov	r2, r3
+ 8000f5e:	4b12      	ldr	r3, [pc, #72]	; (8000fa8 <UART_vRXNEInterruptEnable+0x5c>)
+ 8000f60:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000f64:	68da      	ldr	r2, [r3, #12]
+ 8000f66:	687b      	ldr	r3, [r7, #4]
+ 8000f68:	781b      	ldrb	r3, [r3, #0]
+ 8000f6a:	4619      	mov	r1, r3
+ 8000f6c:	4b0e      	ldr	r3, [pc, #56]	; (8000fa8 <UART_vRXNEInterruptEnable+0x5c>)
+ 8000f6e:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
+ 8000f72:	f022 0220 	bic.w	r2, r2, #32
+ 8000f76:	60da      	str	r2, [r3, #12]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 |= (copy_eInterrupt_Enable<<USART_CR1_RXNEIE);
+ 8000f78:	687b      	ldr	r3, [r7, #4]
+ 8000f7a:	781b      	ldrb	r3, [r3, #0]
+ 8000f7c:	461a      	mov	r2, r3
+ 8000f7e:	4b0a      	ldr	r3, [pc, #40]	; (8000fa8 <UART_vRXNEInterruptEnable+0x5c>)
+ 8000f80:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000f84:	68da      	ldr	r2, [r3, #12]
+ 8000f86:	78fb      	ldrb	r3, [r7, #3]
+ 8000f88:	015b      	lsls	r3, r3, #5
+ 8000f8a:	4619      	mov	r1, r3
+ 8000f8c:	687b      	ldr	r3, [r7, #4]
+ 8000f8e:	781b      	ldrb	r3, [r3, #0]
+ 8000f90:	4618      	mov	r0, r3
+ 8000f92:	4b05      	ldr	r3, [pc, #20]	; (8000fa8 <UART_vRXNEInterruptEnable+0x5c>)
+ 8000f94:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8000f98:	430a      	orrs	r2, r1
+ 8000f9a:	60da      	str	r2, [r3, #12]
+
+}
+ 8000f9c:	bf00      	nop
+ 8000f9e:	370c      	adds	r7, #12
+ 8000fa0:	46bd      	mov	sp, r7
+ 8000fa2:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8000fa6:	4770      	bx	lr
+ 8000fa8:	20000028 	.word	0x20000028
+
+08000fac <UART_vTransmissionCompleteInterruptEnable>:
+
+ static void UART_vTransmissionCompleteInterruptEnable(USART_HandleTypeDef_t* huart,USART_Interrupt_Enable_t copy_eInterrupt_Enable)
+{
+ 8000fac:	b480      	push	{r7}
+ 8000fae:	b083      	sub	sp, #12
+ 8000fb0:	af00      	add	r7, sp, #0
+ 8000fb2:	6078      	str	r0, [r7, #4]
+ 8000fb4:	460b      	mov	r3, r1
+ 8000fb6:	70fb      	strb	r3, [r7, #3]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 &=~ (0b1<<USART_CR1_TCIE);
+ 8000fb8:	687b      	ldr	r3, [r7, #4]
+ 8000fba:	781b      	ldrb	r3, [r3, #0]
+ 8000fbc:	461a      	mov	r2, r3
+ 8000fbe:	4b12      	ldr	r3, [pc, #72]	; (8001008 <UART_vTransmissionCompleteInterruptEnable+0x5c>)
+ 8000fc0:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000fc4:	68da      	ldr	r2, [r3, #12]
+ 8000fc6:	687b      	ldr	r3, [r7, #4]
+ 8000fc8:	781b      	ldrb	r3, [r3, #0]
+ 8000fca:	4619      	mov	r1, r3
+ 8000fcc:	4b0e      	ldr	r3, [pc, #56]	; (8001008 <UART_vTransmissionCompleteInterruptEnable+0x5c>)
+ 8000fce:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
+ 8000fd2:	f022 0240 	bic.w	r2, r2, #64	; 0x40
+ 8000fd6:	60da      	str	r2, [r3, #12]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 |= (copy_eInterrupt_Enable<<USART_CR1_TCIE);
+ 8000fd8:	687b      	ldr	r3, [r7, #4]
+ 8000fda:	781b      	ldrb	r3, [r3, #0]
+ 8000fdc:	461a      	mov	r2, r3
+ 8000fde:	4b0a      	ldr	r3, [pc, #40]	; (8001008 <UART_vTransmissionCompleteInterruptEnable+0x5c>)
+ 8000fe0:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8000fe4:	68da      	ldr	r2, [r3, #12]
+ 8000fe6:	78fb      	ldrb	r3, [r7, #3]
+ 8000fe8:	019b      	lsls	r3, r3, #6
+ 8000fea:	4619      	mov	r1, r3
+ 8000fec:	687b      	ldr	r3, [r7, #4]
+ 8000fee:	781b      	ldrb	r3, [r3, #0]
+ 8000ff0:	4618      	mov	r0, r3
+ 8000ff2:	4b05      	ldr	r3, [pc, #20]	; (8001008 <UART_vTransmissionCompleteInterruptEnable+0x5c>)
+ 8000ff4:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8000ff8:	430a      	orrs	r2, r1
+ 8000ffa:	60da      	str	r2, [r3, #12]
+
+}
+ 8000ffc:	bf00      	nop
+ 8000ffe:	370c      	adds	r7, #12
+ 8001000:	46bd      	mov	sp, r7
+ 8001002:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8001006:	4770      	bx	lr
+ 8001008:	20000028 	.word	0x20000028
+
+0800100c <UART_vTXEInterruptEnable>:
+ static void UART_vTXEInterruptEnable(USART_HandleTypeDef_t* huart,USART_Interrupt_Enable_t copy_eInterrupt_Enable)
+{
+ 800100c:	b480      	push	{r7}
+ 800100e:	b083      	sub	sp, #12
+ 8001010:	af00      	add	r7, sp, #0
+ 8001012:	6078      	str	r0, [r7, #4]
+ 8001014:	460b      	mov	r3, r1
+ 8001016:	70fb      	strb	r3, [r7, #3]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 &=~ (0b1<<USART_CR1_TXEIE);
+ 8001018:	687b      	ldr	r3, [r7, #4]
+ 800101a:	781b      	ldrb	r3, [r3, #0]
+ 800101c:	461a      	mov	r2, r3
+ 800101e:	4b12      	ldr	r3, [pc, #72]	; (8001068 <UART_vTXEInterruptEnable+0x5c>)
+ 8001020:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8001024:	68da      	ldr	r2, [r3, #12]
+ 8001026:	687b      	ldr	r3, [r7, #4]
+ 8001028:	781b      	ldrb	r3, [r3, #0]
+ 800102a:	4619      	mov	r1, r3
+ 800102c:	4b0e      	ldr	r3, [pc, #56]	; (8001068 <UART_vTXEInterruptEnable+0x5c>)
+ 800102e:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
+ 8001032:	f022 0280 	bic.w	r2, r2, #128	; 0x80
+ 8001036:	60da      	str	r2, [r3, #12]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 |= (copy_eInterrupt_Enable<<USART_CR1_TXEIE);
+ 8001038:	687b      	ldr	r3, [r7, #4]
+ 800103a:	781b      	ldrb	r3, [r3, #0]
+ 800103c:	461a      	mov	r2, r3
+ 800103e:	4b0a      	ldr	r3, [pc, #40]	; (8001068 <UART_vTXEInterruptEnable+0x5c>)
+ 8001040:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8001044:	68da      	ldr	r2, [r3, #12]
+ 8001046:	78fb      	ldrb	r3, [r7, #3]
+ 8001048:	01db      	lsls	r3, r3, #7
+ 800104a:	4619      	mov	r1, r3
+ 800104c:	687b      	ldr	r3, [r7, #4]
+ 800104e:	781b      	ldrb	r3, [r3, #0]
+ 8001050:	4618      	mov	r0, r3
+ 8001052:	4b05      	ldr	r3, [pc, #20]	; (8001068 <UART_vTXEInterruptEnable+0x5c>)
+ 8001054:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8001058:	430a      	orrs	r2, r1
+ 800105a:	60da      	str	r2, [r3, #12]
+
+}
+ 800105c:	bf00      	nop
+ 800105e:	370c      	adds	r7, #12
+ 8001060:	46bd      	mov	sp, r7
+ 8001062:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8001066:	4770      	bx	lr
+ 8001068:	20000028 	.word	0x20000028
+
+0800106c <UART_vPEInterruptEnable>:
+ static void UART_vPEInterruptEnable(USART_HandleTypeDef_t* huart,USART_Interrupt_Enable_t copy_eInterrupt_Enable)
+{
+ 800106c:	b480      	push	{r7}
+ 800106e:	b083      	sub	sp, #12
+ 8001070:	af00      	add	r7, sp, #0
+ 8001072:	6078      	str	r0, [r7, #4]
+ 8001074:	460b      	mov	r3, r1
+ 8001076:	70fb      	strb	r3, [r7, #3]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 &=~ (0b1<<USART_CR1_PEIE);
+ 8001078:	687b      	ldr	r3, [r7, #4]
+ 800107a:	781b      	ldrb	r3, [r3, #0]
+ 800107c:	461a      	mov	r2, r3
+ 800107e:	4b12      	ldr	r3, [pc, #72]	; (80010c8 <UART_vPEInterruptEnable+0x5c>)
+ 8001080:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8001084:	68da      	ldr	r2, [r3, #12]
+ 8001086:	687b      	ldr	r3, [r7, #4]
+ 8001088:	781b      	ldrb	r3, [r3, #0]
+ 800108a:	4619      	mov	r1, r3
+ 800108c:	4b0e      	ldr	r3, [pc, #56]	; (80010c8 <UART_vPEInterruptEnable+0x5c>)
+ 800108e:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
+ 8001092:	f422 7280 	bic.w	r2, r2, #256	; 0x100
+ 8001096:	60da      	str	r2, [r3, #12]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 |= (copy_eInterrupt_Enable<<USART_CR1_PEIE);
+ 8001098:	687b      	ldr	r3, [r7, #4]
+ 800109a:	781b      	ldrb	r3, [r3, #0]
+ 800109c:	461a      	mov	r2, r3
+ 800109e:	4b0a      	ldr	r3, [pc, #40]	; (80010c8 <UART_vPEInterruptEnable+0x5c>)
+ 80010a0:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 80010a4:	68da      	ldr	r2, [r3, #12]
+ 80010a6:	78fb      	ldrb	r3, [r7, #3]
+ 80010a8:	021b      	lsls	r3, r3, #8
+ 80010aa:	4619      	mov	r1, r3
+ 80010ac:	687b      	ldr	r3, [r7, #4]
+ 80010ae:	781b      	ldrb	r3, [r3, #0]
+ 80010b0:	4618      	mov	r0, r3
+ 80010b2:	4b05      	ldr	r3, [pc, #20]	; (80010c8 <UART_vPEInterruptEnable+0x5c>)
+ 80010b4:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 80010b8:	430a      	orrs	r2, r1
+ 80010ba:	60da      	str	r2, [r3, #12]
+
+}
+ 80010bc:	bf00      	nop
+ 80010be:	370c      	adds	r7, #12
+ 80010c0:	46bd      	mov	sp, r7
+ 80010c2:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80010c6:	4770      	bx	lr
+ 80010c8:	20000028 	.word	0x20000028
+
+080010cc <UART_vSetParity>:
+
+ static void UART_vSetParity(USART_HandleTypeDef_t* huart,USART_Parity_t copy_eParity)
+{
+ 80010cc:	b480      	push	{r7}
+ 80010ce:	b083      	sub	sp, #12
+ 80010d0:	af00      	add	r7, sp, #0
+ 80010d2:	6078      	str	r0, [r7, #4]
+ 80010d4:	460b      	mov	r3, r1
+ 80010d6:	70fb      	strb	r3, [r7, #3]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 &=~ (0b1<<USART_CR1_PS);
+ 80010d8:	687b      	ldr	r3, [r7, #4]
+ 80010da:	781b      	ldrb	r3, [r3, #0]
+ 80010dc:	461a      	mov	r2, r3
+ 80010de:	4b12      	ldr	r3, [pc, #72]	; (8001128 <UART_vSetParity+0x5c>)
+ 80010e0:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 80010e4:	68da      	ldr	r2, [r3, #12]
+ 80010e6:	687b      	ldr	r3, [r7, #4]
+ 80010e8:	781b      	ldrb	r3, [r3, #0]
+ 80010ea:	4619      	mov	r1, r3
+ 80010ec:	4b0e      	ldr	r3, [pc, #56]	; (8001128 <UART_vSetParity+0x5c>)
+ 80010ee:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
+ 80010f2:	f422 7200 	bic.w	r2, r2, #512	; 0x200
+ 80010f6:	60da      	str	r2, [r3, #12]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 |= (copy_eParity<<USART_CR1_PS);
+ 80010f8:	687b      	ldr	r3, [r7, #4]
+ 80010fa:	781b      	ldrb	r3, [r3, #0]
+ 80010fc:	461a      	mov	r2, r3
+ 80010fe:	4b0a      	ldr	r3, [pc, #40]	; (8001128 <UART_vSetParity+0x5c>)
+ 8001100:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8001104:	68da      	ldr	r2, [r3, #12]
+ 8001106:	78fb      	ldrb	r3, [r7, #3]
+ 8001108:	025b      	lsls	r3, r3, #9
+ 800110a:	4619      	mov	r1, r3
+ 800110c:	687b      	ldr	r3, [r7, #4]
+ 800110e:	781b      	ldrb	r3, [r3, #0]
+ 8001110:	4618      	mov	r0, r3
+ 8001112:	4b05      	ldr	r3, [pc, #20]	; (8001128 <UART_vSetParity+0x5c>)
+ 8001114:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8001118:	430a      	orrs	r2, r1
+ 800111a:	60da      	str	r2, [r3, #12]
+
+}
+ 800111c:	bf00      	nop
+ 800111e:	370c      	adds	r7, #12
+ 8001120:	46bd      	mov	sp, r7
+ 8001122:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8001126:	4770      	bx	lr
+ 8001128:	20000028 	.word	0x20000028
+
+0800112c <UART_vEnableParity>:
+ static void UART_vEnableParity(USART_HandleTypeDef_t* huart,USART_Parity_Enable_t copy_eParity_Enable)
+{
+ 800112c:	b480      	push	{r7}
+ 800112e:	b083      	sub	sp, #12
+ 8001130:	af00      	add	r7, sp, #0
+ 8001132:	6078      	str	r0, [r7, #4]
+ 8001134:	460b      	mov	r3, r1
+ 8001136:	70fb      	strb	r3, [r7, #3]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 &=~ (0b1<<USART_CR1_PCE);
+ 8001138:	687b      	ldr	r3, [r7, #4]
+ 800113a:	781b      	ldrb	r3, [r3, #0]
+ 800113c:	461a      	mov	r2, r3
+ 800113e:	4b12      	ldr	r3, [pc, #72]	; (8001188 <UART_vEnableParity+0x5c>)
+ 8001140:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8001144:	68da      	ldr	r2, [r3, #12]
+ 8001146:	687b      	ldr	r3, [r7, #4]
+ 8001148:	781b      	ldrb	r3, [r3, #0]
+ 800114a:	4619      	mov	r1, r3
+ 800114c:	4b0e      	ldr	r3, [pc, #56]	; (8001188 <UART_vEnableParity+0x5c>)
+ 800114e:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
+ 8001152:	f422 6280 	bic.w	r2, r2, #1024	; 0x400
+ 8001156:	60da      	str	r2, [r3, #12]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 |= (copy_eParity_Enable<<USART_CR1_PCE);
+ 8001158:	687b      	ldr	r3, [r7, #4]
+ 800115a:	781b      	ldrb	r3, [r3, #0]
+ 800115c:	461a      	mov	r2, r3
+ 800115e:	4b0a      	ldr	r3, [pc, #40]	; (8001188 <UART_vEnableParity+0x5c>)
+ 8001160:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8001164:	68da      	ldr	r2, [r3, #12]
+ 8001166:	78fb      	ldrb	r3, [r7, #3]
+ 8001168:	029b      	lsls	r3, r3, #10
+ 800116a:	4619      	mov	r1, r3
+ 800116c:	687b      	ldr	r3, [r7, #4]
+ 800116e:	781b      	ldrb	r3, [r3, #0]
+ 8001170:	4618      	mov	r0, r3
+ 8001172:	4b05      	ldr	r3, [pc, #20]	; (8001188 <UART_vEnableParity+0x5c>)
+ 8001174:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8001178:	430a      	orrs	r2, r1
+ 800117a:	60da      	str	r2, [r3, #12]
+
+}
+ 800117c:	bf00      	nop
+ 800117e:	370c      	adds	r7, #12
+ 8001180:	46bd      	mov	sp, r7
+ 8001182:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8001186:	4770      	bx	lr
+ 8001188:	20000028 	.word	0x20000028
+
+0800118c <UART_vSetWordLength>:
+
+ static void UART_vSetWordLength(USART_HandleTypeDef_t* huart,USART_WordLength_t copy_eWordLength)
+{
+ 800118c:	b480      	push	{r7}
+ 800118e:	b083      	sub	sp, #12
+ 8001190:	af00      	add	r7, sp, #0
+ 8001192:	6078      	str	r0, [r7, #4]
+ 8001194:	460b      	mov	r3, r1
+ 8001196:	70fb      	strb	r3, [r7, #3]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 &=~ (0b1<<USART_CR1_M);
+ 8001198:	687b      	ldr	r3, [r7, #4]
+ 800119a:	781b      	ldrb	r3, [r3, #0]
+ 800119c:	461a      	mov	r2, r3
+ 800119e:	4b12      	ldr	r3, [pc, #72]	; (80011e8 <UART_vSetWordLength+0x5c>)
+ 80011a0:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 80011a4:	68da      	ldr	r2, [r3, #12]
+ 80011a6:	687b      	ldr	r3, [r7, #4]
+ 80011a8:	781b      	ldrb	r3, [r3, #0]
+ 80011aa:	4619      	mov	r1, r3
+ 80011ac:	4b0e      	ldr	r3, [pc, #56]	; (80011e8 <UART_vSetWordLength+0x5c>)
+ 80011ae:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
+ 80011b2:	f422 5280 	bic.w	r2, r2, #4096	; 0x1000
+ 80011b6:	60da      	str	r2, [r3, #12]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 |= (copy_eWordLength<<USART_CR1_M);
+ 80011b8:	687b      	ldr	r3, [r7, #4]
+ 80011ba:	781b      	ldrb	r3, [r3, #0]
+ 80011bc:	461a      	mov	r2, r3
+ 80011be:	4b0a      	ldr	r3, [pc, #40]	; (80011e8 <UART_vSetWordLength+0x5c>)
+ 80011c0:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 80011c4:	68da      	ldr	r2, [r3, #12]
+ 80011c6:	78fb      	ldrb	r3, [r7, #3]
+ 80011c8:	031b      	lsls	r3, r3, #12
+ 80011ca:	4619      	mov	r1, r3
+ 80011cc:	687b      	ldr	r3, [r7, #4]
+ 80011ce:	781b      	ldrb	r3, [r3, #0]
+ 80011d0:	4618      	mov	r0, r3
+ 80011d2:	4b05      	ldr	r3, [pc, #20]	; (80011e8 <UART_vSetWordLength+0x5c>)
+ 80011d4:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 80011d8:	430a      	orrs	r2, r1
+ 80011da:	60da      	str	r2, [r3, #12]
+
+}
+ 80011dc:	bf00      	nop
+ 80011de:	370c      	adds	r7, #12
+ 80011e0:	46bd      	mov	sp, r7
+ 80011e2:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80011e6:	4770      	bx	lr
+ 80011e8:	20000028 	.word	0x20000028
+
+080011ec <UART_vEnale>:
+
+ static void UART_vEnale(USART_HandleTypeDef_t* huart,USART_Enable_t copy_eEnable)
+{
+ 80011ec:	b480      	push	{r7}
+ 80011ee:	b083      	sub	sp, #12
+ 80011f0:	af00      	add	r7, sp, #0
+ 80011f2:	6078      	str	r0, [r7, #4]
+ 80011f4:	460b      	mov	r3, r1
+ 80011f6:	70fb      	strb	r3, [r7, #3]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 &=~ (0b1<<USART_CR1_UE);
+ 80011f8:	687b      	ldr	r3, [r7, #4]
+ 80011fa:	781b      	ldrb	r3, [r3, #0]
+ 80011fc:	461a      	mov	r2, r3
+ 80011fe:	4b12      	ldr	r3, [pc, #72]	; (8001248 <UART_vEnale+0x5c>)
+ 8001200:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8001204:	68da      	ldr	r2, [r3, #12]
+ 8001206:	687b      	ldr	r3, [r7, #4]
+ 8001208:	781b      	ldrb	r3, [r3, #0]
+ 800120a:	4619      	mov	r1, r3
+ 800120c:	4b0e      	ldr	r3, [pc, #56]	; (8001248 <UART_vEnale+0x5c>)
+ 800120e:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
+ 8001212:	f422 5200 	bic.w	r2, r2, #8192	; 0x2000
+ 8001216:	60da      	str	r2, [r3, #12]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 |= (copy_eEnable<<USART_CR1_UE);
+ 8001218:	687b      	ldr	r3, [r7, #4]
+ 800121a:	781b      	ldrb	r3, [r3, #0]
+ 800121c:	461a      	mov	r2, r3
+ 800121e:	4b0a      	ldr	r3, [pc, #40]	; (8001248 <UART_vEnale+0x5c>)
+ 8001220:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8001224:	68da      	ldr	r2, [r3, #12]
+ 8001226:	78fb      	ldrb	r3, [r7, #3]
+ 8001228:	035b      	lsls	r3, r3, #13
+ 800122a:	4619      	mov	r1, r3
+ 800122c:	687b      	ldr	r3, [r7, #4]
+ 800122e:	781b      	ldrb	r3, [r3, #0]
+ 8001230:	4618      	mov	r0, r3
+ 8001232:	4b05      	ldr	r3, [pc, #20]	; (8001248 <UART_vEnale+0x5c>)
+ 8001234:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8001238:	430a      	orrs	r2, r1
+ 800123a:	60da      	str	r2, [r3, #12]
+
+}
+ 800123c:	bf00      	nop
+ 800123e:	370c      	adds	r7, #12
+ 8001240:	46bd      	mov	sp, r7
+ 8001242:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8001246:	4770      	bx	lr
+ 8001248:	20000028 	.word	0x20000028
+
+0800124c <UART_vSetOversamplingMode>:
+ static void UART_vSetOversamplingMode(USART_HandleTypeDef_t* huart,USART_Oversampling_Mode_t copy_eOversampling_Mode)
+{
+ 800124c:	b480      	push	{r7}
+ 800124e:	b083      	sub	sp, #12
+ 8001250:	af00      	add	r7, sp, #0
+ 8001252:	6078      	str	r0, [r7, #4]
+ 8001254:	460b      	mov	r3, r1
+ 8001256:	70fb      	strb	r3, [r7, #3]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 &=~ (0b1<<USART_CR1_OVER8);
+ 8001258:	687b      	ldr	r3, [r7, #4]
+ 800125a:	781b      	ldrb	r3, [r3, #0]
+ 800125c:	461a      	mov	r2, r3
+ 800125e:	4b12      	ldr	r3, [pc, #72]	; (80012a8 <UART_vSetOversamplingMode+0x5c>)
+ 8001260:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8001264:	68da      	ldr	r2, [r3, #12]
+ 8001266:	687b      	ldr	r3, [r7, #4]
+ 8001268:	781b      	ldrb	r3, [r3, #0]
+ 800126a:	4619      	mov	r1, r3
+ 800126c:	4b0e      	ldr	r3, [pc, #56]	; (80012a8 <UART_vSetOversamplingMode+0x5c>)
+ 800126e:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
+ 8001272:	f422 4200 	bic.w	r2, r2, #32768	; 0x8000
+ 8001276:	60da      	str	r2, [r3, #12]
+	USARTPeripheral[huart->USART_ID]->USART_CR1 |= (copy_eOversampling_Mode<<USART_CR1_OVER8);
+ 8001278:	687b      	ldr	r3, [r7, #4]
+ 800127a:	781b      	ldrb	r3, [r3, #0]
+ 800127c:	461a      	mov	r2, r3
+ 800127e:	4b0a      	ldr	r3, [pc, #40]	; (80012a8 <UART_vSetOversamplingMode+0x5c>)
+ 8001280:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8001284:	68da      	ldr	r2, [r3, #12]
+ 8001286:	78fb      	ldrb	r3, [r7, #3]
+ 8001288:	03db      	lsls	r3, r3, #15
+ 800128a:	4619      	mov	r1, r3
+ 800128c:	687b      	ldr	r3, [r7, #4]
+ 800128e:	781b      	ldrb	r3, [r3, #0]
+ 8001290:	4618      	mov	r0, r3
+ 8001292:	4b05      	ldr	r3, [pc, #20]	; (80012a8 <UART_vSetOversamplingMode+0x5c>)
+ 8001294:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8001298:	430a      	orrs	r2, r1
+ 800129a:	60da      	str	r2, [r3, #12]
+}
+ 800129c:	bf00      	nop
+ 800129e:	370c      	adds	r7, #12
+ 80012a0:	46bd      	mov	sp, r7
+ 80012a2:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80012a6:	4770      	bx	lr
+ 80012a8:	20000028 	.word	0x20000028
+
+080012ac <UART_vSetStopBits>:
+
+
+ static void UART_vSetStopBits(USART_HandleTypeDef_t* huart,USART_STOP_bits_t copy_eSTOP_bits)
+{
+ 80012ac:	b480      	push	{r7}
+ 80012ae:	b083      	sub	sp, #12
+ 80012b0:	af00      	add	r7, sp, #0
+ 80012b2:	6078      	str	r0, [r7, #4]
+ 80012b4:	460b      	mov	r3, r1
+ 80012b6:	70fb      	strb	r3, [r7, #3]
+	USARTPeripheral[huart->USART_ID]->USART_CR2 &=~ (0b11<<USART_CR2_STOP);
+ 80012b8:	687b      	ldr	r3, [r7, #4]
+ 80012ba:	781b      	ldrb	r3, [r3, #0]
+ 80012bc:	461a      	mov	r2, r3
+ 80012be:	4b12      	ldr	r3, [pc, #72]	; (8001308 <UART_vSetStopBits+0x5c>)
+ 80012c0:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 80012c4:	691a      	ldr	r2, [r3, #16]
+ 80012c6:	687b      	ldr	r3, [r7, #4]
+ 80012c8:	781b      	ldrb	r3, [r3, #0]
+ 80012ca:	4619      	mov	r1, r3
+ 80012cc:	4b0e      	ldr	r3, [pc, #56]	; (8001308 <UART_vSetStopBits+0x5c>)
+ 80012ce:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
+ 80012d2:	f422 5240 	bic.w	r2, r2, #12288	; 0x3000
+ 80012d6:	611a      	str	r2, [r3, #16]
+	USARTPeripheral[huart->USART_ID]->USART_CR2 |= (copy_eSTOP_bits<<USART_CR2_STOP);
+ 80012d8:	687b      	ldr	r3, [r7, #4]
+ 80012da:	781b      	ldrb	r3, [r3, #0]
+ 80012dc:	461a      	mov	r2, r3
+ 80012de:	4b0a      	ldr	r3, [pc, #40]	; (8001308 <UART_vSetStopBits+0x5c>)
+ 80012e0:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 80012e4:	691a      	ldr	r2, [r3, #16]
+ 80012e6:	78fb      	ldrb	r3, [r7, #3]
+ 80012e8:	031b      	lsls	r3, r3, #12
+ 80012ea:	4619      	mov	r1, r3
+ 80012ec:	687b      	ldr	r3, [r7, #4]
+ 80012ee:	781b      	ldrb	r3, [r3, #0]
+ 80012f0:	4618      	mov	r0, r3
+ 80012f2:	4b05      	ldr	r3, [pc, #20]	; (8001308 <UART_vSetStopBits+0x5c>)
+ 80012f4:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 80012f8:	430a      	orrs	r2, r1
+ 80012fa:	611a      	str	r2, [r3, #16]
+
+}
+ 80012fc:	bf00      	nop
+ 80012fe:	370c      	adds	r7, #12
+ 8001300:	46bd      	mov	sp, r7
+ 8001302:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8001306:	4770      	bx	lr
+ 8001308:	20000028 	.word	0x20000028
+
+0800130c <UART_vSetOneSampleBitMethod>:
+ static void UART_vSetOneSampleBitMethod(USART_HandleTypeDef_t* huart,USART_One_sample_bit_method_t copy_eOne_sample_bit_method)
+{
+ 800130c:	b480      	push	{r7}
+ 800130e:	b083      	sub	sp, #12
+ 8001310:	af00      	add	r7, sp, #0
+ 8001312:	6078      	str	r0, [r7, #4]
+ 8001314:	460b      	mov	r3, r1
+ 8001316:	70fb      	strb	r3, [r7, #3]
+	USARTPeripheral[huart->USART_ID]->USART_CR3 &=~ (0b1<<USART_CR3_ONEBIT);
+ 8001318:	687b      	ldr	r3, [r7, #4]
+ 800131a:	781b      	ldrb	r3, [r3, #0]
+ 800131c:	461a      	mov	r2, r3
+ 800131e:	4b12      	ldr	r3, [pc, #72]	; (8001368 <UART_vSetOneSampleBitMethod+0x5c>)
+ 8001320:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8001324:	695a      	ldr	r2, [r3, #20]
+ 8001326:	687b      	ldr	r3, [r7, #4]
+ 8001328:	781b      	ldrb	r3, [r3, #0]
+ 800132a:	4619      	mov	r1, r3
+ 800132c:	4b0e      	ldr	r3, [pc, #56]	; (8001368 <UART_vSetOneSampleBitMethod+0x5c>)
+ 800132e:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
+ 8001332:	f422 6200 	bic.w	r2, r2, #2048	; 0x800
+ 8001336:	615a      	str	r2, [r3, #20]
+	USARTPeripheral[huart->USART_ID]->USART_CR3 |= (copy_eOne_sample_bit_method<<USART_CR3_ONEBIT);
+ 8001338:	687b      	ldr	r3, [r7, #4]
+ 800133a:	781b      	ldrb	r3, [r3, #0]
+ 800133c:	461a      	mov	r2, r3
+ 800133e:	4b0a      	ldr	r3, [pc, #40]	; (8001368 <UART_vSetOneSampleBitMethod+0x5c>)
+ 8001340:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8001344:	695a      	ldr	r2, [r3, #20]
+ 8001346:	78fb      	ldrb	r3, [r7, #3]
+ 8001348:	02db      	lsls	r3, r3, #11
+ 800134a:	4619      	mov	r1, r3
+ 800134c:	687b      	ldr	r3, [r7, #4]
+ 800134e:	781b      	ldrb	r3, [r3, #0]
+ 8001350:	4618      	mov	r0, r3
+ 8001352:	4b05      	ldr	r3, [pc, #20]	; (8001368 <UART_vSetOneSampleBitMethod+0x5c>)
+ 8001354:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8001358:	430a      	orrs	r2, r1
+ 800135a:	615a      	str	r2, [r3, #20]
+}
+ 800135c:	bf00      	nop
+ 800135e:	370c      	adds	r7, #12
+ 8001360:	46bd      	mov	sp, r7
+ 8001362:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8001366:	4770      	bx	lr
+ 8001368:	20000028 	.word	0x20000028
+
+0800136c <UART_vDMAEnablReceiver>:
+
+ static void UART_vDMAEnablReceiver(USART_HandleTypeDef_t* huart,USART_DMA_enable_receiver_t copy_eDMA_enable_receiver)
+{
+ 800136c:	b480      	push	{r7}
+ 800136e:	b083      	sub	sp, #12
+ 8001370:	af00      	add	r7, sp, #0
+ 8001372:	6078      	str	r0, [r7, #4]
+ 8001374:	460b      	mov	r3, r1
+ 8001376:	70fb      	strb	r3, [r7, #3]
+	USARTPeripheral[huart->USART_ID]->USART_CR3 &=~ (0b1<<USART_CR3_DMAR);
+ 8001378:	687b      	ldr	r3, [r7, #4]
+ 800137a:	781b      	ldrb	r3, [r3, #0]
+ 800137c:	461a      	mov	r2, r3
+ 800137e:	4b12      	ldr	r3, [pc, #72]	; (80013c8 <UART_vDMAEnablReceiver+0x5c>)
+ 8001380:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8001384:	695a      	ldr	r2, [r3, #20]
+ 8001386:	687b      	ldr	r3, [r7, #4]
+ 8001388:	781b      	ldrb	r3, [r3, #0]
+ 800138a:	4619      	mov	r1, r3
+ 800138c:	4b0e      	ldr	r3, [pc, #56]	; (80013c8 <UART_vDMAEnablReceiver+0x5c>)
+ 800138e:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
+ 8001392:	f022 0240 	bic.w	r2, r2, #64	; 0x40
+ 8001396:	615a      	str	r2, [r3, #20]
+	USARTPeripheral[huart->USART_ID]->USART_CR3 |= (copy_eDMA_enable_receiver<<USART_CR3_DMAR);
+ 8001398:	687b      	ldr	r3, [r7, #4]
+ 800139a:	781b      	ldrb	r3, [r3, #0]
+ 800139c:	461a      	mov	r2, r3
+ 800139e:	4b0a      	ldr	r3, [pc, #40]	; (80013c8 <UART_vDMAEnablReceiver+0x5c>)
+ 80013a0:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 80013a4:	695a      	ldr	r2, [r3, #20]
+ 80013a6:	78fb      	ldrb	r3, [r7, #3]
+ 80013a8:	019b      	lsls	r3, r3, #6
+ 80013aa:	4619      	mov	r1, r3
+ 80013ac:	687b      	ldr	r3, [r7, #4]
+ 80013ae:	781b      	ldrb	r3, [r3, #0]
+ 80013b0:	4618      	mov	r0, r3
+ 80013b2:	4b05      	ldr	r3, [pc, #20]	; (80013c8 <UART_vDMAEnablReceiver+0x5c>)
+ 80013b4:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 80013b8:	430a      	orrs	r2, r1
+ 80013ba:	615a      	str	r2, [r3, #20]
+
+}
+ 80013bc:	bf00      	nop
+ 80013be:	370c      	adds	r7, #12
+ 80013c0:	46bd      	mov	sp, r7
+ 80013c2:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 80013c6:	4770      	bx	lr
+ 80013c8:	20000028 	.word	0x20000028
+
+080013cc <UART_vDMAEnableTransmitter>:
+
+ static void UART_vDMAEnableTransmitter(USART_HandleTypeDef_t* huart,USART_DMA_enable_transmitter_t copy_eDMA_enable_transmitter)
+{
+ 80013cc:	b480      	push	{r7}
+ 80013ce:	b083      	sub	sp, #12
+ 80013d0:	af00      	add	r7, sp, #0
+ 80013d2:	6078      	str	r0, [r7, #4]
+ 80013d4:	460b      	mov	r3, r1
+ 80013d6:	70fb      	strb	r3, [r7, #3]
+	USARTPeripheral[huart->USART_ID]->USART_CR3 &=~ (0b1<<USART_CR3_DMAT);
+ 80013d8:	687b      	ldr	r3, [r7, #4]
+ 80013da:	781b      	ldrb	r3, [r3, #0]
+ 80013dc:	461a      	mov	r2, r3
+ 80013de:	4b12      	ldr	r3, [pc, #72]	; (8001428 <UART_vDMAEnableTransmitter+0x5c>)
+ 80013e0:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 80013e4:	695a      	ldr	r2, [r3, #20]
+ 80013e6:	687b      	ldr	r3, [r7, #4]
+ 80013e8:	781b      	ldrb	r3, [r3, #0]
+ 80013ea:	4619      	mov	r1, r3
+ 80013ec:	4b0e      	ldr	r3, [pc, #56]	; (8001428 <UART_vDMAEnableTransmitter+0x5c>)
+ 80013ee:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
+ 80013f2:	f022 0280 	bic.w	r2, r2, #128	; 0x80
+ 80013f6:	615a      	str	r2, [r3, #20]
+	USARTPeripheral[huart->USART_ID]->USART_CR3 |= (copy_eDMA_enable_transmitter<<USART_CR3_DMAT);
+ 80013f8:	687b      	ldr	r3, [r7, #4]
+ 80013fa:	781b      	ldrb	r3, [r3, #0]
+ 80013fc:	461a      	mov	r2, r3
+ 80013fe:	4b0a      	ldr	r3, [pc, #40]	; (8001428 <UART_vDMAEnableTransmitter+0x5c>)
+ 8001400:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8001404:	695a      	ldr	r2, [r3, #20]
+ 8001406:	78fb      	ldrb	r3, [r7, #3]
+ 8001408:	01db      	lsls	r3, r3, #7
+ 800140a:	4619      	mov	r1, r3
+ 800140c:	687b      	ldr	r3, [r7, #4]
+ 800140e:	781b      	ldrb	r3, [r3, #0]
+ 8001410:	4618      	mov	r0, r3
+ 8001412:	4b05      	ldr	r3, [pc, #20]	; (8001428 <UART_vDMAEnableTransmitter+0x5c>)
+ 8001414:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8001418:	430a      	orrs	r2, r1
+ 800141a:	615a      	str	r2, [r3, #20]
+
+}
+ 800141c:	bf00      	nop
+ 800141e:	370c      	adds	r7, #12
+ 8001420:	46bd      	mov	sp, r7
+ 8001422:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8001426:	4770      	bx	lr
+ 8001428:	20000028 	.word	0x20000028
+
+0800142c <UART_vEnableErrorInterrupt>:
+
+ static void UART_vEnableErrorInterrupt(USART_HandleTypeDef_t* huart,USART_Interrupt_Enable_t copy_eInterrupt_Enable)
+{
+ 800142c:	b480      	push	{r7}
+ 800142e:	b083      	sub	sp, #12
+ 8001430:	af00      	add	r7, sp, #0
+ 8001432:	6078      	str	r0, [r7, #4]
+ 8001434:	460b      	mov	r3, r1
+ 8001436:	70fb      	strb	r3, [r7, #3]
+	USARTPeripheral[huart->USART_ID]->USART_CR3 &=~ (0b1<<USART_CR3_EIE);
+ 8001438:	687b      	ldr	r3, [r7, #4]
+ 800143a:	781b      	ldrb	r3, [r3, #0]
+ 800143c:	461a      	mov	r2, r3
+ 800143e:	4b11      	ldr	r3, [pc, #68]	; (8001484 <UART_vEnableErrorInterrupt+0x58>)
+ 8001440:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8001444:	695a      	ldr	r2, [r3, #20]
+ 8001446:	687b      	ldr	r3, [r7, #4]
+ 8001448:	781b      	ldrb	r3, [r3, #0]
+ 800144a:	4619      	mov	r1, r3
+ 800144c:	4b0d      	ldr	r3, [pc, #52]	; (8001484 <UART_vEnableErrorInterrupt+0x58>)
+ 800144e:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
+ 8001452:	f022 0201 	bic.w	r2, r2, #1
+ 8001456:	615a      	str	r2, [r3, #20]
+	USARTPeripheral[huart->USART_ID]->USART_CR3 |= (copy_eInterrupt_Enable<<USART_CR3_EIE);
+ 8001458:	687b      	ldr	r3, [r7, #4]
+ 800145a:	781b      	ldrb	r3, [r3, #0]
+ 800145c:	461a      	mov	r2, r3
+ 800145e:	4b09      	ldr	r3, [pc, #36]	; (8001484 <UART_vEnableErrorInterrupt+0x58>)
+ 8001460:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8001464:	6959      	ldr	r1, [r3, #20]
+ 8001466:	78fa      	ldrb	r2, [r7, #3]
+ 8001468:	687b      	ldr	r3, [r7, #4]
+ 800146a:	781b      	ldrb	r3, [r3, #0]
+ 800146c:	4618      	mov	r0, r3
+ 800146e:	4b05      	ldr	r3, [pc, #20]	; (8001484 <UART_vEnableErrorInterrupt+0x58>)
+ 8001470:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8001474:	430a      	orrs	r2, r1
+ 8001476:	615a      	str	r2, [r3, #20]
+
+}
+ 8001478:	bf00      	nop
+ 800147a:	370c      	adds	r7, #12
+ 800147c:	46bd      	mov	sp, r7
+ 800147e:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 8001482:	4770      	bx	lr
+ 8001484:	20000028 	.word	0x20000028
+
+08001488 <UART_vSetBaudRate>:
+
+ static void UART_vSetBaudRate(USART_HandleTypeDef_t* huart,uint32_t copy_u32BaudRate)
+{
+ 8001488:	b480      	push	{r7}
+ 800148a:	b087      	sub	sp, #28
+ 800148c:	af00      	add	r7, sp, #0
+ 800148e:	6078      	str	r0, [r7, #4]
+ 8001490:	6039      	str	r1, [r7, #0]
+	uint8_t sampling =0;
+ 8001492:	2300      	movs	r3, #0
+ 8001494:	75fb      	strb	r3, [r7, #23]
+	if(huart->OverSamplingMode == oversampling_by_16)
+ 8001496:	687b      	ldr	r3, [r7, #4]
+ 8001498:	7adb      	ldrb	r3, [r3, #11]
+ 800149a:	2b00      	cmp	r3, #0
+ 800149c:	d102      	bne.n	80014a4 <UART_vSetBaudRate+0x1c>
+	{
+		sampling=16;
+ 800149e:	2310      	movs	r3, #16
+ 80014a0:	75fb      	strb	r3, [r7, #23]
+ 80014a2:	e005      	b.n	80014b0 <UART_vSetBaudRate+0x28>
+	}
+	else if (huart->OverSamplingMode == oversampling_by_8)
+ 80014a4:	687b      	ldr	r3, [r7, #4]
+ 80014a6:	7adb      	ldrb	r3, [r3, #11]
+ 80014a8:	2b01      	cmp	r3, #1
+ 80014aa:	d101      	bne.n	80014b0 <UART_vSetBaudRate+0x28>
+	{
+		sampling=8;
+ 80014ac:	2308      	movs	r3, #8
+ 80014ae:	75fb      	strb	r3, [r7, #23]
+
+	}
+	uint32_t Result= (((uint64_t)16000000/16)*1000)/copy_u32BaudRate;
+ 80014b0:	4a33      	ldr	r2, [pc, #204]	; (8001580 <UART_vSetBaudRate+0xf8>)
+ 80014b2:	683b      	ldr	r3, [r7, #0]
+ 80014b4:	fbb2 f3f3 	udiv	r3, r2, r3
+ 80014b8:	613b      	str	r3, [r7, #16]
+	uint32_t Mantissa= Result/1000; //Result / 1000;
+ 80014ba:	693b      	ldr	r3, [r7, #16]
+ 80014bc:	4a31      	ldr	r2, [pc, #196]	; (8001584 <UART_vSetBaudRate+0xfc>)
+ 80014be:	fba2 2303 	umull	r2, r3, r2, r3
+ 80014c2:	099b      	lsrs	r3, r3, #6
+ 80014c4:	60fb      	str	r3, [r7, #12]
+	uint32_t Fraction= (((Result%1000) *sampling )+500)/1000; //((Result % 1000)*16 +500)/1000;
+ 80014c6:	693a      	ldr	r2, [r7, #16]
+ 80014c8:	4b2e      	ldr	r3, [pc, #184]	; (8001584 <UART_vSetBaudRate+0xfc>)
+ 80014ca:	fba3 1302 	umull	r1, r3, r3, r2
+ 80014ce:	099b      	lsrs	r3, r3, #6
+ 80014d0:	f44f 717a 	mov.w	r1, #1000	; 0x3e8
+ 80014d4:	fb01 f303 	mul.w	r3, r1, r3
+ 80014d8:	1ad3      	subs	r3, r2, r3
+ 80014da:	7dfa      	ldrb	r2, [r7, #23]
+ 80014dc:	fb02 f303 	mul.w	r3, r2, r3
+ 80014e0:	f503 73fa 	add.w	r3, r3, #500	; 0x1f4
+ 80014e4:	4a27      	ldr	r2, [pc, #156]	; (8001584 <UART_vSetBaudRate+0xfc>)
+ 80014e6:	fba2 2303 	umull	r2, r3, r2, r3
+ 80014ea:	099b      	lsrs	r3, r3, #6
+ 80014ec:	60bb      	str	r3, [r7, #8]
+
+	USARTPeripheral[huart->USART_ID]->USART_BRR &=~ (0b1111<<0);
+ 80014ee:	687b      	ldr	r3, [r7, #4]
+ 80014f0:	781b      	ldrb	r3, [r3, #0]
+ 80014f2:	461a      	mov	r2, r3
+ 80014f4:	4b24      	ldr	r3, [pc, #144]	; (8001588 <UART_vSetBaudRate+0x100>)
+ 80014f6:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 80014fa:	689a      	ldr	r2, [r3, #8]
+ 80014fc:	687b      	ldr	r3, [r7, #4]
+ 80014fe:	781b      	ldrb	r3, [r3, #0]
+ 8001500:	4619      	mov	r1, r3
+ 8001502:	4b21      	ldr	r3, [pc, #132]	; (8001588 <UART_vSetBaudRate+0x100>)
+ 8001504:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
+ 8001508:	f022 020f 	bic.w	r2, r2, #15
+ 800150c:	609a      	str	r2, [r3, #8]
+	USARTPeripheral[huart->USART_ID]->USART_BRR |= (Fraction<<0);
+ 800150e:	687b      	ldr	r3, [r7, #4]
+ 8001510:	781b      	ldrb	r3, [r3, #0]
+ 8001512:	461a      	mov	r2, r3
+ 8001514:	4b1c      	ldr	r3, [pc, #112]	; (8001588 <UART_vSetBaudRate+0x100>)
+ 8001516:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 800151a:	6899      	ldr	r1, [r3, #8]
+ 800151c:	687b      	ldr	r3, [r7, #4]
+ 800151e:	781b      	ldrb	r3, [r3, #0]
+ 8001520:	461a      	mov	r2, r3
+ 8001522:	4b19      	ldr	r3, [pc, #100]	; (8001588 <UART_vSetBaudRate+0x100>)
+ 8001524:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 8001528:	68ba      	ldr	r2, [r7, #8]
+ 800152a:	430a      	orrs	r2, r1
+ 800152c:	609a      	str	r2, [r3, #8]
+
+	USARTPeripheral[huart->USART_ID]->USART_BRR &=~ (0b111111111111<<4);
+ 800152e:	687b      	ldr	r3, [r7, #4]
+ 8001530:	781b      	ldrb	r3, [r3, #0]
+ 8001532:	461a      	mov	r2, r3
+ 8001534:	4b14      	ldr	r3, [pc, #80]	; (8001588 <UART_vSetBaudRate+0x100>)
+ 8001536:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 800153a:	689b      	ldr	r3, [r3, #8]
+ 800153c:	687a      	ldr	r2, [r7, #4]
+ 800153e:	7812      	ldrb	r2, [r2, #0]
+ 8001540:	4611      	mov	r1, r2
+ 8001542:	4a11      	ldr	r2, [pc, #68]	; (8001588 <UART_vSetBaudRate+0x100>)
+ 8001544:	f852 2021 	ldr.w	r2, [r2, r1, lsl #2]
+ 8001548:	f423 437f 	bic.w	r3, r3, #65280	; 0xff00
+ 800154c:	f023 03f0 	bic.w	r3, r3, #240	; 0xf0
+ 8001550:	6093      	str	r3, [r2, #8]
+	USARTPeripheral[huart->USART_ID]->USART_BRR |= (Mantissa<<4);
+ 8001552:	687b      	ldr	r3, [r7, #4]
+ 8001554:	781b      	ldrb	r3, [r3, #0]
+ 8001556:	461a      	mov	r2, r3
+ 8001558:	4b0b      	ldr	r3, [pc, #44]	; (8001588 <UART_vSetBaudRate+0x100>)
+ 800155a:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 800155e:	6899      	ldr	r1, [r3, #8]
+ 8001560:	68fb      	ldr	r3, [r7, #12]
+ 8001562:	011a      	lsls	r2, r3, #4
+ 8001564:	687b      	ldr	r3, [r7, #4]
+ 8001566:	781b      	ldrb	r3, [r3, #0]
+ 8001568:	4618      	mov	r0, r3
+ 800156a:	4b07      	ldr	r3, [pc, #28]	; (8001588 <UART_vSetBaudRate+0x100>)
+ 800156c:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+ 8001570:	430a      	orrs	r2, r1
+ 8001572:	609a      	str	r2, [r3, #8]
+
+}
+ 8001574:	bf00      	nop
+ 8001576:	371c      	adds	r7, #28
+ 8001578:	46bd      	mov	sp, r7
+ 800157a:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 800157e:	4770      	bx	lr
+ 8001580:	3b9aca00 	.word	0x3b9aca00
+ 8001584:	10624dd3 	.word	0x10624dd3
+ 8001588:	20000028 	.word	0x20000028
+
+0800158c <main>:
+};
+uint8_t myarr[10];
+//uint8_t myarr2[10]={1,2,3,4,5,6,7,8,9,10};
+
+int main(void)
+{
+ 800158c:	b580      	push	{r7, lr}
+ 800158e:	af00      	add	r7, sp, #0
+	RCC_AHB1EnableCLK(RCC_AHB1ENR_GPIOAEN);
+ 8001590:	2000      	movs	r0, #0
+ 8001592:	f7ff fb8f 	bl	8000cb4 <RCC_AHB1EnableCLK>
+	RCC_AHB1EnableCLK(RCC_AHB1ENR_DMA1EN);
+ 8001596:	2015      	movs	r0, #21
+ 8001598:	f7ff fb8c 	bl	8000cb4 <RCC_AHB1EnableCLK>
+	RCC_AHB1EnableCLK(RCC_AHB1ENR_DMA2EN);
+ 800159c:	2016      	movs	r0, #22
+ 800159e:	f7ff fb89 	bl	8000cb4 <RCC_AHB1EnableCLK>
+
+	RCC_APB1EnableCLK(RCC_APB1ENR_USART2EN);
+ 80015a2:	2011      	movs	r0, #17
+ 80015a4:	f7ff fb9e 	bl	8000ce4 <RCC_APB1EnableCLK>
+
+	GPIO_u8PinInit(&PINTX);
+ 80015a8:	4809      	ldr	r0, [pc, #36]	; (80015d0 <main+0x44>)
+ 80015aa:	f7ff fa55 	bl	8000a58 <GPIO_u8PinInit>
+	GPIO_u8PinInit(&PINRX);
+ 80015ae:	4809      	ldr	r0, [pc, #36]	; (80015d4 <main+0x48>)
+ 80015b0:	f7ff fa52 	bl	8000a58 <GPIO_u8PinInit>
+
+	UART_vInit( &ourUsart);
+ 80015b4:	4808      	ldr	r0, [pc, #32]	; (80015d8 <main+0x4c>)
+ 80015b6:	f7ff fbad 	bl	8000d14 <UART_vInit>
+
+	DMA_vInit( &ourDMA);
+ 80015ba:	4808      	ldr	r0, [pc, #32]	; (80015dc <main+0x50>)
+ 80015bc:	f7fe fe22 	bl	8000204 <DMA_vInit>
+//	DMA_vStart(&ourDMA,(uint32_t)0x40004404, (uint32_t)myarr , 6);
+//	DMA_vStart(&ourDMA,(uint32_t)myarr2, (uint32_t)myarr , 6);
+	  UART_vReceive_DMA(&ourDMA, (uint32_t) myarr, 5);
+ 80015c0:	4b07      	ldr	r3, [pc, #28]	; (80015e0 <main+0x54>)
+ 80015c2:	2205      	movs	r2, #5
+ 80015c4:	4619      	mov	r1, r3
+ 80015c6:	4805      	ldr	r0, [pc, #20]	; (80015dc <main+0x50>)
+ 80015c8:	f7ff fc1c 	bl	8000e04 <UART_vReceive_DMA>
+
+
+	/* Loop forever */
+	while(1)
+ 80015cc:	e7fe      	b.n	80015cc <main+0x40>
+ 80015ce:	bf00      	nop
+ 80015d0:	20000040 	.word	0x20000040
+ 80015d4:	2000004c 	.word	0x2000004c
+ 80015d8:	20000058 	.word	0x20000058
+ 80015dc:	20000070 	.word	0x20000070
+ 80015e0:	20000234 	.word	0x20000234
+
+080015e4 <Reset_Handler>:
+
+  .section .text.Reset_Handler
+  .weak Reset_Handler
+  .type Reset_Handler, %function
+Reset_Handler:
+  ldr   r0, =_estack
+ 80015e4:	480d      	ldr	r0, [pc, #52]	; (800161c <LoopForever+0x2>)
+  mov   sp, r0          /* set stack pointer */
+ 80015e6:	4685      	mov	sp, r0
+/* Call the clock system initialization function.*/
+  bl  SystemInit
+ 80015e8:	f3af 8000 	nop.w
+
+/* Copy the data segment initializers from flash to SRAM */
+  ldr r0, =_sdata
+ 80015ec:	480c      	ldr	r0, [pc, #48]	; (8001620 <LoopForever+0x6>)
+  ldr r1, =_edata
+ 80015ee:	490d      	ldr	r1, [pc, #52]	; (8001624 <LoopForever+0xa>)
+  ldr r2, =_sidata
+ 80015f0:	4a0d      	ldr	r2, [pc, #52]	; (8001628 <LoopForever+0xe>)
+  movs r3, #0
+ 80015f2:	2300      	movs	r3, #0
+  b LoopCopyDataInit
+ 80015f4:	e002      	b.n	80015fc <LoopCopyDataInit>
+
+080015f6 <CopyDataInit>:
+
+CopyDataInit:
+  ldr r4, [r2, r3]
+ 80015f6:	58d4      	ldr	r4, [r2, r3]
+  str r4, [r0, r3]
+ 80015f8:	50c4      	str	r4, [r0, r3]
+  adds r3, r3, #4
+ 80015fa:	3304      	adds	r3, #4
+
+080015fc <LoopCopyDataInit>:
+
+LoopCopyDataInit:
+  adds r4, r0, r3
+ 80015fc:	18c4      	adds	r4, r0, r3
+  cmp r4, r1
+ 80015fe:	428c      	cmp	r4, r1
+  bcc CopyDataInit
+ 8001600:	d3f9      	bcc.n	80015f6 <CopyDataInit>
+
+/* Zero fill the bss segment. */
+  ldr r2, =_sbss
+ 8001602:	4a0a      	ldr	r2, [pc, #40]	; (800162c <LoopForever+0x12>)
+  ldr r4, =_ebss
+ 8001604:	4c0a      	ldr	r4, [pc, #40]	; (8001630 <LoopForever+0x16>)
+  movs r3, #0
+ 8001606:	2300      	movs	r3, #0
+  b LoopFillZerobss
+ 8001608:	e001      	b.n	800160e <LoopFillZerobss>
+
+0800160a <FillZerobss>:
+
+FillZerobss:
+  str  r3, [r2]
+ 800160a:	6013      	str	r3, [r2, #0]
+  adds r2, r2, #4
+ 800160c:	3204      	adds	r2, #4
+
+0800160e <LoopFillZerobss>:
+
+LoopFillZerobss:
+  cmp r2, r4
+ 800160e:	42a2      	cmp	r2, r4
+  bcc FillZerobss
+ 8001610:	d3fb      	bcc.n	800160a <FillZerobss>
+
+/* Call static constructors */
+  bl __libc_init_array
+ 8001612:	f000 f811 	bl	8001638 <__libc_init_array>
+/* Call the application's entry point.*/
+  bl main
+ 8001616:	f7ff ffb9 	bl	800158c <main>
+
+0800161a <LoopForever>:
+
+LoopForever:
+  b LoopForever
+ 800161a:	e7fe      	b.n	800161a <LoopForever>
+  ldr   r0, =_estack
+ 800161c:	20020000 	.word	0x20020000
+  ldr r0, =_sdata
+ 8001620:	20000000 	.word	0x20000000
+  ldr r1, =_edata
+ 8001624:	20000098 	.word	0x20000098
+  ldr r2, =_sidata
+ 8001628:	080016a0 	.word	0x080016a0
+  ldr r2, =_sbss
+ 800162c:	20000098 	.word	0x20000098
+  ldr r4, =_ebss
+ 8001630:	20000240 	.word	0x20000240
+
+08001634 <ADC_IRQHandler>:
+ * @retval : None
+*/
+  .section .text.Default_Handler,"ax",%progbits
+Default_Handler:
+Infinite_Loop:
+  b Infinite_Loop
+ 8001634:	e7fe      	b.n	8001634 <ADC_IRQHandler>
+	...
+
+08001638 <__libc_init_array>:
+ 8001638:	b570      	push	{r4, r5, r6, lr}
+ 800163a:	4d0d      	ldr	r5, [pc, #52]	; (8001670 <__libc_init_array+0x38>)
+ 800163c:	4c0d      	ldr	r4, [pc, #52]	; (8001674 <__libc_init_array+0x3c>)
+ 800163e:	1b64      	subs	r4, r4, r5
+ 8001640:	10a4      	asrs	r4, r4, #2
+ 8001642:	2600      	movs	r6, #0
+ 8001644:	42a6      	cmp	r6, r4
+ 8001646:	d109      	bne.n	800165c <__libc_init_array+0x24>
+ 8001648:	4d0b      	ldr	r5, [pc, #44]	; (8001678 <__libc_init_array+0x40>)
+ 800164a:	4c0c      	ldr	r4, [pc, #48]	; (800167c <__libc_init_array+0x44>)
+ 800164c:	f000 f818 	bl	8001680 <_init>
+ 8001650:	1b64      	subs	r4, r4, r5
+ 8001652:	10a4      	asrs	r4, r4, #2
+ 8001654:	2600      	movs	r6, #0
+ 8001656:	42a6      	cmp	r6, r4
+ 8001658:	d105      	bne.n	8001666 <__libc_init_array+0x2e>
+ 800165a:	bd70      	pop	{r4, r5, r6, pc}
+ 800165c:	f855 3b04 	ldr.w	r3, [r5], #4
+ 8001660:	4798      	blx	r3
+ 8001662:	3601      	adds	r6, #1
+ 8001664:	e7ee      	b.n	8001644 <__libc_init_array+0xc>
+ 8001666:	f855 3b04 	ldr.w	r3, [r5], #4
+ 800166a:	4798      	blx	r3
+ 800166c:	3601      	adds	r6, #1
+ 800166e:	e7f2      	b.n	8001656 <__libc_init_array+0x1e>
+ 8001670:	08001698 	.word	0x08001698
+ 8001674:	08001698 	.word	0x08001698
+ 8001678:	08001698 	.word	0x08001698
+ 800167c:	0800169c 	.word	0x0800169c
+
+08001680 <_init>:
+ 8001680:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8001682:	bf00      	nop
+ 8001684:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 8001686:	bc08      	pop	{r3}
+ 8001688:	469e      	mov	lr, r3
+ 800168a:	4770      	bx	lr
+
+0800168c <_fini>:
+ 800168c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 800168e:	bf00      	nop
+ 8001690:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 8001692:	bc08      	pop	{r3}
+ 8001694:	469e      	mov	lr, r3
+ 8001696:	4770      	bx	lr

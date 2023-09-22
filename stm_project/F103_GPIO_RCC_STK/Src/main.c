@@ -26,7 +26,7 @@
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
-
+char data=0;
 int main(void)
 {
 	PinConfig_t PIN0A =
@@ -53,5 +53,11 @@ int main(void)
 	 GPIO_u8PinInit( &PIN0A);
 	 GPIO_u8PinInit( &PIN1A);
     /* Loop forever */
-	for(;;);
+	for(;;)
+	{
+		data^=1;
+	 GPIO_vSetOutputPinValue(PORTA,PIN0,data);
+	 STK_vSetBusyWait(2000000);
+
+	}
 }

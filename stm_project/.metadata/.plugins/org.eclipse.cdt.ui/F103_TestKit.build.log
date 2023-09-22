@@ -1,0 +1,229 @@
+04:26:53 **** Incremental Build of configuration Debug for project F103_TestKit ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Inc/STM32F103.h:3,
+                 from ../Core/Inc/SysTick_int.h:6,
+                 from ../Core/Src/main.c:24:
+../Core/Inc/Utils.h:13: warning: "SET_BIT" redefined
+   13 | #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
+      | 
+In file included from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:29,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f1xx_hal_conf.h:238,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:177: note: this is the location of the previous definition
+  177 | #define SET_BIT(REG, BIT)     ((REG) |= (BIT))
+      | 
+In file included from ../Core/Inc/STM32F103.h:3,
+                 from ../Core/Inc/SysTick_int.h:6,
+                 from ../Core/Src/main.c:24:
+../Core/Inc/Utils.h:16: warning: "CLEAR_BIT" redefined
+   16 | #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
+      | 
+In file included from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:29,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f1xx_hal_conf.h:238,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:179: note: this is the location of the previous definition
+  179 | #define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
+      | 
+In file included from ../Core/Inc/STM32F103.h:3,
+                 from ../Core/Inc/SysTick_int.h:6,
+                 from ../Core/Src/main.c:24:
+../Core/Inc/Utils.h:21: warning: "READ_BIT" redefined
+   21 | #define READ_BIT(REG,BIT) ((REG>>BIT) & 1)
+      | 
+In file included from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:29,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f1xx_hal_conf.h:238,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:181: note: this is the location of the previous definition
+  181 | #define READ_BIT(REG, BIT)    ((REG) & (BIT))
+      | 
+In file included from ../Core/Inc/SysTick_int.h:6,
+                 from ../Core/Src/main.c:24:
+../Core/Inc/STM32F103.h:152: warning: "GPIOB" redefined
+  152 | #define GPIOB             ((GPIO_RegDef_t*)GPIOB_BASE_ADDRESS)
+      | 
+In file included from ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:130,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:29,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f1xx_hal_conf.h:238,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:665: note: this is the location of the previous definition
+  665 | #define GPIOB               ((GPIO_TypeDef *)GPIOB_BASE)
+      | 
+In file included from ../Core/Inc/SysTick_int.h:6,
+                 from ../Core/Src/main.c:24:
+../Core/Inc/STM32F103.h:153: warning: "GPIOC" redefined
+  153 | #define GPIOC             ((GPIO_RegDef_t*)GPIOC_BASE_ADDRESS)
+      | 
+In file included from ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:130,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:29,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f1xx_hal_conf.h:238,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:666: note: this is the location of the previous definition
+  666 | #define GPIOC               ((GPIO_TypeDef *)GPIOC_BASE)
+      | 
+In file included from ../Core/Inc/SysTick_int.h:6,
+                 from ../Core/Src/main.c:24:
+../Core/Inc/STM32F103.h:154: warning: "GPIOD" redefined
+  154 | #define GPIOD             ((GPIO_RegDef_t*)GPIOD_BASE_ADDRESS)
+      | 
+In file included from ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:130,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:29,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f1xx_hal_conf.h:238,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:667: note: this is the location of the previous definition
+  667 | #define GPIOD               ((GPIO_TypeDef *)GPIOD_BASE)
+      | 
+In file included from ../Core/Inc/SysTick_int.h:6,
+                 from ../Core/Src/main.c:24:
+../Core/Inc/STM32F103.h:155: warning: "GPIOE" redefined
+  155 | #define GPIOE             ((GPIO_RegDef_t*)GPIOE_BASE_ADDRESS)
+      | 
+In file included from ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:130,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:29,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f1xx_hal_conf.h:238,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:668: note: this is the location of the previous definition
+  668 | #define GPIOE               ((GPIO_TypeDef *)GPIOE_BASE)
+      | 
+In file included from ../Core/Inc/SysTick_int.h:6,
+                 from ../Core/Src/main.c:24:
+../Core/Inc/STM32F103.h:162: warning: "RCC" redefined
+  162 | #define  RCC           ((RCC_RegDef_t*)RCC_BASE_ADDRESS)
+      | 
+In file included from ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:130,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:29,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f1xx_hal_conf.h:238,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:683: note: this is the location of the previous definition
+  683 | #define RCC                 ((RCC_TypeDef *)RCC_BASE)
+      | 
+In file included from ../Core/Inc/SysTick_int.h:6,
+                 from ../Core/Src/main.c:24:
+../Core/Inc/STM32F103.h:166: warning: "NVIC" redefined
+  166 | #define  NVIC       ((NVIC_RegDef_t*)NVIC_BASE_ADDRESS)
+      | 
+In file included from ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:131,
+                 from ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:130,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:29,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f1xx_hal_conf.h:238,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/CMSIS/Include/core_cm3.h:1395: note: this is the location of the previous definition
+ 1395 | #define NVIC                ((NVIC_Type      *)     NVIC_BASE     )   /*!< NVIC configuration struct */
+      | 
+In file included from ../Core/Inc/SysTick_int.h:6,
+                 from ../Core/Src/main.c:24:
+../Core/Inc/STM32F103.h:168: warning: "SCB" redefined
+  168 | #define  SCB       ((SCB_RegDef_t*)SCB_BASE_ADDRESS)
+      | 
+In file included from ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:131,
+                 from ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:130,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:29,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f1xx_hal_conf.h:238,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/CMSIS/Include/core_cm3.h:1393: note: this is the location of the previous definition
+ 1393 | #define SCB                 ((SCB_Type       *)     SCB_BASE      )   /*!< SCB configuration struct */
+      | 
+In file included from ../Core/Inc/SysTick_int.h:6,
+                 from ../Core/Src/main.c:24:
+../Core/Inc/STM32F103.h:170: warning: "EXTI" redefined
+  170 | #define  EXTI       ((EXTI_RegDef_t*)EXTI_BASE_ADDRESS)
+      | 
+In file included from ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:130,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:29,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f1xx_hal_conf.h:238,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:663: note: this is the location of the previous definition
+  663 | #define EXTI                ((EXTI_TypeDef *)EXTI_BASE)
+      | 
+In file included from ../Core/Inc/SysTick_int.h:6,
+                 from ../Core/Src/main.c:24:
+../Core/Inc/STM32F103.h:172: warning: "AFIO" redefined
+  172 | #define  AFIO       ((AFIO_RegDef_t*)AFIO_BASE_ADDRESS)
+      | 
+In file included from ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:130,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:29,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f1xx_hal_conf.h:238,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:662: note: this is the location of the previous definition
+  662 | #define AFIO                ((AFIO_TypeDef *)AFIO_BASE)
+      | 
+In file included from ../Core/Inc/SysTick_int.h:6,
+                 from ../Core/Src/main.c:24:
+../Core/Inc/STM32F103.h:174: warning: "SPI1" redefined
+  174 | #define  SPI1         ((SPI_RegDef_t*)SPI1_BASE_ADDRESS)
+      | 
+In file included from ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:130,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:29,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f1xx_hal_conf.h:238,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:673: note: this is the location of the previous definition
+  673 | #define SPI1                ((SPI_TypeDef *)SPI1_BASE)
+      | 
+In file included from ../Core/Inc/SysTick_int.h:6,
+                 from ../Core/Src/main.c:24:
+../Core/Inc/STM32F103.h:176: warning: "SPI2" redefined
+  176 | #define  SPI2         ((SPI_RegDef_t*)SPI2_BASE_ADDRESS)
+      | 
+In file included from ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:130,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:29,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f1xx_hal_conf.h:238,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:653: note: this is the location of the previous definition
+  653 | #define SPI2                ((SPI_TypeDef *)SPI2_BASE)
+      | 
+arm-none-eabi-gcc -o "F103_TestKit.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F103_TestKit\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103_TestKit.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F103_TestKit.elf
+ 
+arm-none-eabi-size   F103_TestKit.elf 
+arm-none-eabi-objdump -h -S  F103_TestKit.elf  > "F103_TestKit.list"
+   text	   data	    bss	    dec	    hex	filename
+   4548	     20	   1580	   6148	   1804	F103_TestKit.elf
+Finished building: default.size.stdout
+ 
+Finished building: F103_TestKit.list
+ 
+
+04:26:54 Build Finished. 0 errors, 14 warnings. (took 700ms)
+

@@ -1,7 +1,7 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F446RE_DMA_DEMO Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F446RE_DMA_ADC_SRAM1_TEMPSENSOR Debug
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F446RE_TestRTC Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F446RE_I2C Debug
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:A-GPIO\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:A-GPIO\ Debug/activeLaunchTarget=null\:---
@@ -12,6 +12,12 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F103_First\ Debug/activeLaunchT
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F103_GPIO_RCC_STK\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F103_GPIO_SysTick_RCC\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F103_GPIO_SysTick_RCC\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F103_SPI\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F103_SPI\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F103_SPI1\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F103_TestGPIO\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F103_TestKit\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F103_TestSPI\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F446RE_DMA_ADC_SRAM1_TEMPSENSOR\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F446RE_DMA_ADC_SRAM1_TEMPSENSOR\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F446RE_DMA_DEMO\ Debug/activeLaunchMode=run
@@ -19,6 +25,11 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F446RE_DMA_LED\ Debug/activeLau
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F446RE_DMA_SRAM1_TO_UART2_TX_M2P\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F446RE_DMA_UART2\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F446RE_DMA_UART2\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F446RE_I2C\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F446RE_SPI\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F446RE_TestRTC\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F446RE_UART_Driver\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F446RE_UART_Driver\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:HelloWorld/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:HelloWorld/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:NVIC_F103\ Debug/activeLaunchMode=debug

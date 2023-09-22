@@ -1,0 +1,22 @@
+
+#include "STM32F446xx.h"
+#include "I2C_int.h"
+#include "Utils.h"
+#include "ErrType.h"
+#include "RTC.h"
+uint8_t RTC_prg_Array[7]=
+{
+	0x00,00,			//RTC_SECONDS;
+	0x01,00,         //RTC_MINUTES;
+	0x02,12,         //RTC_HOURS;
+	0x03,THURSDAY,   //RTC_DAY;
+	0x04,21,         //RTC_DATE;
+	0x05,09,         //RTC_MONTH;
+	0x06,23          //RTC_YEAR;
+};
+
+void RTC_Programming(I2C_HandleTypeDef_t* hi2c,DMA_HandleTypeDef_t* copy_eDMAConfig)
+{
+	I2C_SendDataToSlave_DMA(hi2c, copy_eDMAConfig,RTC_ADDRESS,(uint32_t) 14,uint8_t* RTC_prg_Array);
+
+}

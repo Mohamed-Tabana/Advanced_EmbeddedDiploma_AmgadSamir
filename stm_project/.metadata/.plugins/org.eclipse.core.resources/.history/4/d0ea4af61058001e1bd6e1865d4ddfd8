@@ -1,0 +1,57 @@
+#ifndef RTC_INTERFACE_H_
+#define RTC_INTERFACE_H_
+
+#include "I2C_int.h"
+#include "stdint.h"
+#include "STM32F446xx.h"
+#include "Utils.h"
+#include "RTC.h"
+enum {
+	FRIDAY,
+	SATURDAY,
+	SUNDAY,
+	MONDAY,
+	TUESDAY,
+	WEDNESDAY,
+	THURSDAY
+};
+uint8_t RTC_prg_Array[]=
+{
+	00,			//RTC_SECONDS;
+	00,         //RTC_MINUTES;
+	12,         //RTC_HOURS;
+	THURSDAY,   //RTC_DAY;
+	21,         //RTC_DATE;
+	09,         //RTC_MONTH;
+	23          //RTC_YEAR;
+};
+typedef struct
+{
+	uint8_t RTC_SECONDS;
+	uint8_t RTC_MINUTES;
+	uint8_t RTC_HOURS;
+	uint8_t RTC_DAY;
+	uint8_t RTC_DATE;
+	uint8_t RTC_MONTH;
+	uint8_t RTC_YEAR;
+
+
+}RTC_Programming_Info;
+enum
+{
+ RTC_SECONDS,
+ RTC_MINUTES,
+ RTC_HOURS,
+ RTC_DAY,
+ RTC_DATE,
+ RTC_MONTH,
+ RTC_YEAR,
+}
+
+
+
+
+
+
+
+#endif

@@ -1,0 +1,7 @@
+../Src/RCC_Program.c:25:6:RCC_SetClockStatus	24	static
+../Src/RCC_Program.c:120:6:RCC_SetSystemClock	16	static
+../Src/RCC_Program.c:146:6:RCC_SetHSE_Divider	16	static
+../Src/RCC_Program.c:172:6:RCC_SetPLL_Configs	16	static
+../Src/RCC_Program.c:207:6:RCC_Set_AHBPeripheral_CLK	16	static
+../Src/RCC_Program.c:234:6:RCC_Set_APB2Peripheral_CLK	16	static
+../Src/RCC_Program.c:260:6:RCC_Set_APB1Peripheral_CLK	16	static

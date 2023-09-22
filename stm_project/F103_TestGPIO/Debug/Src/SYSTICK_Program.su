@@ -1,0 +1,3 @@
+../Src/SYSTICK_Program.c:19:9:SYSTICK_u8SetConfigs	24	static
+../Src/SYSTICK_Program.c:56:6:SYSTICK_u8Delay_ms	24	static
+../Src/SYSTICK_Program.c:96:6:SYSTICK_u8Delay_us	24	static

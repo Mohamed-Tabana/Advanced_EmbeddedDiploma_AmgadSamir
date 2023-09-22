@@ -1,14 +1,1591 @@
-01:30:39 **** Incremental Build of configuration Debug for project F446RE_DMA_DRIVER ****
+01:02:28 **** Incremental Build of configuration Debug for project F446RE_I2C ****
 make -j8 all 
-arm-none-eabi-gcc "../Src/DMA_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/DMA_prg.d" -MT"Src/DMA_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/DMA_prg.o"
-arm-none-eabi-gcc -o "F446RE_DMA_DRIVER.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_DMA_DRIVER\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_DMA_DRIVER.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: F446RE_DMA_DRIVER.elf
- 
-arm-none-eabi-size   F446RE_DMA_DRIVER.elf 
-arm-none-eabi-objdump -h -S  F446RE_DMA_DRIVER.elf  > "F446RE_DMA_DRIVER.list"
+arm-none-eabi-size   F446RE_I2C.elf 
    text	   data	    bss	    dec	    hex	filename
-   1232	     16	   1952	   3200	    c80	F446RE_DMA_DRIVER.elf
+   3488	     88	   1952	   5528	   1598	F446RE_I2C.elf
 Finished building: default.size.stdout
  
-Finished building: F446RE_DMA_DRIVER.list
+01:02:31 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-size   F446RE_I2C.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3488	     88	   1952	   5528	   1598	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+01:17:56 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:413:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  413 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:412:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  412 |  uint32_t temp1=0;
+      |           ^~~~~
+At top level:
+../Src/I2C_prg.c:377:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  377 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:371:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  371 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:352:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  352 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:346:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  346 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:341:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  341 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:329:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  329 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:323:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  323 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:317:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  317 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:311:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  311 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:282:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  282 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:276:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  276 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:270:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  270 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:264:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  264 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:258:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  258 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   3488	     88	   1952	   5528	   1598	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+01:19:18 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-size   F446RE_I2C.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3488	     88	   1952	   5528	   1598	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+01:20:22 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-size   F446RE_I2C.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3488	     88	   1952	   5528	   1598	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+01:28:12 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   3488	     88	   1952	   5528	   1598	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+01:29:39 **** Incremental Build of configuration Debug for project F446RE_TestRTC ****
+make -j8 all 
+arm-none-eabi-size   F446RE_TestRTC.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10844	     20	   1748	  12612	   3144	F446RE_TestRTC.elf
+Finished building: default.size.stdout
+ 
+01:50:24 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   3488	     88	   1952	   5528	   1598	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+01:51:28 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   3488	     88	   1952	   5528	   1598	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+01:52:02 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   3488	     88	   1952	   5528	   1598	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+02:15:18 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-size   F446RE_I2C.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3488	     88	   1952	   5528	   1598	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+02:26:15 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:416:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  416 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:415:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  415 |  uint32_t temp1=0;
+      |           ^~~~~
+At top level:
+../Src/I2C_prg.c:380:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  380 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:374:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  374 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:355:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  355 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:349:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  349 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:344:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  344 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:332:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  332 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:326:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  326 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:320:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  320 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:314:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  314 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:285:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  285 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:279:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  279 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:273:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  273 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:267:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  267 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:261:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  261 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7668	    168	   1952	   9788	   263c	F446RE_I2C.elf
+Finished building: default.size.stdout
+Finished building: F446RE_I2C.list
+ 
+ 
+02:35:38 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+../Src/I2C_prg.c: In function 'I2C_DMA_TxCRxC_CallBack':
+../Src/I2C_prg.c:254:20: error: 'hi2c' undeclared (first use in this function)
+  254 |  I2C_I2cDMAEnable( hi2c,I2C_DMA_Disable);
+      |                    ^~~~
+../Src/I2C_prg.c:254:20: note: each undeclared identifier is reported only once for each function it appears in
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:419:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  419 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:418:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  418 |  uint32_t temp1=0;
+      |           ^~~~~
+At top level:
+../Src/I2C_prg.c:383:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  383 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:377:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  377 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:358:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  358 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:352:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  352 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:347:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  347 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:335:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  335 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:329:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  329 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:323:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  323 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:317:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  317 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:288:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  288 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:282:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  282 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:276:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  276 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:270:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  270 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:264:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  264 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+make: *** [Src/subdir.mk:43: Src/I2C_prg.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+02:36:04 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:419:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  419 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:418:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  418 |  uint32_t temp1=0;
+      |           ^~~~~
+At top level:
+../Src/I2C_prg.c:383:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  383 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:377:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  377 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:358:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  358 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:352:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  352 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:347:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  347 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:335:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  335 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:329:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  329 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:323:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  323 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:317:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  317 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:288:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  288 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:282:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  282 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:276:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  276 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:270:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  270 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:264:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  264 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7676	    168	   1952	   9796	   2644	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+03:14:32 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/DMA_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/DMA_prg.d" -MT"Src/DMA_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/DMA_prg.o"
+../Src/DMA_prg.c: In function 'DMA_vReadFlagStatus':
+../Src/DMA_prg.c:238:9: error: expected expression before ')' token
+  238 |  switch()
+      |         ^
+make: *** [Src/subdir.mk:43: Src/DMA_prg.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+03:14:47 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/DMA_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/DMA_prg.d" -MT"Src/DMA_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/DMA_prg.o"
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7696	    168	   1952	   9816	   2658	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+03:24:24 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/DMA_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/DMA_prg.d" -MT"Src/DMA_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/DMA_prg.o"
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+arm-none-eabi-gcc "../Src/RTC.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/RTC.d" -MT"Src/RTC.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/RTC.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:419:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  419 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:418:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  418 |  uint32_t temp1=0;
+      |           ^~~~~
+At top level:
+../Src/I2C_prg.c:383:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  383 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:377:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  377 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:358:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  358 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:352:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  352 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:347:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  347 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:335:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  335 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:329:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  329 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:323:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  323 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:317:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  317 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:288:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  288 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:282:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  282 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:276:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  276 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:270:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  270 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:264:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  264 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7696	    168	   1952	   9816	   2658	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+03:26:53 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7696	    168	   1952	   9816	   2658	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+03:28:40 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:420:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  420 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:419:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  419 |  uint32_t temp1=0;
+      |           ^~~~~
+At top level:
+../Src/I2C_prg.c:384:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  384 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:378:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  378 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:359:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  359 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:353:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  353 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:348:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  348 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:336:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  336 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:330:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  330 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:324:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  324 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:318:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  318 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:289:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  289 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:283:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  283 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:277:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  277 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:271:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  271 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:265:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  265 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7712	    168	   1952	   9832	   2668	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+03:33:35 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:421:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  421 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:420:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  420 |  uint32_t temp1=0;
+      |           ^~~~~
+At top level:
+../Src/I2C_prg.c:385:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  385 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:379:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  379 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:360:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  360 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:354:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  354 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:349:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  349 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:337:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  337 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:331:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  331 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:325:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  325 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:319:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  319 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:290:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  290 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:284:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  284 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:278:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  278 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:272:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  272 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:266:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  266 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7712	    168	   1952	   9832	   2668	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+03:35:36 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:421:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  421 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:420:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  420 |  uint32_t temp1=0;
+      |           ^~~~~
+At top level:
+../Src/I2C_prg.c:385:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  385 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:379:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  379 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:360:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  360 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:354:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  354 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:349:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  349 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:337:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  337 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:331:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  331 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:325:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  325 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:319:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  319 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:290:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  290 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:284:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  284 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:278:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  278 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:272:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  272 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:266:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  266 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7712	    168	   1952	   9832	   2668	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+03:37:55 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7712	    168	   1952	   9832	   2668	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+03:39:07 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7712	    168	   1952	   9832	   2668	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+03:40:38 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:421:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  421 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:420:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  420 |  uint32_t temp1=0;
+      |           ^~~~~
+At top level:
+../Src/I2C_prg.c:385:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  385 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:379:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  379 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:360:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  360 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:354:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  354 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:349:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  349 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:337:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  337 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:331:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  331 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:325:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  325 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:319:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  319 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:290:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  290 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:284:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  284 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:278:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  278 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:272:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  272 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:266:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  266 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7712	    168	   1952	   9832	   2668	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+03:47:36 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+../Src/I2C_prg.c: In function 'I2C_DMA_TxCRxC_CallBack':
+../Src/I2C_prg.c:260:15: warning: self-comparison always evaluates to true [-Wtautological-compare]
+  260 |  if(I2C_IntSrc== I2C_IntSrc=I2C_InterruptSource_TX)
+      |               ^~
+../Src/I2C_prg.c:260:28: error: lvalue required as left operand of assignment
+  260 |  if(I2C_IntSrc== I2C_IntSrc=I2C_InterruptSource_TX)
+      |                            ^
+../Src/I2C_prg.c:269:21: warning: self-comparison always evaluates to true [-Wtautological-compare]
+  269 |  else if (I2C_IntSrc== I2C_IntSrc=I2C_InterruptSource_RX)
+      |                     ^~
+../Src/I2C_prg.c:269:34: error: lvalue required as left operand of assignment
+  269 |  else if (I2C_IntSrc== I2C_IntSrc=I2C_InterruptSource_RX)
+      |                                  ^
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:443:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  443 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:442:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  442 |  uint32_t temp1=0;
+      |           ^~~~~
+At top level:
+../Src/I2C_prg.c:407:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  407 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:401:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  401 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:382:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  382 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:376:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  376 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:371:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  371 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:359:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  359 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:353:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  353 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:347:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  347 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:341:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  341 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:312:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  312 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:306:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  306 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:300:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  300 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:294:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  294 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:288:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  288 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+make: *** [Src/subdir.mk:43: Src/I2C_prg.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+03:47:55 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:443:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  443 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:442:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  442 |  uint32_t temp1=0;
+      |           ^~~~~
+At top level:
+../Src/I2C_prg.c:407:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  407 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:401:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  401 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:382:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  382 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:376:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  376 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:371:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  371 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:359:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  359 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:353:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  353 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:347:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  347 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:341:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  341 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:312:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  312 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:306:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  306 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:300:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  300 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:294:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  294 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:288:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  288 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7772	    172	   1948	   9892	   26a4	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+03:52:16 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:443:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  443 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:442:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  442 |  uint32_t temp1=0;
+      |           ^~~~~
+At top level:
+../Src/I2C_prg.c:407:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  407 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:401:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  401 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:382:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  382 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:376:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  376 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:371:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  371 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:359:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  359 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:353:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  353 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:347:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  347 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:341:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  341 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:312:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  312 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:306:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  306 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:300:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  300 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:294:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  294 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:288:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  288 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   8232	    172	   1948	  10352	   2870	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+03:55:07 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:140:10: warning: unused variable 'Ra' [-Wunused-variable]
+  140 |  uint8_t Ra[4]={0};
+      |          ^~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7780	    172	   1948	   9900	   26ac	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+03:56:13 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:140:10: warning: unused variable 'Ra' [-Wunused-variable]
+  140 |  uint8_t Ra[4]={0};
+      |          ^~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7780	    172	   1948	   9900	   26ac	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+03:58:01 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:443:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  443 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:442:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  442 |  uint32_t temp1=0;
+      |           ^~~~~
+../Src/main.c: In function 'main':
+../Src/main.c:140:10: warning: unused variable 'Ra' [-Wunused-variable]
+  140 |  uint8_t Ra[4]={0};
+      |          ^~
+At top level:
+../Src/I2C_prg.c:407:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  407 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:401:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  401 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:382:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  382 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:376:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  376 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:371:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  371 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:359:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  359 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:353:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  353 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:347:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  347 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:341:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  341 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:312:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  312 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:306:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  306 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:300:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  300 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:294:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  294 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:288:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  288 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7780	    172	   1948	   9900	   26ac	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+04:00:49 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:443:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  443 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:442:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  442 |  uint32_t temp1=0;
+      |           ^~~~~
+At top level:
+../Src/I2C_prg.c:407:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  407 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:401:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  401 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:382:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  382 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:376:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  376 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:371:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  371 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:359:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  359 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:353:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  353 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:347:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  347 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:341:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  341 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:312:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  312 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:306:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  306 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:300:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  300 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:294:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  294 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:288:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  288 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7780	    172	   1948	   9900	   26ac	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+04:02:18 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:140:10: warning: unused variable 'Ra' [-Wunused-variable]
+  140 |  uint8_t Ra[4]={0};
+      |          ^~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7780	    172	   1948	   9900	   26ac	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+04:08:30 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:456:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  456 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:455:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  455 |  uint32_t temp1=0;
+      |           ^~~~~
+At top level:
+../Src/I2C_prg.c:420:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  420 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:414:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  414 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:395:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  395 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:389:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  389 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:384:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  384 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:372:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  372 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:366:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  366 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/main.c: In function 'main':
+../Src/I2C_prg.c:360:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  360 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:354:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  354 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/main.c:140:10: warning: unused variable 'Ra' [-Wunused-variable]
+  140 |  uint8_t Ra[4]={0};
+      |          ^~
+../Src/I2C_prg.c:325:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  325 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:319:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  319 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:313:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  313 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:307:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  307 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:301:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  301 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7836	    172	   1948	   9956	   26e4	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+04:08:43 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:456:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  456 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:455:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  455 |  uint32_t temp1=0;
+      |           ^~~~~
+At top level:
+../Src/I2C_prg.c:420:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  420 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:414:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  414 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:395:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  395 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:389:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  389 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:384:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  384 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:372:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  372 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:366:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  366 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:360:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  360 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:354:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  354 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:325:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  325 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:319:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  319 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:313:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  313 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:307:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  307 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:301:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  301 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7964	    172	   1948	  10084	   2764	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+04:10:26 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:455:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  455 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:454:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  454 |  uint32_t temp1=0;
+      |           ^~~~~
+At top level:
+../Src/I2C_prg.c:419:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  419 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:413:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  413 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:394:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  394 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:388:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  388 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:383:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  383 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:371:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  371 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:365:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  365 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:359:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  359 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:353:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  353 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:324:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  324 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:318:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  318 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:312:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  312 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:306:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  306 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:300:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  300 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7964	    172	   1948	  10084	   2764	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+04:18:04 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:444:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  444 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:443:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  443 |  uint32_t temp1=0;
+      |           ^~~~~
+At top level:
+../Src/I2C_prg.c:408:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  408 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:402:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  402 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:383:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  383 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:377:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  377 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:372:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  372 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c: In function 'main':
+../Src/I2C_prg.c:360:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  360 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:354:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  354 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/main.c:140:10: warning: unused variable 'Ra' [-Wunused-variable]
+  140 |  uint8_t Ra[4]={0};
+      |          ^~
+../Src/I2C_prg.c:348:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  348 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:342:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  342 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:313:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  313 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:307:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  307 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:301:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  301 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:295:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  295 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:289:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  289 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   6952	    168	   1952	   9072	   2370	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+04:20:07 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:444:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  444 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:443:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  443 |  uint32_t temp1=0;
+      |           ^~~~~
+At top level:
+../Src/I2C_prg.c:408:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  408 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:402:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  402 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:383:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  383 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:377:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  377 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:372:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  372 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:360:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  360 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:354:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  354 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:348:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  348 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:342:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  342 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:313:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  313 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:307:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  307 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:301:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  301 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:295:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  295 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:289:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  289 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   6952	    168	   1952	   9072	   2370	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+04:21:05 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   8112	    172	   1948	  10232	   27f8	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+04:22:26 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/I2C_prg.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/I2C_prg.d" -MT"Src/I2C_prg.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/I2C_prg.o"
+../Src/I2C_prg.c: In function 'I2C_ClearAddrBit':
+../Src/I2C_prg.c:445:11: warning: variable 'temp2' set but not used [-Wunused-but-set-variable]
+  445 |  uint32_t temp2=0;
+      |           ^~~~~
+../Src/I2C_prg.c:444:11: warning: variable 'temp1' set but not used [-Wunused-but-set-variable]
+  444 |  uint32_t temp1=0;
+      |           ^~~~~
+At top level:
+../Src/I2C_prg.c:409:13: warning: 'I2C_SetInterfaceAddress7Bit' defined but not used [-Wunused-function]
+  409 | static void I2C_SetInterfaceAddress7Bit(I2C_HandleTypeDef_t* hi2c,uint8_t copy_eInterfaceAdd)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:403:13: warning: 'I2C_SetAddressingMode' defined but not used [-Wunused-function]
+  403 | static void I2C_SetAddressingMode(I2C_HandleTypeDef_t* hi2c,I2C_Addressing_Mode copy_eaddrMode)
+      |             ^~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:384:13: warning: 'I2C_BufferInterruptEnable' defined but not used [-Wunused-function]
+  384 | static void I2C_BufferInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:378:13: warning: 'I2C_EventInterruptEnable' defined but not used [-Wunused-function]
+  378 | static void I2C_EventInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:373:13: warning: 'I2C_ErrorInterruptEnable' defined but not used [-Wunused-function]
+  373 | static void I2C_ErrorInterruptEnable(I2C_HandleTypeDef_t* hi2c,I2C_InterruptEnable copy_eInterruptEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:361:13: warning: 'I2C_SetSWReset' defined but not used [-Wunused-function]
+  361 | static void I2C_SetSWReset(I2C_HandleTypeDef_t* hi2c,I2C_SWRESET copy_eSWReset)
+      |             ^~~~~~~~~~~~~~
+../Src/I2C_prg.c:355:13: warning: 'I2C_SMBusAlertEnable' defined but not used [-Wunused-function]
+  355 | static void I2C_SMBusAlertEnable(I2C_HandleTypeDef_t* hi2c,I2C_ALERT_Options copy_eAlertEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:349:13: warning: 'I2C_PECEnable' defined but not used [-Wunused-function]
+  349 | static void I2C_PECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Options copy_ePECEnable)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:343:13: warning: 'I2C_SetAckPos' defined but not used [-Wunused-function]
+  343 | static void I2C_SetAckPos(I2C_HandleTypeDef_t* hi2c,I2C_POS_Options copy_eAckPos)
+      |             ^~~~~~~~~~~~~
+../Src/I2C_prg.c:314:13: warning: 'I2C_SetGeneralCallEnable' defined but not used [-Wunused-function]
+  314 | static void I2C_SetGeneralCallEnable(I2C_HandleTypeDef_t* hi2c,I2C_General_Call_Enable copy_eGCEnable)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:308:13: warning: 'I2C_SetPECEnable' defined but not used [-Wunused-function]
+  308 | static void I2C_SetPECEnable(I2C_HandleTypeDef_t* hi2c,I2C_PEC_Enable copy_ePECEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:302:13: warning: 'I2C_SetARPEnable' defined but not used [-Wunused-function]
+  302 | static void I2C_SetARPEnable(I2C_HandleTypeDef_t* hi2c,I2C_ARP_Enable copy_eARPEnable)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:296:13: warning: 'I2C_SetSMBusType' defined but not used [-Wunused-function]
+  296 | static void I2C_SetSMBusType(I2C_HandleTypeDef_t* hi2c,I2C_SMBTYPE copy_eSMBTYPE)
+      |             ^~~~~~~~~~~~~~~~
+../Src/I2C_prg.c:290:13: warning: 'I2C_SetSMBusMode' defined but not used [-Wunused-function]
+  290 | static void I2C_SetSMBusMode(I2C_HandleTypeDef_t* hi2c,I2C_SMBus_Mode copy_eSmBusMode)
+      |             ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   8112	    172	   1948	  10232	   27f8	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+04:24:02 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-size   F446RE_I2C.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8112	    172	   1948	  10232	   27f8	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+04:24:19 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-size   F446RE_I2C.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8112	    172	   1948	  10232	   27f8	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+04:26:17 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   8128	    172	   1948	  10248	   2808	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+04:34:19 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   8128	    172	   1948	  10248	   2808	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
+ 
+04:36:59 **** Incremental Build of configuration Debug for project F446RE_I2C ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:140:10: warning: unused variable 'Ra' [-Wunused-variable]
+  140 |  uint8_t Ra[4]={0};
+      |          ^~
+arm-none-eabi-gcc -o "F446RE_I2C.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_I2C\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_I2C.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_I2C.elf
+ 
+arm-none-eabi-size   F446RE_I2C.elf 
+arm-none-eabi-objdump -h -S  F446RE_I2C.elf  > "F446RE_I2C.list"
+   text	   data	    bss	    dec	    hex	filename
+   7780	    172	   1948	   9900	   26ac	F446RE_I2C.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_I2C.list
  
