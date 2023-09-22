@@ -19,26 +19,20 @@ void DMA_vInit(DMA_HandleTypeDef_t* copy_eDMAConfig)
 	DMA_vSetDMACircularMode(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->Init.CircularMode);
 	DMA_vSetDMAStreamPriorityLevel(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->Init.PriorityLevel);
 	DMA_vSetDirectModeStatus(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->Init.DirectOrFIFOMode);
-//	DMA_vSetFIFOThresholdSelection(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->Init.FIFOThreshold);
-//
-//	DMA_vSetDMAStreamMemoryBurstTransferSelection(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->Init.MemoryBurst);
-//	DMA_vSetDMAStreamPeripheralBurstTransferSelection(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->Init.PeripheralBurst);
-
-
-
-
-//	DMA_vSetTransferCompleteInterrupt(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->transfer_complete_interrupt_enable);
-//	DMA_vSetTransferErrorInterrupt(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->transfer_error_interrupt_enable);
-//	DMA_vSetFIFOErrorInterrupt(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->FIFO_error_interrupt_enable);
-//	DMA_vSetHalfTransferCompleteInterrupt(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->half_transfer_interrupt_enable);
-//	DMA_vSetDirectModeErrorInterrupt(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->direct_mode_error_interrupt_enable);
-
-	//	DMA_vSetDMAStreamCurrentMemoryTarget(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->Current_memory_target);
-	//	DMA_vSetDMAStreamDoubleBufferMode(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->double_buffer_mode);
-	//	DMA_vSetDMAStreamIncreamentalOffset(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->peripheral_increment_offset_size);
-	//	DMA_vSetDMAStreamMemorySize(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->MemorySIZE);
-	//	DMA_vSetDMAStreamPeripheralSize(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->PeripheralSIZE);
-	//	DMA_vSetDMAStreamPeripheralFlowController(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->peripheral_flow_controller);
+	DMA_vSetFIFOThresholdSelection(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->Init.FIFOThreshold);
+	DMA_vSetDMAStreamMemoryBurstTransferSelection(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->Init.MemoryBurst);
+	DMA_vSetDMAStreamPeripheralBurstTransferSelection(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->Init.PeripheralBurst);
+	DMA_vSetTransferCompleteInterrupt(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->transfer_complete_interrupt_enable);
+	DMA_vSetTransferErrorInterrupt(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->transfer_error_interrupt_enable);
+	DMA_vSetFIFOErrorInterrupt(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->FIFO_error_interrupt_enable);
+	DMA_vSetHalfTransferCompleteInterrupt(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->half_transfer_interrupt_enable);
+	DMA_vSetDirectModeErrorInterrupt(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->direct_mode_error_interrupt_enable);
+	DMA_vSetDMAStreamCurrentMemoryTarget(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->Current_memory_target);
+	DMA_vSetDMAStreamDoubleBufferMode(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->double_buffer_mode);
+	DMA_vSetDMAStreamIncreamentalOffset(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->peripheral_increment_offset_size);
+	DMA_vSetDMAStreamMemorySize(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->MemorySIZE);
+	DMA_vSetDMAStreamPeripheralSize(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->PeripheralSIZE);
+	DMA_vSetDMAStreamPeripheralFlowController(copy_eDMAConfig->Init.DMANumber, copy_eDMAConfig->Init.Stream,copy_eDMAConfig->peripheral_flow_controller);
 
 }
 void DMA_vSetDMAStreamChannelSelection(DMA_Peripheral_Number_t copy_eDMA_Peripheral_Number, Stream_Selection_t copy_eStream_Selection,Channel_Selection_t copy_eChannel_Selection)
@@ -241,12 +235,21 @@ void DMA_vStart_IT(DMA_HandleTypeDef_t* copy_eDMAConfig,uint32_t SrcAddress, uin
 }
 void DMA_vReadFlagStatus(DMA_Peripheral_Number_t DMA_Number,Stream_Selection_t Stream_Number,DMA_Interrupt_t copy_eDMA_Interrupt,uint8_t *interruptStatusFlag)
 {
-	uint8_t flagShift=(uint8_t)copy_eDMA_Interrupt+6*((uint8_t)Stream_Number%4);
+
+	uint8_t flagShift=(uint8_t)copy_eDMA_Interrupt+6*(((uint8_t)Stream_Number%4))+(((((uint8_t)Stream_Number%4))/2)*4);
 	*interruptStatusFlag= READ_BIT(DMAPeripheral[DMA_Number]->DMA_LISR[Stream_Number/4],flagShift );
 
 }
+void DMA_vClearFlagStatus(DMA_Peripheral_Number_t DMA_Number,Stream_Selection_t Stream_Number,DMA_Interrupt_t copy_eDMA_Interrupt)
+{
+	uint8_t flagShift=(uint8_t)copy_eDMA_Interrupt+6*((uint8_t)Stream_Number%4);
+    SET_BIT(DMAPeripheral[DMA_Number]->DMA_LIFCR[Stream_Number/4],flagShift );
+
+}
+
 void DMA_vIRQHandler(DMA_Peripheral_Number_t DMA_Number,Stream_Selection_t Stream_Number)
 {
+
 	uint8_t flagStatus=0;
 	for (uint8_t i=0 ;i<Total_Number_Of_Interrupts ; i++)
 	{
@@ -259,6 +262,7 @@ void DMA_vIRQHandler(DMA_Peripheral_Number_t DMA_Number,Stream_Selection_t Strea
 			case DMA_Number_1:
 				if (arrDMA1_PtrToFunction[Stream_Number][i] != NULL)
 				{
+
 					arrDMA1_PtrToFunction[Stream_Number][i]();
 				}
 				break;
@@ -272,6 +276,9 @@ void DMA_vIRQHandler(DMA_Peripheral_Number_t DMA_Number,Stream_Selection_t Strea
 				/* Do Nothing!*/
 				break;
 			}
+			// clear flag after interrupt served
+			DMA_vClearFlagStatus(DMA_Number,Stream_Number,i);
+
 		}
 		else
 		{

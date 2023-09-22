@@ -122,12 +122,20 @@ typedef enum {
 	full_FIFO_3_4,
 	full_FIFO,
 }FIFO_threshold_t;
+//typedef enum {
+//	Half_transfer_reached_Interrupt=0,
+//	Transfer_complete_Interrupt=2,
+//	Transfer_error_Interrupt=3,
+//	FIFO_erro_Interruptr=4,
+//	Direct_mode_error_Interrupt=5,
+//	Total_Number_Of_Interrupts
+//}DMA_Interrupt_t;
 typedef enum {
-	Half_transfer_reached_Interrupt=0,
-	Transfer_complete_Interrupt=2,
+	FIFO_erro_Interruptr=0,
+	Direct_mode_error_Interrupt=2,
 	Transfer_error_Interrupt=3,
-	FIFO_erro_Interruptr=4,
-	Direct_mode_error_Interrupt=5,
+	Half_transfer_reached_Interrupt=4,
+	Transfer_complete_Interrupt=5,
 	Total_Number_Of_Interrupts
 }DMA_Interrupt_t;
 
@@ -204,6 +212,8 @@ void DMA_vStart(DMA_HandleTypeDef_t* copy_eDMAConfig,uint32_t SrcAddress, uint32
 void DMA_vStart_IT(DMA_HandleTypeDef_t* copy_eDMAConfig,uint32_t SrcAddress, uint32_t DstAddress, uint32_t DataLength);
 
 void DMA_vReadFlagStatus(DMA_Peripheral_Number_t DMA_Number,Stream_Selection_t Stream_Number,DMA_Interrupt_t copy_eDMA_Interrupt,uint8_t *interruptStatusFlag);
+void DMA_vClearFlagStatus(DMA_Peripheral_Number_t DMA_Number,Stream_Selection_t Stream_Number,DMA_Interrupt_t copy_eDMA_Interrupt);
+
 void DMA_vSetCallBack(DMA_HandleTypeDef_t* copy_eDMAConfig,DMA_Interrupt_t copy_eDMA_Interrupt, void (*PtrToFunc)(void));
 void DMA_vIRQHandler(DMA_Peripheral_Number_t DMA_Number,Stream_Selection_t Stream_Number);
 
