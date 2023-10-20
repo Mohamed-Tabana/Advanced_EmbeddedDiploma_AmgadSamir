@@ -1,20 +1,10 @@
-04:00:21 **** Incremental Build of configuration Debug for project F103_SPI ****
+02:45:42 **** Incremental Build of configuration Debug for project F103_SPI ****
 make -j8 all 
-arm-none-eabi-gcc "../Src/SPI_Services.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/SPI_Services.d" -MT"Src/SPI_Services.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/SPI_Services.o"
-arm-none-eabi-gcc "../Src/SPI_cfg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/SPI_cfg.d" -MT"Src/SPI_cfg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/SPI_cfg.o"
-arm-none-eabi-gcc "../Src/SPI_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/SPI_prg.d" -MT"Src/SPI_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/SPI_prg.o"
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "F103_SPI.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F103_SPI\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F103_SPI.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: F103_SPI.elf
- 
 arm-none-eabi-size   F103_SPI.elf 
-arm-none-eabi-objdump -h -S  F103_SPI.elf  > "F103_SPI.list"
    text	   data	    bss	    dec	    hex	filename
-   3292	     92	   1612	   4996	   1384	F103_SPI.elf
+   3248	     92	   1612	   4952	   1358	F103_SPI.elf
 Finished building: default.size.stdout
  
-Finished building: F103_SPI.list
- 
 
-04:00:22 Build Finished. 0 errors, 0 warnings. (took 566ms)
+02:45:42 Build Finished. 0 errors, 0 warnings. (took 178ms)
 

@@ -1,0 +1,14 @@
+../Src/Services/APP_Services.c:65:6:APP_Services_Init	8	static
+../Src/Services/APP_Services.c:137:6:APP_Services_Get_Time_Date_User	16	static
+../Src/Services/APP_Services.c:157:9:APP_Check_Password	16	static
+../Src/Services/APP_Services.c:171:6:APP_SignInScreen_Services	24	static
+../Src/Services/APP_Services.c:205:6:APP_WelcomeScreen_Services_Welcome	24	static
+../Src/Services/APP_Services.c:216:9:APP_MainMenu	16	static
+../Src/Services/APP_Services.c:233:6:APP_Option1_Services_Display_Time_Date	32	static
+../Src/Services/APP_Services.c:247:6:APP_Oprion2_Services_Set_Time_Data	24	static
+../Src/Services/APP_Services.c:259:6:APP_Oprion3_Services_Set_Alarm_Display_Options	24	static
+../Src/Services/APP_Services.c:315:6:APP_Periodically_Check_Alarms	32	static
+../Src/Services/APP_Services.c:367:6:APP_Make_Interrupt_To_Slave_AND_Clear_ALARM	16	static
+../Src/Services/APP_Services.c:395:6:APP_HASH_ON_SCREEN	8	static
+../Src/Services/APP_Services.c:404:6:Set_RedLED	8	static
+../Src/Services/APP_Services.c:410:6:Set_GreenLED	8	static

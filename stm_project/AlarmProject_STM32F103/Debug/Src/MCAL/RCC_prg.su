@@ -1,0 +1,12 @@
+../Src/MCAL/RCC_prg.c:2:6:RCC_SetCLKSTS	16	static
+../Src/MCAL/RCC_prg.c:42:6:RCC_SetSYSCLK	16	static
+../Src/MCAL/RCC_prg.c:48:6:RCC_HSECONFIG	16	static
+../Src/MCAL/RCC_prg.c:60:6:RCC_PLLCONFIG	16	static
+../Src/MCAL/RCC_prg.c:74:6:RCC_HSEBYP	16	static
+../Src/MCAL/RCC_prg.c:79:6:RCC_CSSCFG	16	static
+../Src/MCAL/RCC_prg.c:85:6:RCC_AHBEnableCLK	16	static
+../Src/MCAL/RCC_prg.c:89:6:RCC_AHBDisableCLK	16	static
+../Src/MCAL/RCC_prg.c:95:6:RCC_APB1EnableCLK	16	static
+../Src/MCAL/RCC_prg.c:100:6:RCC_APB1DisableCLK	16	static
+../Src/MCAL/RCC_prg.c:106:6:RCC_APB2EnableCLK	16	static
+../Src/MCAL/RCC_prg.c:111:6:RCC_APB2DisableCLK	16	static

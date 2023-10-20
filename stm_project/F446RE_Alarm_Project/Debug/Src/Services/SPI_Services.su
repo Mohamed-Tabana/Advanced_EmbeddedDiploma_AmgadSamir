@@ -1,0 +1,8 @@
+../Src/Services/SPI_Services.c:21:6:SPI_SendReceiveCallBack	24	static
+../Src/Services/SPI_Services.c:80:6:SPI_vSendDataAsynch	24	static
+../Src/Services/SPI_Services.c:105:6:SPI_vReceiveDataAsynch	24	static
+../Src/Services/SPI_Services.c:125:13:SPI_NVICEnaleInterrupt	16	static
+../Src/Services/SPI_Services.c:156:6:SPI1_IRQHandler	8	static
+../Src/Services/SPI_Services.c:161:6:SPI2_IRQHandler	8	static
+../Src/Services/SPI_Services.c:165:6:SPI3_IRQHandler	8	static
+../Src/Services/SPI_Services.c:170:6:SPI4_IRQHandler	8	static

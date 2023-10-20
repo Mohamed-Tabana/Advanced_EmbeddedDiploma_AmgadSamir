@@ -1,30 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="hi2c"/>
+		<item key="selection" value="APP_DataFromRTC"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="hi2c"/>
-			<item value="void"/>
-			<item value="I2C_SetStopCondition"/>
-			<item value="I2C_CR2_LAST"/>
-			<item value="DMA_vSetTransferCompleteInterrupt"/>
-			<item value="I2C_ReadStatusFlag"/>
-			<item value="_CR1"/>
-			<item value="SPI_IRQ_Reason"/>
-			<item value="SPI_ReadFlag"/>
-			<item value="GlobalSPI_u8SizeReceiveData"/>
-			<item value="Int_"/>
-			<item value="SPI_HandleTypeDef"/>
-			<item value="ENABLE"/>
-			<item value="afio"/>
-			<item value="SPI_SetSlavengBySW"/>
+			<item value="APP_DataFromRTC"/>
+			<item value="cfg_RTC_prg_Array"/>
+			<item value="RTC_Get_CurrentTime"/>
+			<item value="APP_Services_Get_Time_Date_User"/>
+			<item value="&#x09;APP_Services_Get_Time_Date_User(APP_CurrentData);"/>
+			<item value="X\r"/>
+			<item value="[i]"/>
+			<item value="i"/>
+			<item value="APP_AlarmName"/>
+			<item value="ALARM_NAME"/>
+			<item value="I2C"/>
+			<item value="APP_WelcomeScreen_Services_Welcome"/>
+			<item value="APP_Services_SetTime_Date"/>
+			<item value="GetCurrentDate_SIZE"/>
+			<item value="SPI_FRAME_DATA_SIZE"/>
 		</list>
 		<list key="replacehistory">
+			<item value="[loc_AlarmNumber]"/>
+			<item value="loc_AlarmNumber"/>
+			<item value="APP_CurrentData"/>
+			<item value="GetCurrentDate_SIZE"/>
 			<item value="static void"/>
 			<item value=""/>
 			<item value="NVIC_"/>
@@ -36,8 +40,6 @@
 			<item value="DMA_vIRQHandler(DMA_Number_1,channel_0);"/>
 			<item value="&#x09;DMA_vIRQHandler(DMA_Number_1,channel_0);"/>
 			<item value="copy_eDMAConfig-&gt;Init.DMANumber, copy_eDMAConfig-&gt;Init.Stream"/>
-			<item value="copy_tPeripheralAPB2"/>
-			<item value="uint32_t"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

@@ -23,7 +23,7 @@ void STK_vInit()
 	CLEAR_BIT(STK->STK_CTRL,CLKSOURCE); // AHB/8 = 2 MHz
 
 	/*2. interrupt enable  */
-	SET_BIT(STK->STK_CTRL,TICKINT); // Enable INT
+	CLEAR_BIT(STK->STK_CTRL,TICKINT); // Enable INT
 
 
 }

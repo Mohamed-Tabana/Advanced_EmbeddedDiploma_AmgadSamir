@@ -1,0 +1,14 @@
+../Src/HAL/LCD.c:18:6:LCD_Init	8	static
+../Src/HAL/LCD.c:27:6:LCD_writeInstruction	16	static
+../Src/HAL/LCD.c:47:6:LCD_WriteData	16	static
+../Src/HAL/LCD.c:72:6:LCD_Clear	8	static
+../Src/HAL/LCD.c:76:6:LCD_WriteChar	16	static
+../Src/HAL/LCD.c:80:6:LCD_WriteNumber	32	static
+../Src/HAL/LCD.c:110:6:LCD_WriteBinary	24	static
+../Src/HAL/LCD.c:119:6:LCD_WriteHex	32	static
+../Src/HAL/LCD.c:151:6:LCD_SetCursor	16	static
+../Src/HAL/LCD.c:163:6:LCD_WriteString	24	static
+../Src/HAL/LCD.c:170:6:LCD_WriteNumber_4D	16	static
+../Src/HAL/LCD.c:177:6:LCD_createPattern	24	static
+../Src/HAL/LCD.c:186:6:LCD_SetCursorClear	24	static
+../Src/HAL/LCD.c:195:6:LCD_SetCursorWriteString	16	static

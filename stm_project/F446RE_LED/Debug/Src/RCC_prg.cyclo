@@ -1,0 +1,6 @@
+RCC_prg.c:8:6:RCC_AHB1EnableCLK	1
+RCC_prg.c:12:6:RCC_AHB1DisableCLK	1
+RCC_prg.c:18:6:RCC_APB1EnableCLK	1
+RCC_prg.c:23:6:RCC_APB1DisableCLK	1
+RCC_prg.c:29:6:RCC_APB2EnableCLK	1
+RCC_prg.c:34:6:APB2DisableCLK	1

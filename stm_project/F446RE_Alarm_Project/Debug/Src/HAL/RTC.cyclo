@@ -1,0 +1,7 @@
+RTC.c:38:16:bcdToDecimal	1
+RTC.c:44:16:decimalToBcd	1
+RTC.c:50:6:RTC_Programming	1
+RTC.c:54:6:RTC_ProgrammingArr	2
+RTC.c:64:6:RTC_Program_Specific_Field	1
+RTC.c:69:6:RTC_Get_CurrentTime	3
+RTC.c:87:6:RTC_Get_Specific_Time	1

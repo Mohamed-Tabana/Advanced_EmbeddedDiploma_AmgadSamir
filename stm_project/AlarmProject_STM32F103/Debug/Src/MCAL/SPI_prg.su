@@ -1,0 +1,17 @@
+../Src/MCAL/SPI_prg.c:32:6:SPI_vInit	16	static
+../Src/MCAL/SPI_prg.c:52:6:SPI_vSendSynch	16	static
+../Src/MCAL/SPI_prg.c:60:6:SPI_vReceiveSynch	16	static
+../Src/MCAL/SPI_prg.c:70:6:SPI_vSendReceive	24	static
+../Src/MCAL/SPI_prg.c:93:13:SPI_SetHWCRCEnable	16	static
+../Src/MCAL/SPI_prg.c:99:13:SPI_SetDataFrameForamt	16	static
+../Src/MCAL/SPI_prg.c:111:13:SPI_SetSlavengBySW	16	static
+../Src/MCAL/SPI_prg.c:117:13:SPI_SetSlaveSelectBySW	16	static
+../Src/MCAL/SPI_prg.c:129:13:SPI_Enable_Peripheral	16	static
+../Src/MCAL/SPI_prg.c:135:13:SPI_SetBaudRate	16	static
+../Src/MCAL/SPI_prg.c:141:13:SPI_SetMasterSlave	16	static
+../Src/MCAL/SPI_prg.c:160:7:SPI_EnableTxBufferEmptyInterrupt	16	static
+../Src/MCAL/SPI_prg.c:165:7:SPI_EnableRxBufferFullInterrupt	16	static
+../Src/MCAL/SPI_prg.c:170:7:SPI_EnableErrorInterrupt	16	static
+../Src/MCAL/SPI_prg.c:185:13:SPI_DMATxEnable	16	static
+../Src/MCAL/SPI_prg.c:191:13:SPI_DMARxEnable	16	static
+../Src/MCAL/SPI_prg.c:197:10:SPI_ReadFlag	16	static

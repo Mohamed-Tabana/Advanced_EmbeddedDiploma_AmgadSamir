@@ -145,7 +145,7 @@ int main(void)
 	{
 //		SPI_vReceiveSynch( &ourSPI,&data );
 //		recData^=1;
-		SPI_vSendReceive( &ourSPI,&recData,senData++);
+		SPI_vSendSynch( &ourSPI,25);
 //		GPIO_vToggleOutputPinValue(PORTB, PIN12);
 //		GPIO_vToggleOutputPinValue(PORTB, PIN13);
 //		GPIO_vToggleOutputPinValue(PORTB, PIN14);

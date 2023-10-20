@@ -1,0 +1,14 @@
+LCD.c:18:6:LCD_Init	1
+LCD.c:27:6:LCD_writeInstruction	1
+LCD.c:47:6:LCD_WriteData	1
+LCD.c:72:6:LCD_Clear	1
+LCD.c:76:6:LCD_WriteChar	1
+LCD.c:80:6:LCD_WriteNumber	7
+LCD.c:110:6:LCD_WriteBinary	2
+LCD.c:119:6:LCD_WriteHex	5
+LCD.c:151:6:LCD_SetCursor	3
+LCD.c:163:6:LCD_WriteString	2
+LCD.c:170:6:LCD_WriteNumber_4D	1
+LCD.c:177:6:LCD_createPattern	2
+LCD.c:186:6:LCD_SetCursorClear	2
+LCD.c:195:6:LCD_SetCursorWriteString	1

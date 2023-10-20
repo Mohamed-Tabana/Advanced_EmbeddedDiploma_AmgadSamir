@@ -16,6 +16,10 @@
 		<item key="caseSensitive" value="false"/>
 		<item key="searchFlags" value="227191"/>
 		<list key="previousPatterns">
+			<item value="RTC_Get_CurrentTime"/>
+			<item value="I2C_CR1_START"/>
+			<item value="I2C_7BIT_ADD_WRITE"/>
+			<item value="XferCpltCallback"/>
 			<item value="HAL_GPIO_Init"/>
 			<item value="SPI_DMATxEnable"/>
 			<item value="DMAPeripheral"/>

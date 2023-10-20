@@ -1,0 +1,17 @@
+SPI_prg.c:32:6:SPI_vInit	1
+SPI_prg.c:52:6:SPI_vSendSynch	2
+SPI_prg.c:60:6:SPI_vReceiveSynch	2
+SPI_prg.c:70:6:SPI_vSendReceive	2
+SPI_prg.c:93:13:SPI_SetHWCRCEnable	1
+SPI_prg.c:99:13:SPI_SetDataFrameForamt	1
+SPI_prg.c:111:13:SPI_SetSlavengBySW	1
+SPI_prg.c:117:13:SPI_SetSlaveSelectBySW	1
+SPI_prg.c:129:13:SPI_Enable_Peripheral	1
+SPI_prg.c:135:13:SPI_SetBaudRate	1
+SPI_prg.c:141:13:SPI_SetMasterSlave	1
+SPI_prg.c:160:7:SPI_EnableTxBufferEmptyInterrupt	1
+SPI_prg.c:165:7:SPI_EnableRxBufferFullInterrupt	1
+SPI_prg.c:170:7:SPI_EnableErrorInterrupt	1
+SPI_prg.c:185:13:SPI_DMATxEnable	1
+SPI_prg.c:191:13:SPI_DMARxEnable	1
+SPI_prg.c:197:10:SPI_ReadFlag	1

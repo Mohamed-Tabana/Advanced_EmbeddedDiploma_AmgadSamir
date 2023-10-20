@@ -25,6 +25,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F103_First"/>
 			<item value="D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\A-GPIO"/>
 			<item value="D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F103_GPIO_RCC_STK"/>
 		</list>

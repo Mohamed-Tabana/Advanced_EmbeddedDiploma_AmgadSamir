@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;F103_Alarm_Project/Src/HAL/LCD_cfg.h&apos; to &apos;LCD_cfg.c&apos;" description="Rename resource &apos;LCD_cfg.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Src/HAL/LCD_cfg.h" name="LCD_cfg.c" stamp="1695927402599" updateReferences="true"/>
+</session>

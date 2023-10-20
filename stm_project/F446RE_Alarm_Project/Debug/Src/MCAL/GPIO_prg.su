@@ -1,0 +1,4 @@
+../Src/MCAL/GPIO_prg.c:26:9:GPIO_u8PinInit	24	static
+../Src/MCAL/GPIO_prg.c:84:9:GPIO_vSetOutputPinValue	24	static
+../Src/MCAL/GPIO_prg.c:116:9:GPIO_vToggleOutputPinValue	24	static
+../Src/MCAL/GPIO_prg.c:140:9:MGPIO_vReadInputPinValue	24	static
