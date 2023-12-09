@@ -102,6 +102,7 @@ void APP_Oprion3_Services_Set_Alarm_Display_Options();
 void APP_Periodically_Check_Alarms();
 void APP_Make_Interrupt_To_Slave_AND_Clear_ALARM(ALARM_NUMBER copy_alarmNumber);
 void APP_HASH_ON_SCREEN();
+void APP_SignInScreen_Services();
 //====================================================================
 
 #endif /* APP_SERVICES_H_ */

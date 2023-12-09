@@ -1,33 +1,10 @@
-23:48:27 **** Build of configuration Debug for project AlarmProject_STM32F103 ****
+04:21:06 **** Incremental Build of configuration Debug for project AlarmProject_STM32F103 ****
 make -j8 all 
-arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c8tx.d" -MT"Startup/startup_stm32f103c8tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
-arm-none-eabi-gcc "../Src/Services/APP_Services.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/Services/APP_Services.d" -MT"Src/Services/APP_Services.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/Services/APP_Services.o"
-arm-none-eabi-gcc "../Src/Services/SPI_Services.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/Services/SPI_Services.d" -MT"Src/Services/SPI_Services.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/Services/SPI_Services.o"
-arm-none-eabi-gcc "../Src/MCAL/EXTI_cfg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/MCAL/EXTI_cfg.d" -MT"Src/MCAL/EXTI_cfg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/MCAL/EXTI_cfg.o"
-arm-none-eabi-gcc "../Src/MCAL/EXTI_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/MCAL/EXTI_prg.d" -MT"Src/MCAL/EXTI_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/MCAL/EXTI_prg.o"
-arm-none-eabi-gcc "../Src/MCAL/GPIO_cfg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/MCAL/GPIO_cfg.d" -MT"Src/MCAL/GPIO_cfg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/MCAL/GPIO_cfg.o"
-arm-none-eabi-gcc "../Src/MCAL/GPIO_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/MCAL/GPIO_prg.d" -MT"Src/MCAL/GPIO_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/MCAL/GPIO_prg.o"
-arm-none-eabi-gcc "../Src/MCAL/NVIC_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/MCAL/NVIC_prg.d" -MT"Src/MCAL/NVIC_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/MCAL/NVIC_prg.o"
-arm-none-eabi-gcc "../Src/MCAL/RCC_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/MCAL/RCC_prg.d" -MT"Src/MCAL/RCC_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/MCAL/RCC_prg.o"
-arm-none-eabi-gcc "../Src/MCAL/SPI_cfg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/MCAL/SPI_cfg.d" -MT"Src/MCAL/SPI_cfg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/MCAL/SPI_cfg.o"
-arm-none-eabi-gcc "../Src/MCAL/SPI_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/MCAL/SPI_prg.d" -MT"Src/MCAL/SPI_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/MCAL/SPI_prg.o"
-arm-none-eabi-gcc "../Src/MCAL/SysTick_prg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/MCAL/SysTick_prg.d" -MT"Src/MCAL/SysTick_prg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/MCAL/SysTick_prg.o"
-arm-none-eabi-gcc "../Src/HAL/LCD.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/HAL/LCD.d" -MT"Src/HAL/LCD.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/HAL/LCD.o"
-arm-none-eabi-gcc "../Src/HAL/LCD_cfg.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/HAL/LCD_cfg.d" -MT"Src/HAL/LCD_cfg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/HAL/LCD_cfg.o"
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
-arm-none-eabi-gcc -o "AlarmProject_STM32F103.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\AlarmProject_STM32F103\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="AlarmProject_STM32F103.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: AlarmProject_STM32F103.elf
- 
 arm-none-eabi-size   AlarmProject_STM32F103.elf 
-arm-none-eabi-objdump -h -S  AlarmProject_STM32F103.elf  > "AlarmProject_STM32F103.list"
    text	   data	    bss	    dec	    hex	filename
    6368	    180	   1732	   8280	   2058	AlarmProject_STM32F103.elf
 Finished building: default.size.stdout
  
-Finished building: AlarmProject_STM32F103.list
- 
 
-23:48:33 Build Finished. 0 errors, 0 warnings. (took 5s.316ms)
+04:21:07 Build Finished. 0 errors, 0 warnings. (took 990ms)
 

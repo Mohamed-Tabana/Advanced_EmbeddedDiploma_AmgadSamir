@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  000201e0  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000b400  00000000  00000000  00020210  2**0
+ 12 .debug_info   0000b3e4  00000000  00000000  00020210  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00001445  00000000  00000000  0002b610  2**0
+ 13 .debug_abbrev 00001429  00000000  00000000  0002b5f4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000838  00000000  00000000  0002ca58  2**3
+ 14 .debug_aranges 00000838  00000000  00000000  0002ca20  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 00000748  00000000  00000000  0002d290  2**3
+ 15 .debug_ranges 00000748  00000000  00000000  0002d258  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  000042b9  00000000  00000000  0002d9d8  2**0
+ 16 .debug_macro  000042b9  00000000  00000000  0002d9a0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000892f  00000000  00000000  00031c91  2**0
+ 17 .debug_line   0000892d  00000000  00000000  00031c59  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0000e13a  00000000  00000000  0003a5c0  2**0
+ 18 .debug_str    0000e13a  00000000  00000000  0003a586  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000486fa  2**0
+ 19 .comment      00000050  00000000  00000000  000486c0  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00001fb4  00000000  00000000  0004874c  2**2
+ 20 .debug_frame  00001fb4  00000000  00000000  00048710  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -8540,17 +8540,8 @@ int main(void)
  8003cc6:	b082      	sub	sp, #8
  8003cc8:	af00      	add	r7, sp, #0
 
-	//	UART_vSendStringSynch(&UART_ourUsart,(uint8_t*)"Hello Please confirm your name\n\r");
-	//	UART_vSendStringSynch(&UART_ourUsart,(uint8_t*)"Mohamed\n\r");
-
-	//	UART_vReceiveSynchString(&UART_ourUsart, df);
 	APP_Services_Init();
  8003cca:	f7ff fa77 	bl	80031bc <APP_Services_Init>
-
-
-
-//
-//
 	uint8_t SelectedOption=0;
  8003cce:	2300      	movs	r3, #0
  8003cd0:	71bb      	strb	r3, [r7, #6]
@@ -8559,9 +8550,7 @@ int main(void)
  8003cd4:	71fb      	strb	r3, [r7, #7]
 	while(1)
 	{
-//
 		//Set Time and Date
-
 		if (FirstTimeFlag==0)
  8003cd6:	79fb      	ldrb	r3, [r7, #7]
  8003cd8:	2b00      	cmp	r3, #0

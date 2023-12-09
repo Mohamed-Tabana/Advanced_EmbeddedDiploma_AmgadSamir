@@ -1,0 +1,21 @@
+17:33:22 **** Incremental Build of configuration Debug for project F446RE_SVC ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'SVCHandler_C':
+../Src/main.c:31:36: warning: initialization of 'uint8_t *' {aka 'unsigned char *'} from 'uint32_t' {aka 'long unsigned int'} makes pointer from integer without a cast [-Wint-conversion]
+   31 |  uint8_t* local_pu8ReturnAddress = cop_pu32StackFrameBase[6];
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "F446RE_SVC.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_SVC\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_SVC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_SVC.elf
+ 
+arm-none-eabi-size   F446RE_SVC.elf 
+arm-none-eabi-objdump -h -S  F446RE_SVC.elf  > "F446RE_SVC.list"
+   text	   data	    bss	    dec	    hex	filename
+    772	      8	   1568	   2348	    92c	F446RE_SVC.elf
+Finished building: default.size.stdout
+ 
+Finished building: F446RE_SVC.list
+ 
+
+17:33:23 Build Finished. 0 errors, 1 warnings. (took 591ms)
+

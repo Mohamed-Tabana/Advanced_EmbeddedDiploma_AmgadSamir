@@ -2,7 +2,7 @@
  * LCD_cfg.c
  *
  *  Created on: Sep 28, 2023
- *      Author: ALTAWKEL
+ *      Author: Mohamed TABANA
  */
 
 #include "GPIO_int.h"

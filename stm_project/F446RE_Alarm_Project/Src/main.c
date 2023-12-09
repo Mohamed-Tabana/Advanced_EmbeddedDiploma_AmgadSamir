@@ -32,47 +32,16 @@
 #include "APP_Services.h"
 //===============================================================
 
-//===============================================================
-
-
-//===============================================================
-
-
-
-
-
 
 int main(void)
 {
 
-	//	UART_vSendStringSynch(&UART_ourUsart,(uint8_t*)"Hello Please confirm your name\n\r");
-	//	UART_vSendStringSynch(&UART_ourUsart,(uint8_t*)"Mohamed\n\r");
-
-	//	UART_vReceiveSynchString(&UART_ourUsart, df);
 	APP_Services_Init();
-	//	APP_Oprion3_Services_Set_Alarm_Display_Options();
-	//	temp();
-
-
-
-
-
-
-
-
-
-
-//
-//
 	uint8_t SelectedOption=0;
 	uint8_t FirstTimeFlag=0;
-	//	Set_RedLED();
-//
 	while(1)
 	{
-//
 		//Set Time and Date
-
 		if (FirstTimeFlag==0)
 		{
 			APP_SignInScreen_Services();

@@ -36,10 +36,9 @@ int main(void)
 {
 	APP_Services_Init();
 
-	/* Loop forever */
 //	LCD_SetCursorWriteString(1, 1,(uint8_t*)"Mohamed TABANA");
 	APP_Services_Ping_SPI_Asynch();
-//	sedas();
+
 	while(1)
 	{
 

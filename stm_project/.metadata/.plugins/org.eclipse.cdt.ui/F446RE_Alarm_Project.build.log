@@ -1,10 +1,18 @@
-22:20:46 **** Incremental Build of configuration Debug for project F446RE_Alarm_Project ****
+04:23:08 **** Incremental Build of configuration Debug for project F446RE_Alarm_Project ****
 make -j8 all 
+arm-none-eabi-gcc "../Src/Services/APP_Services.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/Services/APP_Services.d" -MT"Src/Services/APP_Services.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/Services/APP_Services.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "F446RE_Alarm_Project.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\.Amgad_Advanced Diploma\Diploma_Work\stm_project\F446RE_Alarm_Project\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F446RE_Alarm_Project.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: F446RE_Alarm_Project.elf
+ 
 arm-none-eabi-size   F446RE_Alarm_Project.elf 
+arm-none-eabi-objdump -h -S  F446RE_Alarm_Project.elf  > "F446RE_Alarm_Project.list"
    text	   data	    bss	    dec	    hex	filename
   16408	    488	   2144	  19040	   4a60	F446RE_Alarm_Project.elf
 Finished building: default.size.stdout
  
+Finished building: F446RE_Alarm_Project.list
+ 
 
-22:20:46 Build Finished. 0 errors, 0 warnings. (took 282ms)
+04:23:08 Build Finished. 0 errors, 0 warnings. (took 653ms)
 
